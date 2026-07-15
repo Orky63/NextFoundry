@@ -34,7 +34,7 @@ function FlameIcon({ size }) {
 
 const sizeMap = {
   sm: { box: 32, icon: 18, text: 'text-lg' },
-  md: { box: 80, icon: 56, text: 'text-3xl' },
+  md: { box: 56, icon: 40, text: 'text-2xl' },
   lg: { box: 64, icon: 36, text: 'text-4xl' },
 };
 
