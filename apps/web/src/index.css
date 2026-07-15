@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: clip;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Sora", sans-serif;
+  }
+  .ember-text {
+    background: linear-gradient(100deg, hsl(28 100% 65%), hsl(16 100% 58%) 55%, hsl(38 100% 68%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grain {
+    background-image: radial-gradient(hsl(0 0% 100% / 0.03) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 12px hsl(24 100% 62% / 0.25); }
+  50% { box-shadow: 0 0 28px hsl(24 100% 62% / 0.5); }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+}
+
+@layer base {
+  :root {
+    --background: 24 12% 6%;
+    --foreground: 30 20% 96%;
+    --card: 24 10% 9%;
+    --card-foreground: 30 20% 96%;
+    --popover: 24 10% 9%;
+    --popover-foreground: 30 20% 96%;
+    --primary: 24 100% 62%;
+    --primary-foreground: 24 30% 8%;
+    --secondary: 24 10% 16%;
+    --secondary-foreground: 30 20% 96%;
+    --muted: 24 10% 16%;
+    --muted-foreground: 30 8% 62%;
+    --accent: 24 10% 16%;
+    --accent-foreground: 30 20% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 12% 22%;
+    --input: 30 10% 18%;
+    --ring: 24 100% 62%;
+    --radius: 0.5rem;
+  }
+}
