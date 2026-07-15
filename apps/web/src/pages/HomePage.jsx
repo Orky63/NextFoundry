@@ -187,7 +187,7 @@ export default function HomePage() {
             <motion.span className="relative h-1.5 w-1.5 rounded-full bg-primary" animate={{ scale: [1, 1.6, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} />  <span className="ember-text font-semibold">Next Foundry</span> — Cloud-Native Digital Platform Partners
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1} className="max-w-[18ch] font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">
-            Your business has grown. Your <span className="ember-text">digital platform</span> should too.
+            Outgrown templates.<br /><span className="ember-text">Build what's next.</span>
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2} className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
             More than an online brochure or a templated store. <span className="text-foreground font-semibold">Next Foundry</span> designs, builds and manages bespoke digital experiences powered by modern cloud technology and AI — built around your business, not forcing it to fit the platform.
