@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
-  ArrowRight, ArrowUpRight, Menu, X, Cloud, Gauge, Search, ShieldCheck,
+  ArrowRight, ArrowUpRight, ArrowDown, Menu, X, Cloud, Gauge, Search, ShieldCheck,
   ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Flame, Quote,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
@@ -316,6 +316,109 @@ How We Work
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="relative mt-16 overflow-hidden"
+        >
+          <div className="mb-6 text-center">
+            <p className="text-sm font-semibold text-muted-foreground">
+              Many growing businesses struggle with:
+            </p>
+          </div>
+          <motion.div
+            className="flex gap-4"
+            animate={{ x: [0, -900] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          >
+            {[
+              'Too many plugins',
+              'Slow performance',
+              'Hard to make changes',
+              "Doesn't reflect your brand",
+              'Looking for a technology partner',
+              'Too many plugins',
+              'Slow performance',
+              'Hard to make changes',
+              "Doesn't reflect your brand",
+              'Looking for a technology partner',
+            ].map((label, i) => (
+              <div
+                key={i}
+                className="flex shrink-0 items-center gap-3 rounded-xl border border-border bg-card px-6 py-4"
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
+                  <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </span>
+                <span className="whitespace-nowrap text-sm font-medium text-foreground">{label}</span>
+              </div>
+            ))}
+          </motion.div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
+        </motion.div>
+      </Section>
+
+      {/* Technology enables growth */}
+      <Section className="py-24 md:py-32">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          className="max-w-[58rem]"
+        >
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+            <span className="ember-text font-bold">Next Foundry</span> — Technology that accelerates
+          </p>
+          <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+            Technology should accelerate growth.<br />
+            <span className="text-muted-foreground">Not become another problem to manage.</span>
+          </h2>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+            <p>
+              At Next Foundry, we combine enterprise cloud engineering, AI-assisted software development and modern design to build digital platforms that evolve alongside your business.
+            </p>
+            <p>
+              Whether you're modernising an ecommerce platform, replacing a legacy website or building something entirely new, our focus is always the same:
+            </p>
+          </div>
+          <p className="mt-6 text-xl font-semibold leading-relaxed text-foreground">
+            Technology that enables growth—not technology that holds it back.
+          </p>
+
+          <div className="mt-14 grid grid-cols-5 gap-0">
+            {[
+              { step: 'Discover', delay: 0 },
+              { step: 'Design', delay: 0.15 },
+              { step: 'Build', delay: 0.3 },
+              { step: 'Launch', delay: 0.45 },
+              { step: 'Continuous Improvement', delay: 0.6 },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: item.delay, duration: 0.5, ease: 'easeOut' }}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
+                  <span className="font-display text-lg font-bold text-primary">{i + 1}</span>
+                </div>
+                <p className="mt-3 text-sm font-semibold text-foreground">{item.step}</p>
+                {i < 4 && (
+                  <ArrowDown className="mt-2 h-4 w-4 text-primary/60" />
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </Section>
 
       {/* A different approach */}
@@ -525,49 +628,6 @@ How We Work
             </a>
           </div>
         </motion.div>
-      </Section>
-
-      {/* Pain Points Carousel */}
-      <Section className="overflow-hidden py-20 md:py-28">
-        <div className="mb-12 text-center">
-          <p className="font-display text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Many growing businesses struggle with:
-          </p>
-        </div>
-        <div className="relative">
-          <motion.div
-            className="flex gap-4"
-            animate={{ x: [0, -900] }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          >
-            {[
-              { label: 'Too many plugins' },
-              { label: 'Slow performance' },
-              { label: 'Hard to make changes' },
-              { label: 'Doesn\'t reflect your brand' },
-              { label: 'Looking for a technology partner' },
-              { label: 'Too many plugins' },
-              { label: 'Slow performance' },
-              { label: 'Hard to make changes' },
-              { label: 'Doesn\'t reflect your brand' },
-              { label: 'Looking for a technology partner' },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex shrink-0 items-center gap-3 rounded-xl border border-border bg-card px-6 py-4"
-              >
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
-                  <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                </span>
-                <span className="whitespace-nowrap text-sm font-medium text-foreground">{item.label}</span>
-              </div>
-            ))}
-          </motion.div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
-        </div>
       </Section>
 
       {/* Footer */}
