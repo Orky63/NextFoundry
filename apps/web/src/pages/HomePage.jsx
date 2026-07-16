@@ -362,6 +362,81 @@ How We Work
           <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
         </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-16 grid gap-6 md:grid-cols-3"
+        >
+          <div className="flex flex-col rounded-xl border border-primary/40 bg-card p-6">
+            <h3 className="font-display text-lg font-bold text-foreground">Platform Engineering</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Build digital platforms that reflect your business—not the limitations of a template.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Bespoke websites
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Ecommerce
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Customer portals
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Integrations
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex flex-col rounded-xl border border-primary/40 bg-card p-6">
+            <h3 className="font-display text-lg font-bold text-foreground">Service Two</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Placeholder description for the second service card.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Placeholder item
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Placeholder item
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Placeholder item
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex flex-col rounded-xl border border-primary/40 bg-card p-6">
+            <h3 className="font-display text-lg font-bold text-foreground">Service Three</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Placeholder description for the third service card.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Placeholder item
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Placeholder item
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Placeholder item
+              </li>
+            </ul>
+          </div>
+        </motion.div>
       </Section>
 
       {/* Technology enables growth */}
