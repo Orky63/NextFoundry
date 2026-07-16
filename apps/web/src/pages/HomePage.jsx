@@ -370,7 +370,7 @@ How We Work
           viewport={{ once: true, amount: 0.2 }}
           className="mt-16 grid gap-6 md:grid-cols-3"
         >
-          <div className="flex flex-col rounded-xl border border-primary/40 bg-card p-6">
+          <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
             <h3 className="font-display text-lg font-bold text-foreground">Platform Engineering</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Build digital platforms that reflect your business—not the limitations of a template.
@@ -395,7 +395,7 @@ How We Work
             </ul>
           </div>
 
-          <div className="flex flex-col rounded-xl border border-primary/40 bg-card p-6">
+          <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
             <h3 className="font-display text-lg font-bold text-foreground">Service Two</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Placeholder description for the second service card.
@@ -416,7 +416,7 @@ How We Work
             </ul>
           </div>
 
-          <div className="flex flex-col rounded-xl border border-primary/40 bg-card p-6">
+          <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
             <h3 className="font-display text-lg font-bold text-foreground">Service Three</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Placeholder description for the third service card.
