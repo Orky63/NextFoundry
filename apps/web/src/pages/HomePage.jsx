@@ -190,7 +190,7 @@ export default function HomePage() {
             Outgrown templates.<br /><span className="ember-text">Build what's next.</span>
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2} className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-            More than an online brochure or a templated store. <span className="text-foreground font-semibold">Next Foundry</span> designs, builds and manages bespoke digital experiences powered by modern cloud technology and AI — built around your business, not forcing it to fit the platform.
+             Growing businesses eventually reach the limits of off-the-shelf platforms.<br /><br />Next Foundry helps ambitious companies design, build and manage cloud-native digital platforms that are faster, more flexible and built around the way your business works—not the other way around.
           </motion.p>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3} className="mt-9 flex flex-wrap items-center gap-4">
             <motion.a
