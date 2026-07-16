@@ -212,6 +212,14 @@ export default function HomePage() {
 How We Work
             </a>
           </motion.div>
+          <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-8 max-w-[60ch] rounded-xl border-l-4 border-border bg-card px-6 py-6">
+            <p className="text-base font-semibold leading-relaxed text-card-foreground">
+              Sometimes the best advice is to stay exactly where you are.
+            </p>
+            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+              If your current platform is the right fit for your business, we'll tell you. Our role is to help you make the right technology decision—not simply recommend a rebuild.
+            </p>
+          </motion.div>
         </Section>
       </div>
 
@@ -517,6 +525,49 @@ How We Work
             </a>
           </div>
         </motion.div>
+      </Section>
+
+      {/* Pain Points Carousel */}
+      <Section className="overflow-hidden py-20 md:py-28">
+        <div className="mb-12 text-center">
+          <p className="font-display text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+            Many growing businesses struggle with:
+          </p>
+        </div>
+        <div className="relative">
+          <motion.div
+            className="flex gap-4"
+            animate={{ x: [0, -900] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          >
+            {[
+              { label: 'Too many plugins' },
+              { label: 'Slow performance' },
+              { label: 'Hard to make changes' },
+              { label: 'Doesn\'t reflect your brand' },
+              { label: 'Looking for a technology partner' },
+              { label: 'Too many plugins' },
+              { label: 'Slow performance' },
+              { label: 'Hard to make changes' },
+              { label: 'Doesn\'t reflect your brand' },
+              { label: 'Looking for a technology partner' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex shrink-0 items-center gap-3 rounded-xl border border-border bg-card px-6 py-4"
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
+                  <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </span>
+                <span className="whitespace-nowrap text-sm font-medium text-foreground">{item.label}</span>
+              </div>
+            ))}
+          </motion.div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
+        </div>
       </Section>
 
       {/* Footer */}
