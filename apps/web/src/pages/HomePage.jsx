@@ -298,23 +298,7 @@ How We Work
               <p>That's where <span className="text-foreground font-semibold">Next Foundry</span> comes in. We believe technology should enable growth — not limit it. That's why we build cloud-native platforms that are fast, secure, scalable and designed specifically for your business.</p>
             </div>
           </motion.div>
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className="relative">
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <motion.img
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
-                alt="Modern server room with blue LED lighting"
-                className="h-full w-full object-cover"
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </div>
-            <div className="absolute -bottom-5 -left-5 hidden rounded-xl border border-border bg-card px-5 py-4 shadow-xl shadow-black/40 sm:block">
-              <p className="font-display text-2xl font-bold text-primary">Cloud-native</p>
-              <p className="text-xs text-muted-foreground">Fast · Secure · Scalable</p>
-            </div>
-          </motion.div>
+
         </div>
 
         <motion.div
