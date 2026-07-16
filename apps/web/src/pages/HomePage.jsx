@@ -209,7 +209,7 @@ export default function HomePage() {
               </span>
             </motion.a>
             <a href="#services" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary">
-              What we do
+How We Work
             </a>
           </motion.div>
         </Section>
