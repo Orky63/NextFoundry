@@ -205,7 +205,7 @@ export default function HomePage() {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Start a conversation <ArrowRight className="h-4 w-4" />
+                Book a Discovery Call <ArrowRight className="h-4 w-4" />
               </span>
             </motion.a>
             <a href="#services" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary">
