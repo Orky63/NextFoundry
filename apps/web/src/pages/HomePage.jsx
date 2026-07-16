@@ -396,43 +396,59 @@ How We Work
           </div>
 
           <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
-            <h3 className="font-display text-lg font-bold text-foreground">Service Two</h3>
+            <h3 className="font-display text-lg font-bold text-foreground">Cloud Infrastructure</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Placeholder description for the second service card.
+              Enterprise-grade hosting and security designed to grow with your business.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Placeholder item
+                AWS
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Placeholder item
+                Performance
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Placeholder item
+                Monitoring
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Security
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Backups
               </li>
             </ul>
           </div>
 
           <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
-            <h3 className="font-display text-lg font-bold text-foreground">Service Three</h3>
+            <h3 className="font-display text-lg font-bold text-foreground">Continuous Evolution</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Placeholder description for the third service card.
+              Technology shouldn't stand still after launch.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Placeholder item
+                Feature development
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Placeholder item
+                AI enhancements
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Placeholder item
+                Optimisation
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                SEO
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Ongoing support
               </li>
             </ul>
           </div>
