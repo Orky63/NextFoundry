@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowRight, ArrowUpRight, ArrowDown, Menu, X, Cloud, Gauge, Search, ShieldCheck,
-  ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Flame, Quote,
+  ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Flame, Quote, Zap, RefreshCw,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
@@ -436,6 +436,104 @@ How We Work
               </li>
             </ul>
           </div>
+        </motion.div>
+      </Section>
+
+      {/* Enterprise thinking */}
+      <Section className="border-y border-border/60 bg-secondary/20 py-24 md:py-32">
+        <div className="grid items-center gap-14 md:grid-cols-2">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+              <span className="ember-text font-bold">Next Foundry</span> — Enterprise thinking
+            </p>
+            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+              Built for growing businesses.
+            </h2>
+            <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+              <p>
+                Most web agencies focus on how your website looks.
+              </p>
+              <p>
+                We focus on how your platform performs, scales and evolves.
+              </p>
+              <p>
+                Our background is in enterprise technology, cloud architecture and service management—bringing the disciplines used by large organisations to ambitious growing businesses.
+              </p>
+              <p>
+                That means we don't just launch websites.
+              </p>
+            </div>
+          </motion.div>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <p className="mb-6 font-display text-2xl font-bold leading-tight text-foreground md:text-3xl">
+              We build digital platforms that are:
+            </p>
+            <ul className="space-y-4">
+              {['Fast', 'Secure', 'Scalable', 'Easy to evolve', 'Designed for long-term growth'].map((item, i) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4, ease: 'easeOut' }}
+                  className="flex items-center gap-3"
+                >
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
+                    <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span className="text-lg font-medium text-foreground">{item}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Four pillars */}
+      <Section className="py-20 md:py-24">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {[
+            { icon: Zap, label: 'Fast', desc: 'Lightning-fast performance that keeps your customers happy and your conversions high.' },
+            { icon: ShieldCheck, label: 'Secure', desc: 'Enterprise-grade security built into every layer of your platform.' },
+            { icon: Layers, label: 'Scalable', desc: 'Infrastructure that grows effortlessly alongside your business.' },
+            { icon: RefreshCw, label: 'Evolve', desc: 'Continuous improvement so your platform never falls behind.' },
+          ].map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.4, ease: 'easeOut' }}
+                className="flex flex-col items-center rounded-xl border border-border bg-card p-8 text-center"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
+                  <Icon className="h-6 w-6 text-primary" />
+                </span>
+                <h3 className="mt-4 font-display text-lg font-bold text-foreground">{item.label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </Section>
 
