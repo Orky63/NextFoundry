@@ -4,3 +4,9 @@ dist
 .DS_Store
 *.log
 .vite
+
+# Terraform
+infra/.terraform/
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+infra/*.tfvars
