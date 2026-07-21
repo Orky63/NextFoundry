@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
-  ArrowRight, ArrowUpRight, Menu, X, Cloud, Gauge, Search, ShieldCheck,
-  ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Flame, Quote,
+  ArrowRight, ArrowUpRight, ArrowDown, Menu, X, Cloud, Gauge, Search, ShieldCheck,
+  ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Flame, Quote, Zap, RefreshCw,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
@@ -190,7 +190,7 @@ export default function HomePage() {
             Outgrown templates.<br /><span className="ember-text">Build what's next.</span>
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2} className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-            More than an online brochure or a templated store. <span className="text-foreground font-semibold">Next Foundry</span> designs, builds and manages bespoke digital experiences powered by modern cloud technology and AI — built around your business, not forcing it to fit the platform.
+             Growing businesses eventually reach the limits of off-the-shelf platforms.<br /><br />Next Foundry helps ambitious companies design, build and manage cloud-native digital platforms that are faster, more flexible and built around the way your business works—not the other way around.
           </motion.p>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3} className="mt-9 flex flex-wrap items-center gap-4">
             <motion.a
@@ -205,12 +205,20 @@ export default function HomePage() {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Start a conversation <ArrowRight className="h-4 w-4" />
+                Book a Discovery Call <ArrowRight className="h-4 w-4" />
               </span>
             </motion.a>
             <a href="#services" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary">
-              What we do
+How We Work
             </a>
+          </motion.div>
+          <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-8 max-w-[60ch] rounded-xl border-l-4 border-border bg-card px-6 py-6">
+            <p className="text-base font-semibold leading-relaxed text-card-foreground">
+              Sometimes the best advice is to stay exactly where you are.
+            </p>
+            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+              If your current platform is the right fit for your business, we'll tell you. Our role is to help you make the right technology decision—not simply recommend a rebuild.
+            </p>
           </motion.div>
         </Section>
       </div>
@@ -290,26 +298,301 @@ export default function HomePage() {
               <p>That's where <span className="text-foreground font-semibold">Next Foundry</span> comes in. We believe technology should enable growth — not limit it. That's why we build cloud-native platforms that are fast, secure, scalable and designed specifically for your business.</p>
             </div>
           </motion.div>
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className="relative">
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <motion.img
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
-                alt="Modern server room with blue LED lighting"
-                className="h-full w-full object-cover"
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              />
+
+        </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="relative mt-16 overflow-hidden"
+        >
+          <div className="mb-6 text-center">
+            <p className="text-sm font-semibold text-muted-foreground">
+              Many growing businesses struggle with:
+            </p>
+          </div>
+          <motion.div
+            className="flex gap-4"
+            animate={{ x: [0, -900] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          >
+            {[
+              'Too many plugins',
+              'Slow performance',
+              'Hard to make changes',
+              "Doesn't reflect your brand",
+              'Looking for a technology partner',
+              'Too many plugins',
+              'Slow performance',
+              'Hard to make changes',
+              "Doesn't reflect your brand",
+              'Looking for a technology partner',
+            ].map((label, i) => (
+              <div
+                key={i}
+                className="flex shrink-0 items-center gap-3 rounded-xl border border-border bg-card px-6 py-4"
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
+                  <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </span>
+                <span className="whitespace-nowrap text-sm font-medium text-foreground">{label}</span>
+              </div>
+            ))}
+          </motion.div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-16 grid gap-6 md:grid-cols-3"
+        >
+          <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
+            <h3 className="font-display text-lg font-bold text-foreground">Platform Engineering</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Build digital platforms that reflect your business—not the limitations of a template.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Bespoke websites
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Ecommerce
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Customer portals
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Integrations
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
+            <h3 className="font-display text-lg font-bold text-foreground">Cloud Infrastructure</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Enterprise-grade hosting and security designed to grow with your business.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                AWS
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Performance
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Monitoring
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Security
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Backups
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
+            <h3 className="font-display text-lg font-bold text-foreground">Continuous Evolution</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Technology shouldn't stand still after launch.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Feature development
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                AI enhancements
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Optimisation
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                SEO
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Ongoing support
+              </li>
+            </ul>
+          </div>
+        </motion.div>
+      </Section>
+
+      {/* Enterprise thinking */}
+      <Section className="border-y border-border/60 bg-secondary/20 py-24 md:py-32">
+        <div className="grid items-center gap-14 md:grid-cols-2">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+              <span className="ember-text font-bold">Next Foundry</span> — Enterprise thinking
+            </p>
+            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+              Built for growing businesses.
+            </h2>
+            <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+              <p>
+                Most web agencies focus on how your website looks.
+              </p>
+              <p>
+                We focus on how your platform performs, scales and evolves.
+              </p>
+              <p>
+                Our background is in enterprise technology, cloud architecture and service management—bringing the disciplines used by large organisations to ambitious growing businesses.
+              </p>
+              <p>
+                That means we don't just launch websites.
+              </p>
             </div>
-            <div className="absolute -bottom-5 -left-5 hidden rounded-xl border border-border bg-card px-5 py-4 shadow-xl shadow-black/40 sm:block">
-              <p className="font-display text-2xl font-bold text-primary">Cloud-native</p>
-              <p className="text-xs text-muted-foreground">Fast · Secure · Scalable</p>
-            </div>
+          </motion.div>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <p className="mb-6 font-display text-2xl font-bold leading-tight text-foreground md:text-3xl">
+              We build digital platforms that are:
+            </p>
+            <ul className="space-y-4">
+              {['Fast', 'Secure', 'Scalable', 'Easy to evolve', 'Designed for long-term growth'].map((item, i) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4, ease: 'easeOut' }}
+                  className="flex items-center gap-3"
+                >
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
+                    <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span className="text-lg font-medium text-foreground">{item}</span>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </div>
       </Section>
 
+      {/* Four pillars */}
+      <Section className="py-20 md:py-24">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {[
+            { icon: Zap, label: 'Fast', desc: 'Lightning-fast performance that keeps your customers happy and your conversions high.' },
+            { icon: ShieldCheck, label: 'Secure', desc: 'Enterprise-grade security built into every layer of your platform.' },
+            { icon: Layers, label: 'Scalable', desc: 'Infrastructure that grows effortlessly alongside your business.' },
+            { icon: RefreshCw, label: 'Evolve', desc: 'Continuous improvement so your platform never falls behind.' },
+          ].map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.4, ease: 'easeOut' }}
+                className="flex flex-col items-center rounded-xl border border-border bg-card p-8 text-center"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
+                  <Icon className="h-6 w-6 text-primary" />
+                </span>
+                <h3 className="mt-4 font-display text-lg font-bold text-foreground">{item.label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </Section>
+
+      {/* Technology enables growth */}
+      <Section className="py-24 md:py-32">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          className="max-w-[58rem]"
+        >
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+            <span className="ember-text font-bold">Next Foundry</span> — Technology that accelerates
+          </p>
+          <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+            Technology should accelerate growth.<br />
+            <span className="text-muted-foreground">Not become another problem to manage.</span>
+          </h2>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+            <p>
+              At Next Foundry, we combine enterprise cloud engineering, AI-assisted software development and modern design to build digital platforms that evolve alongside your business.
+            </p>
+            <p>
+              Whether you're modernising an ecommerce platform, replacing a legacy website or building something entirely new, our focus is always the same:
+            </p>
+          </div>
+          <p className="mt-6 text-xl font-semibold leading-relaxed text-foreground">
+            Technology that enables growth—not technology that holds it back.
+          </p>
+
+          <div className="mt-14 grid grid-cols-5 gap-0">
+            {[
+              { step: 'Discover', delay: 0 },
+              { step: 'Design', delay: 0.15 },
+              { step: 'Build', delay: 0.3 },
+              { step: 'Launch', delay: 0.45 },
+              { step: 'Continuous Improvement', delay: 0.6 },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: item.delay, duration: 0.5, ease: 'easeOut' }}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
+                  <span className="font-display text-lg font-bold text-primary">{i + 1}</span>
+                </div>
+                <p className="mt-3 text-sm font-semibold text-foreground">{item.step}</p>
+                {i < 4 && (
+                  <ArrowDown className="mt-2 h-4 w-4 text-primary/60" />
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Section>
       {/* A different approach */}
       <div className="relative overflow-hidden border-y border-border/60 bg-secondary/20">
         <GridPattern />
@@ -330,54 +613,6 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mt-16 grid gap-6 md:grid-cols-3"
-          >
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <motion.img
-                src="/images/team-collab.jpg"
-                alt="Team collaborating on a digital strategy"
-                className="h-52 w-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-              />
-              <div className="bg-card p-5">
-                <p className="font-display text-lg font-bold text-primary">Your team, extended</p>
-                <p className="mt-1 text-sm text-muted-foreground">We integrate as part of your team, not an external agency.</p>
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <motion.img
-                src="/images/dashboard.jpg"
-                alt="Modern analytics dashboard"
-                className="h-52 w-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-              />
-              <div className="bg-card p-5">
-                <p className="font-display text-lg font-bold text-primary">Data-driven decisions</p>
-                <p className="mt-1 text-sm text-muted-foreground">Real-time insights power every improvement we make.</p>
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <motion.img
-                src="/images/innovation.jpg"
-                alt="Cloud technology innovation"
-                className="h-52 w-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-              />
-              <div className="bg-card p-5">
-                <p className="font-display text-lg font-bold text-primary">Cloud-native by default</p>
-                <p className="mt-1 text-sm text-muted-foreground">Enterprise-grade AWS infrastructure, built for scale.</p>
-              </div>
-            </div>
-          </motion.div>
         </Section>
       </div>
 
