@@ -593,7 +593,6 @@ How We Work
           </div>
         </motion.div>
       </Section>
-
       {/* A different approach */}
       <div className="relative overflow-hidden border-y border-border/60 bg-secondary/20">
         <GridPattern />
