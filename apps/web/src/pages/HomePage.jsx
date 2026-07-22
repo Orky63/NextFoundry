@@ -23,7 +23,7 @@ const fadeUp = {
 const nav = [
   { label: 'Approach', href: '#approach' },
   { label: 'Services', href: '#services' },
-  { label: 'Fit', href: '#fit' },
+
   { label: 'Why us', href: '#why' },
 ];
 
@@ -39,13 +39,6 @@ const services = [
   { icon: LifeBuoy, title: 'Technology Partnership', desc: "We become part of your team — not an external agency you have to manage." },
 ];
 
-const fit = [
-  'Wondering whether AI could actually be useful for your business.',
-  'Running platforms that feel outdated or expensive to maintain.',
-  'Frustrated by technology that slows your team down instead of helping them.',
-  'Looking for a partner who understands both business and technology.',
-  'Wanting to modernise without the risk of a big-bang rebuild.',
-];
 
 const testimonials = [
   { q: "Next Foundry helped us see where AI could actually make a difference — not just because it's trendy, but because it genuinely improved how we work.", a: 'CTO, Premium Home Goods', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80' },
@@ -492,32 +485,7 @@ export default function HomePage() {
         </Section>
       </div>
 
-      {/* Who this is for */}
-      <Section id="fit" className="py-24 md:py-32">
-        <div className="grid gap-14 md:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Who this is for</p>
-            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-              You might be a good fit if you're...
-            </h2>
-          </div>
-          <ul className="divide-y divide-border border-t border-border">
-            {fit.map((f, i) => (
-              <motion.li
-                key={f}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.6 }}
-                className="flex items-start gap-5 py-6"
-              >
-                <span className="font-display text-sm font-bold text-primary">0{i + 1}</span>
-                <span className="text-lg leading-snug text-foreground/90">{f}</span>
-              </motion.li>
-            ))}
-          </ul>
-        </div>
-      </Section>
+
 
       {/* Why clients work with us */}
       <div id="why" className="border-y border-border/60 bg-secondary/20">
