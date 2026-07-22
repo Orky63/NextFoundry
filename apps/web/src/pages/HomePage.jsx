@@ -1,42 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowRight, ArrowUpRight, ArrowDown, Menu, X, Cloud, Gauge, Search, ShieldCheck,
-  ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Flame, Quote, Zap, RefreshCw,
+  ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Quote, Zap, RefreshCw,
   Brain, Lightbulb, Binary,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
-
-function useCountUp(target, duration = 2000) {
-  const ref = useRef(null);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          const start = performance.now();
-          const animate = (now) => {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * target));
-            if (progress < 1) requestAnimationFrame(animate);
-          };
-          requestAnimationFrame(animate);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.5 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [target, duration]);
-
-  return { ref, count };
-}
 
 function useScrollBackground() {
   const { scrollY } = useScroll();
@@ -221,32 +190,6 @@ export default function HomePage() {
           </motion.div>
         </Section>
       </div>
-
-      {/* Stats */}
-      <Section className="py-16 md:py-20">
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-          {stats.map((s, i) => {
-            const num = parseInt(s.v);
-            const { ref, count } = useCountUp(isNaN(num) ? 100 : num);
-            return (
-              <motion.div
-                key={s.l}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.4 }}
-                custom={i}
-                className="rounded-xl border border-border/60 bg-card/50 p-6 text-center"
-              >
-                <p ref={ref} className="font-display text-3xl font-extrabold text-primary md:text-4xl">
-                  {isNaN(num) ? s.v : `${count}${s.v.includes('×') ? '×' : s.v.includes('%') ? '%' : '+'}`}
-                </p>
-                <p className="mt-1.5 text-sm text-muted-foreground">{s.l}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </Section>
 
       {/* Trusted by */}
       <div className="border-y border-border/40 bg-secondary/10">
