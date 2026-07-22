@@ -68,11 +68,6 @@ const testimonials = [
   { q: "Our old platform needed six apps to do what our custom cloud-native system does natively. Costs halved, performance tripled, and our team can actually get work done.", a: 'Head of Digital, EcoWear', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80' },
 ];
 
-const trusted = [
-  'Premium Home Goods', 'Artisan Coffee Co.', 'EcoWear', 'NovaTech Solutions',
-  'The London Distillery', 'PureForm Fitness', 'Heritage Books', 'Verdant Energy',
-];
-
 const projects = [
   { title: 'Premium Home Goods', tag: 'AI Review & Platform Modernisation', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
   { title: 'Artisan Coffee Co.', tag: 'Cloud Migration & Process Improvement', img: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80' },
@@ -187,27 +182,6 @@ export default function HomePage() {
             <p className="mt-2 text-base leading-relaxed text-muted-foreground">
               We start with your business problems, not a pitch. Our role is to help you make the right technology decisions — whether that's a full transformation or a series of practical improvements.
             </p>
-          </motion.div>
-        </Section>
-      </div>
-
-      {/* Trusted by */}
-      <div className="border-y border-border/40 bg-secondary/10">
-        <Section className="py-12">
-          <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Trusted by ambitious teams</p>
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {trusted.map((name, i) => (
-              <motion.span
-                key={name}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06, duration: 0.4, ease: 'easeOut' }}
-                className="font-display text-sm font-semibold text-muted-foreground/60 transition-colors hover:text-muted-foreground"
-              >
-                {name}
-              </motion.span>
-            ))}
           </motion.div>
         </Section>
       </div>
