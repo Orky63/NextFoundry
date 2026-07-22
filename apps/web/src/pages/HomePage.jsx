@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowRight, ArrowUpRight, ArrowDown, Menu, X, Cloud, Gauge, Search, ShieldCheck,
-  ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Quote, Zap, RefreshCw,
-  Brain, Lightbulb, Binary,
+  MoveRight, LifeBuoy, Layers, Quote, Zap, RefreshCw,
+  Brain, Lightbulb,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
@@ -53,13 +53,6 @@ const why = [
   { k: 'Vendor-independent', v: 'We recommend what\'s right for you — not what earns us commission.' },
   { k: 'Enterprise-grade cloud', v: 'AWS infrastructure with real resilience, security and support built in.' },
   { k: 'Ongoing partnership', v: 'A relationship, not a project. We stay and keep improving.' },
-];
-
-const stats = [
-  { v: '100+', l: 'Technology reviews completed' },
-  { v: '99.99%', l: 'Average platform uptime' },
-  { v: '40%', l: 'Average productivity improvement' },
-  { v: '15+', l: 'Years cloud engineering experience' },
 ];
 
 const testimonials = [
@@ -141,15 +134,19 @@ export default function HomePage() {
         <div className="absolute inset-0 grain opacity-60" />
         <Section className="relative z-10 py-24">
           <motion.p variants={fadeUp} initial="hidden" animate="show" className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/50 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            <motion.span className="relative h-1.5 w-1.5 rounded-full bg-primary" animate={{ scale: [1, 1.6, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} />  <span className="ember-text font-semibold">Next Foundry</span> — Unlocking Practical Value
+            <motion.span className="relative h-1.5 w-1.5 rounded-full bg-primary" animate={{ scale: [1, 1.6, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} />  <span className="ember-text font-semibold">NEXT FOUNDRY</span>
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1} className="max-w-[18ch] font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">
-            Technology should help your business grow.<br /><span className="ember-text">Not slow it down.</span>
+            Helping businesses work smarter<br />
+            <span className="ember-text">with AI, cloud and modern technology.</span>
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2} className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-            Helping businesses unlock the practical value of AI, cloud and modern digital platforms.<br /><br />We help organisations identify opportunities to improve productivity, modernise technology and apply AI where it delivers real business value.
+            We don't start by selling software.<br /><br />We start by understanding your business.
           </motion.p>
-          <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3} className="mt-9 flex flex-wrap items-center gap-4">
+          <motion.p variants={fadeUp} initial="hidden" animate="show" custom={3} className="mt-6 max-w-[52ch] text-base leading-relaxed text-muted-foreground">
+            Our Business &amp; Technology Review identifies where technology can genuinely improve productivity, customer experience and profitability.
+          </motion.p>
+          <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-9 flex flex-wrap items-center gap-4">
             <motion.a
               href="#talk"
               className="relative inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground"
@@ -162,21 +159,44 @@ export default function HomePage() {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Start a conversation <ArrowRight className="h-4 w-4" />
+                Book a Business Review <ArrowRight className="h-4 w-4" />
               </span>
             </motion.a>
-            <a href="#services" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary">
-              What we do
-            </a>
           </motion.div>
-          <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-8 max-w-[60ch] rounded-xl border-l-4 border-border bg-card px-6 py-6">
-            <p className="text-base font-semibold leading-relaxed text-card-foreground">
-              Not every business needs a full rebuild. Sometimes the smartest move is improving what you already have.
-            </p>
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              We start with your business problems, not a pitch. Our role is to help you make the right technology decisions — whether that's a full transformation or a series of practical improvements.
-            </p>
-          </motion.div>
+        </Section>
+      </div>
+
+      {/* Value props */}
+      <div className="border-y border-border/60 bg-secondary/20">
+        <Section className="py-10 md:py-12">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { t: 'Independent advice', d: 'We recommend what\'s right for your business — not what earns us commission.' },
+              { t: 'Business-first thinking', d: 'We start with your problems and goals, not a predetermined solution.' },
+              { t: 'Enterprise experience', d: 'Decades of cloud engineering and service management expertise.' },
+              { t: 'Practical recommendations', d: 'Clear, actionable advice you can implement with confidence.' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.t}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                custom={i}
+                className="flex items-start gap-3"
+              >
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                  <svg className="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{item.t}</p>
+                  <p className="text-xs text-muted-foreground">{item.d}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </Section>
       </div>
 
