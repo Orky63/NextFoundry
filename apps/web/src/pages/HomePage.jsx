@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
-  ArrowRight, ArrowUpRight, ArrowDown, Menu, X, Cloud, Gauge, Search, ShieldCheck,
-  MoveRight, LifeBuoy, Layers, Quote, Zap, RefreshCw,
+  ArrowRight, ArrowUpRight, Menu, X, Cloud, Gauge, Search, ShieldCheck,
+  MoveRight, LifeBuoy, Layers, Quote,
   Brain, Lightbulb,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
@@ -45,14 +45,6 @@ const fit = [
   'Frustrated by technology that slows your team down instead of helping them.',
   'Looking for a partner who understands both business and technology.',
   'Wanting to modernise without the risk of a big-bang rebuild.',
-];
-
-const why = [
-  { k: 'Practical, not theoretical', v: 'We focus on technology that delivers measurable value — not the latest trend.' },
-  { k: 'Business-first approach', v: 'We start with your problems, not a solution looking for one.' },
-  { k: 'Vendor-independent', v: 'We recommend what\'s right for you — not what earns us commission.' },
-  { k: 'Enterprise-grade cloud', v: 'AWS infrastructure with real resilience, security and support built in.' },
-  { k: 'Ongoing partnership', v: 'A relationship, not a project. We stay and keep improving.' },
 ];
 
 const testimonials = [
@@ -286,121 +278,152 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Four pillars */}
-      <Section className="py-20 md:py-24">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {[
-            { icon: Brain, label: 'AI that works', desc: 'Practical AI applied to real business problems — not technology looking for a use case.' },
-            { icon: Cloud, label: 'Cloud-native', desc: 'Enterprise-grade infrastructure that scales with your business without locking you in.' },
-            { icon: Zap, label: 'Fast & efficient', desc: 'Modern platforms that perform, convert and don\'t waste your team\'s time.' },
-            { icon: RefreshCw, label: 'Built to evolve', desc: 'Technology that improves continuously rather than requiring periodic rebuilds.' },
-          ].map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.4, ease: 'easeOut' }}
-                className="flex flex-col items-center rounded-xl border border-border bg-card p-8 text-center"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                  <Icon className="h-6 w-6 text-primary" />
-                </span>
-                <h3 className="mt-4 font-display text-lg font-bold text-foreground">{item.label}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </Section>
+      {/* What you'll receive */}
+      <div className="border-y border-border/60 bg-secondary/20">
+        <Section className="py-24 md:py-32">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
+            <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">What you'll receive</p>
+            <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+          </motion.div>
 
-      {/* Helping businesses work smarter */}
-      <Section className="py-24 md:py-32">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
-          className="max-w-[58rem]"
-        >
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            <span className="ember-text font-bold">Next Foundry</span> — Helping businesses work smarter
-          </p>
-          <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-            The right technology, applied in the right places,<br />
-            <span className="text-muted-foreground">transforms how your business operates.</span>
-          </h2>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
-            <p>
-              At Next Foundry, we combine enterprise cloud engineering, AI-assisted development and practical business thinking to help organisations get more from their technology.
-            </p>
-            <p>
-              Whether that's reviewing your business processes, migrating from legacy platforms or building cloud-native solutions, our focus is always the same:
-            </p>
-          </div>
-          <p className="mt-6 text-xl font-semibold leading-relaxed text-foreground">
-            Helping businesses work smarter.
-          </p>
+          <div className="grid gap-6 md:grid-cols-2">
+            <motion.div
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0}
+              className="rounded-xl border border-border bg-card p-8"
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <h3 className="font-display text-xl font-bold text-foreground">Current State Assessment</h3>
+              <p className="mt-1 text-sm text-muted-foreground">What's working? What's not?</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">A clear-eyed view of your current technology, processes and where the real bottlenecks are.</p>
+            </motion.div>
 
-          <div className="mt-14 grid grid-cols-5 gap-0">
-            {[
-              { step: 'Understand', delay: 0 },
-              { step: 'Identify', delay: 0.15 },
-              { step: 'Build', delay: 0.3 },
-              { step: 'Launch', delay: 0.45 },
-              { step: 'Improve', delay: 0.6 },
-            ].map((item, i) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: item.delay, duration: 0.5, ease: 'easeOut' }}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                  <span className="font-display text-lg font-bold text-primary">{i + 1}</span>
-                </div>
-                <p className="mt-3 text-sm font-semibold text-foreground">{item.step}</p>
-                {i < 4 && (
-                  <ArrowDown className="mt-2 h-4 w-4 text-primary/60" />
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </Section>
+            <motion.div
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1}
+              className="rounded-xl border border-border bg-card p-8"
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <h3 className="font-display text-xl font-bold text-foreground">AI Opportunity Report</h3>
+              <p className="mt-1 text-sm text-muted-foreground">Where AI genuinely adds value.</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Practical, specific opportunities to apply AI in your business — not generic use cases.</p>
+            </motion.div>
 
-      {/* A different approach */}
-      <div className="relative overflow-hidden border-y border-border/60 bg-secondary/20">
-        <GridPattern />
-        <div className="absolute inset-0 bg-background/70" />
-        <Section className="relative z-10 py-24 md:py-32">
-          <div className="max-w-[62rem]">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              <span className="ember-text font-bold">Next Foundry</span> — A different approach
-            </p>
-            <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.5 }} className="font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
-              Many technology consultancies sell you a solution first. <span className="ember-text">We start with your problem.</span>
-            </motion.h2>
-            <div className="mt-8 grid gap-6 text-lg leading-relaxed text-muted-foreground md:grid-cols-2">
-              <p>We believe the best technology decisions start with understanding your business — not with a pitch deck. That's why our engagements often begin with a discovery phase that helps us understand where the real opportunities lie.</p>
-              <p className="font-display text-2xl font-semibold leading-snug text-foreground">
-                We don't sell technology for its own sake.<br />
-                <span className="ember-text">We sell better ways of working.</span>
-              </p>
-            </div>
+            <motion.div
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={2}
+              className="rounded-xl border border-border bg-card p-8"
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <h3 className="font-display text-xl font-bold text-foreground">Platform Assessment</h3>
+              <p className="mt-1 text-sm text-muted-foreground">Keep it? Improve it? Replace it?</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Honest recommendation on your current platform — no bias toward rebuilding.</p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={3}
+              className="rounded-xl border border-border bg-card p-8"
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <h3 className="font-display text-xl font-bold text-foreground">Business Roadmap</h3>
+              <p className="mt-1 text-sm text-muted-foreground">Quick wins · Medium-term · Long-term</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">A phased plan with clear priorities, timelines and expected outcomes.</p>
+            </motion.div>
           </div>
         </Section>
       </div>
+
+      {/* What happens next */}
+      <Section className="py-24 md:py-32">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
+          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">What happens next?</p>
+          <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+        </motion.div>
+
+        <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="mx-auto max-w-[48rem] text-center text-lg leading-relaxed text-muted-foreground">
+          Instead of trying to sell services, we recommend what's right for your business — not what's most profitable for us.
+        </motion.p>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { label: 'Keep your existing platform', desc: 'Sometimes the smartest move is improving what you already have.' },
+            { label: 'Improve your workflows', desc: 'Small changes that make a big difference to productivity.' },
+            { label: 'Apply AI', desc: 'Where it genuinely adds value — not for the sake of it.' },
+            { label: 'Move to the cloud', desc: 'Enterprise-grade infrastructure without the overhead.' },
+            { label: 'Build something new', desc: 'When the best option is a clean start.' },
+          ].map((item, i) => (
+            <motion.div
+              key={item.label}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={i}
+              className="flex items-start gap-3 rounded-xl border border-border bg-card p-6"
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                <svg className="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={6} className="mx-auto mt-12 max-w-[36rem] text-center text-base font-semibold text-foreground">
+          That's a huge trust builder.
+        </motion.p>
+      </Section>
+
+      {/* How we help */}
+      <Section className="py-24 md:py-32">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
+          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">How we help</p>
+          <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+        </motion.div>
+
+        <div className="mx-auto flex max-w-[28rem] flex-col items-center gap-0">
+          {[
+            'Business & Technology Review',
+            'Digital Process Improvement',
+            'Legacy Platform Migration',
+            'Cloud Engineering',
+            'AI Implementation',
+            'Managed Platforms',
+          ].map((step, i) => (
+            <motion.div
+              key={step}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={i}
+              className="flex w-full flex-col items-center"
+            >
+              <div className="flex w-full items-center gap-4 rounded-xl border border-border bg-card px-6 py-4">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                  <span className="font-display text-sm font-bold text-primary">{i + 1}</span>
+                </span>
+                <span className="text-base font-medium text-foreground">{step}</span>
+              </div>
+              {i < 5 && (
+                <div className="flex flex-col items-center py-2">
+                  <svg className="h-5 w-5 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                  </svg>
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </Section>
 
       {/* What we do */}
       <Section id="services" className="py-24 md:py-32">
@@ -496,41 +519,76 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Why Next Foundry */}
+      {/* Why clients work with us */}
       <div id="why" className="border-y border-border/60 bg-secondary/20">
         <Section className="py-24 md:py-32">
-          <div className="mb-14 max-w-[46rem]">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Why Next Foundry</p>
-            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-              Enterprise experience, practical delivery, long-term thinking.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Our focus isn't selling technology. It's helping businesses work smarter with the right technology, applied in the right places.
-            </p>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {why.map((w, i) => (
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
+            <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">Why clients work with us</p>
+            <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+          </motion.div>
+
+          <div className="mx-auto grid max-w-[40rem] gap-6">
+            {[
+              { t: 'Business-first thinking', d: 'We start with your problems and goals, not a solution looking for one.' },
+              { t: 'Enterprise technology experience', d: 'Decades of cloud engineering and service management at the highest level.' },
+              { t: 'Independent advice', d: 'We recommend what\'s right for you — not what earns us commission.' },
+              { t: 'Practical recommendations', d: 'Clear, actionable advice you can implement with confidence.' },
+              { t: 'Long-term partnerships', d: 'A relationship, not a project. We stay and keep improving.' },
+            ].map((item, i) => (
               <motion.div
-                key={w.k}
+                key={item.t}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, amount: 0.4 }}
-                custom={i % 3}
-              className="rounded-xl border border-border bg-card p-7"
-              whileHover={{ y: -4, boxShadow: '0 12px 40px rgba(0,0,0,0.3)' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <p className="font-display text-xl font-semibold text-primary">{w.k}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{w.v}</p>
+                viewport={{ once: true }}
+                custom={i}
+                className="flex items-start gap-3 rounded-xl border border-border bg-card p-6"
+                whileHover={{ y: -4 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                  <svg className="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{item.t}</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">{item.d}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </Section>
       </div>
 
-      {/* Let's talk */}
-      <Section id="talk" className="py-24 md:py-36">
+      {/* Founding Partner Programme */}
+      <Section className="py-24 md:py-32">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 px-8 py-16 text-center md:px-16 md:py-24"
+        >
+          <GridPattern />
+          <div className="absolute inset-0 grain opacity-40" />
+          <div className="relative z-10 mx-auto max-w-[48rem]">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Founding Partner Programme</p>
+            <h2 className="font-display text-3xl font-extrabold leading-[1.05] tracking-tight md:text-4xl">
+              We're working with a small number of ambitious businesses to refine our Business &amp; Technology Review.
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              Each participating organisation receives a full technology review, AI opportunity assessment and business roadmap.
+            </p>
+            <p className="mt-4 text-base font-semibold text-foreground">
+              In return, we ask only for honest feedback.
+            </p>
+          </div>
+        </motion.div>
+      </Section>
+
+      {/* Final CTA */}
+      <Section id="talk" className="pb-24 md:pb-36">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -543,14 +601,19 @@ export default function HomePage() {
           <div className="relative z-10 mx-auto max-w-[46rem]">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Let's talk</p>
             <h2 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
-              Not sure whether you need AI, a new platform or just a fresh perspective?
+              Not sure whether you need AI,<br />a new platform,<br />or simply a fresh perspective?
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              We'd be happy to have an honest conversation. Sometimes the right answer is improving what you already have — and if there's a better path forward, we'll help you understand your options without pressure or jargon.
+              Let's find out together.
             </p>
-            <a href="mailto:hello@nextfoundry.com" className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 active:scale-[0.98]">
-              hello@nextfoundry.com <ArrowUpRight className="h-4 w-4" />
-            </a>
+            <motion.a
+              href="mailto:hello@nextfoundry.com"
+              className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Book your Business &amp; Technology Review <ArrowRight className="h-4 w-4" />
+            </motion.a>
           </div>
         </motion.div>
       </Section>
