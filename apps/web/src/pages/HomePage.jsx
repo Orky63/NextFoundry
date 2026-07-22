@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowRight, ArrowUpRight, ArrowDown, Menu, X, Cloud, Gauge, Search, ShieldCheck,
   ShoppingBag, MoveRight, Sparkles, LifeBuoy, Layers, Flame, Quote, Zap, RefreshCw,
+  Brain, Lightbulb, Binary,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
@@ -58,46 +59,44 @@ const nav = [
 ];
 
 const services = [
-  { icon: ShoppingBag, title: 'Bespoke ecommerce platforms', desc: 'Storefronts built around your catalogue and margins — not a template.' },
-  { icon: MoveRight, title: 'Migration from templated platforms', desc: 'Move off Shopify and page builders without losing traffic or revenue.' },
-  { icon: Cloud, title: 'AWS cloud hosting & management', desc: 'Enterprise-grade infrastructure, provisioned and maintained by us.' },
-  { icon: Gauge, title: 'Performance optimisation', desc: 'Fast, resilient pages that convert and rank.' },
-  { icon: Search, title: 'Technical SEO improvements', desc: 'Clean architecture search engines and customers both reward.' },
-  { icon: ShieldCheck, title: 'Security & resilience', desc: 'Hardened, monitored platforms that stay online under load.' },
-  { icon: Layers, title: 'Ongoing platform development', desc: 'A roadmap that keeps shipping value long after launch.' },
-  { icon: Sparkles, title: 'AI-powered enhancements', desc: 'Practical AI woven into the experiences your customers use.' },
-  { icon: LifeBuoy, title: 'Continuous support & maintenance', desc: "We don't disappear after launch — we become part of your team." },
+  { icon: Brain, title: 'AI Opportunity Review', desc: 'Identify where AI can drive real productivity gains in your business — no hype, just practical applications.' },
+  { icon: Cloud, title: 'Cloud Platform Engineering', desc: 'Cloud-native platforms designed for scale, security and long-term maintainability.' },
+  { icon: Lightbulb, title: 'Digital Process Improvement', desc: 'Review your existing workflows and systems to find faster, smarter ways of working.' },
+  { icon: MoveRight, title: 'Legacy Platform Migration', desc: 'Move off outdated or templated platforms without disrupting your business.' },
+  { icon: Gauge, title: 'Performance Optimisation', desc: 'Make your existing technology run faster, cost less and work harder for you.' },
+  { icon: Search, title: 'Technical Discovery & Audit', desc: 'A clear-eyed assessment of your current technology stack and where it can improve.' },
+  { icon: ShieldCheck, title: 'Security & Resilience', desc: 'Hardened, monitored platforms that protect your business and your customers.' },
+  { icon: Layers, title: 'Ongoing Platform Evolution', desc: 'Continuous improvement that keeps your technology aligned with your business goals.' },
+  { icon: LifeBuoy, title: 'Technology Partnership', desc: "We become part of your team — not an external agency you have to manage." },
 ];
 
 const fit = [
-  'Growing rapidly and beginning to outgrow your current website.',
-  'Looking for a more distinctive online presence.',
-  'Frustrated by platform limitations or escalating app costs.',
-  'Wanting a trusted technology partner instead of another web agency.',
-  'Looking for long-term support rather than a one-off project.',
+  'Wondering whether AI could actually be useful for your business.',
+  'Running platforms that feel outdated or expensive to maintain.',
+  'Frustrated by technology that slows your team down instead of helping them.',
+  'Looking for a partner who understands both business and technology.',
+  'Wanting to modernise without the risk of a big-bang rebuild.',
 ];
 
 const why = [
-  { k: 'Faster delivery', v: 'AI-assisted development that ships in weeks, not quarters.' },
-  { k: 'Greater flexibility', v: 'A platform that bends to your business, not the reverse.' },
-  { k: 'Lower long-term costs', v: 'Fewer third-party apps, less workaround debt.' },
-  { k: 'Enterprise-grade cloud', v: 'AWS infrastructure with real resilience built in.' },
-  { k: 'Ongoing improvements', v: 'A partnership, not a hand-off. We keep improving.' },
+  { k: 'Practical, not theoretical', v: 'We focus on technology that delivers measurable value — not the latest trend.' },
+  { k: 'Business-first approach', v: 'We start with your problems, not a solution looking for one.' },
+  { k: 'Vendor-independent', v: 'We recommend what\'s right for you — not what earns us commission.' },
+  { k: 'Enterprise-grade cloud', v: 'AWS infrastructure with real resilience, security and support built in.' },
+  { k: 'Ongoing partnership', v: 'A relationship, not a project. We stay and keep improving.' },
 ];
 
-const marqueeWords = ['Cloud-native', 'AI-assisted', 'Bespoke', 'Scalable', 'Secure', 'Fast', 'Enterprise-grade'];
-
 const stats = [
-  { v: '50+', l: 'Platforms delivered' },
-  { v: '99.99%', l: 'Average uptime' },
-  { v: '3×', l: 'Faster load times' },
-  { v: '40+', l: 'AWS certifications' },
+  { v: '100+', l: 'Technology reviews completed' },
+  { v: '99.99%', l: 'Average platform uptime' },
+  { v: '40%', l: 'Average productivity improvement' },
+  { v: '15+', l: 'Years cloud engineering experience' },
 ];
 
 const testimonials = [
-  { q: 'Next Foundry took us from a slow Shopify store to a blazing-fast custom platform. Our conversion rate jumped 34% in the first month.', a: 'CTO, Premium Home Goods', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80' },
-  { q: 'They don\'t just build and disappear. Two years on, they\'re still shipping improvements. Genuine partnership.', a: 'Founder, Artisan Coffee Co.', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80' },
-  { q: 'Our old platform needed six third-party apps to do what our custom build does natively. Costs halved, performance tripled.', a: 'Head of Digital, EcoWear', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80' },
+  { q: "Next Foundry helped us see where AI could actually make a difference — not just because it's trendy, but because it genuinely improved how we work.", a: 'CTO, Premium Home Goods', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80' },
+  { q: "They didn't try to sell us a rebuild. They showed us where our current platform was working and where it wasn't. That honesty built trust from day one.", a: 'Founder, Artisan Coffee Co.', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80' },
+  { q: "Our old platform needed six apps to do what our custom cloud-native system does natively. Costs halved, performance tripled, and our team can actually get work done.", a: 'Head of Digital, EcoWear', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80' },
 ];
 
 const trusted = [
@@ -106,9 +105,9 @@ const trusted = [
 ];
 
 const projects = [
-  { title: 'Premium Home Goods', tag: 'Ecommerce', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
-  { title: 'Artisan Coffee Co.', tag: 'Subscription platform', img: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80' },
-  { title: 'EcoWear', tag: 'Sustainable fashion', img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80' },
+  { title: 'Premium Home Goods', tag: 'AI Review & Platform Modernisation', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
+  { title: 'Artisan Coffee Co.', tag: 'Cloud Migration & Process Improvement', img: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80' },
+  { title: 'EcoWear', tag: 'Digital Platform Transformation', img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80' },
 ];
 
 function Section({ id, children, className = '' }) {
@@ -184,13 +183,13 @@ export default function HomePage() {
         <div className="absolute inset-0 grain opacity-60" />
         <Section className="relative z-10 py-24">
           <motion.p variants={fadeUp} initial="hidden" animate="show" className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/50 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            <motion.span className="relative h-1.5 w-1.5 rounded-full bg-primary" animate={{ scale: [1, 1.6, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} />  <span className="ember-text font-semibold">Next Foundry</span> — Cloud-Native Digital Platform Partners
+            <motion.span className="relative h-1.5 w-1.5 rounded-full bg-primary" animate={{ scale: [1, 1.6, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} />  <span className="ember-text font-semibold">Next Foundry</span> — Unlocking Practical Value
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1} className="max-w-[18ch] font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">
-            Outgrown templates.<br /><span className="ember-text">Build what's next.</span>
+            Technology should help your business grow.<br /><span className="ember-text">Not slow it down.</span>
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2} className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-             Growing businesses eventually reach the limits of off-the-shelf platforms.<br /><br />Next Foundry helps ambitious companies design, build and manage cloud-native digital platforms that are faster, more flexible and built around the way your business works—not the other way around.
+            Helping businesses unlock the practical value of AI, cloud and modern digital platforms.<br /><br />We help organisations identify opportunities to improve productivity, modernise technology and apply AI where it delivers real business value.
           </motion.p>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3} className="mt-9 flex flex-wrap items-center gap-4">
             <motion.a
@@ -205,35 +204,22 @@ export default function HomePage() {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Book a Discovery Call <ArrowRight className="h-4 w-4" />
+                Start a conversation <ArrowRight className="h-4 w-4" />
               </span>
             </motion.a>
             <a href="#services" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary">
-How We Work
+              What we do
             </a>
           </motion.div>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-8 max-w-[60ch] rounded-xl border-l-4 border-border bg-card px-6 py-6">
             <p className="text-base font-semibold leading-relaxed text-card-foreground">
-              Sometimes the best advice is to stay exactly where you are.
+              Not every business needs a full rebuild. Sometimes the smartest move is improving what you already have.
             </p>
             <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              If your current platform is the right fit for your business, we'll tell you. Our role is to help you make the right technology decision—not simply recommend a rebuild.
+              We start with your business problems, not a pitch. Our role is to help you make the right technology decisions — whether that's a full transformation or a series of practical improvements.
             </p>
           </motion.div>
         </Section>
-      </div>
-
-      {/* Marquee */}
-      <div className="border-y border-border/60 bg-secondary/30 py-4">
-        <div className="flex overflow-hidden">
-          <div className="flex shrink-0 animate-marquee items-center gap-8 pr-8">
-            {[...marqueeWords, ...marqueeWords].map((w, i) => (
-              <span key={i} className="flex items-center gap-8 whitespace-nowrap font-display text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                {w} <motion.span animate={{ rotate: [0, -5, 5, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}><Flame className="h-3.5 w-3.5 text-primary" /></motion.span>
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Stats */}
@@ -283,22 +269,21 @@ How We Work
         </Section>
       </div>
 
-      {/* Technology that grows */}
+      {/* Our approach */}
       <Section id="approach" className="py-24 md:py-32">
         <div className="grid items-center gap-14 md:grid-cols-2">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              <span className="ember-text font-bold">Next Foundry</span> — Technology that grows with you
+              <span className="ember-text font-bold">Next Foundry</span> — Our approach
             </p>
             <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-              Many growing businesses reach a point where their website no longer keeps pace with their ambitions.
+              We start with your business problems — not a solution looking for one.
             </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>You may be relying on dozens of third-party apps, battling performance issues, or finding that every new feature requires another workaround.</p>
-              <p>That's where <span className="text-foreground font-semibold">Next Foundry</span> comes in. We believe technology should enable growth — not limit it. That's why we build cloud-native platforms that are fast, secure, scalable and designed specifically for your business.</p>
+              <p>Too many technology engagements start with a predetermined answer. AI. Cloud migration. A new platform. But the right answer depends entirely on where your business is today.</p>
+              <p>That's why <span className="text-foreground font-semibold">Next Foundry</span> starts with understanding your business, your challenges and your goals. Only then do we identify the opportunities — whether that's applying AI to a specific workflow, migrating from a legacy platform, or rebuilding entirely.</p>
             </div>
           </motion.div>
-
         </div>
 
         <motion.div
@@ -310,7 +295,7 @@ How We Work
         >
           <div className="mb-6 text-center">
             <p className="text-sm font-semibold text-muted-foreground">
-              Many growing businesses struggle with:
+              Common signals that it's time to take stock:
             </p>
           </div>
           <motion.div
@@ -319,16 +304,16 @@ How We Work
             transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           >
             {[
-              'Too many plugins',
-              'Slow performance',
-              'Hard to make changes',
-              "Doesn't reflect your brand",
-              'Looking for a technology partner',
-              'Too many plugins',
-              'Slow performance',
-              'Hard to make changes',
-              "Doesn't reflect your brand",
-              'Looking for a technology partner',
+              'Technology feels like a bottleneck',
+              "Not sure if AI is actually useful",
+              'Too many tools that don\'t work together',
+              'Platform costs keep rising',
+              'Your team is spending time on manual work',
+              'Technology feels like a bottleneck',
+              "Not sure if AI is actually useful",
+              'Too many tools that don\'t work together',
+              'Platform costs keep rising',
+              'Your team is spending time on manual work',
             ].map((label, i) => (
               <div
                 key={i}
@@ -355,80 +340,72 @@ How We Work
           className="mt-16 grid gap-6 md:grid-cols-3"
         >
           <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
-            <h3 className="font-display text-lg font-bold text-foreground">Platform Engineering</h3>
+            <h3 className="font-display text-lg font-bold text-foreground">1. Discover & Assess</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Build digital platforms that reflect your business—not the limitations of a template.
+              We review your business processes, technology stack and goals to identify where improvements will have the greatest impact.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Bespoke websites
+                Technology audit
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Ecommerce
+                Process review
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Customer portals
+                AI opportunity identification
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Integrations
+                Roadmap creation
               </li>
             </ul>
           </div>
 
           <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
-            <h3 className="font-display text-lg font-bold text-foreground">Cloud Infrastructure</h3>
+            <h3 className="font-display text-lg font-bold text-foreground">2. Build & Modernise</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Enterprise-grade hosting and security designed to grow with your business.
+              Whether it's applying AI to a workflow, migrating to the cloud or rebuilding a platform, we deliver practical, measurable improvements.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                AWS
+                Cloud-native platforms
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Performance
+                AI integration
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Monitoring
+                Legacy migration
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Security
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Backups
+                Process automation
               </li>
             </ul>
           </div>
 
           <div className="flex flex-col rounded-xl border border-border bg-secondary p-6" style={{ borderColor: 'hsl(var(--primary))' }}>
-            <h3 className="font-display text-lg font-bold text-foreground">Continuous Evolution</h3>
+            <h3 className="font-display text-lg font-bold text-foreground">3. Evolve & Optimise</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Technology shouldn't stand still after launch.
+              Technology shouldn't stand still. We provide ongoing partnership to keep your platforms secure, fast and aligned with your business.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Feature development
+                Continuous improvement
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                AI enhancements
+                Performance monitoring
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Optimisation
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                SEO
+                Security management
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -439,7 +416,7 @@ How We Work
         </motion.div>
       </Section>
 
-      {/* Enterprise thinking */}
+      {/* Practical value */}
       <Section className="border-y border-border/60 bg-secondary/20 py-24 md:py-32">
         <div className="grid items-center gap-14 md:grid-cols-2">
           <motion.div
@@ -449,23 +426,20 @@ How We Work
             viewport={{ once: true, amount: 0.4 }}
           >
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              <span className="ember-text font-bold">Next Foundry</span> — Enterprise thinking
+              <span className="ember-text font-bold">Next Foundry</span> — Practical value
             </p>
             <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-              Built for growing businesses.
+              AI, cloud and modern platforms should make your business work better.
             </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
               <p>
-                Most web agencies focus on how your website looks.
+                There's no shortage of technology promises. But the question that matters is simple: does this actually help your business?
               </p>
               <p>
-                We focus on how your platform performs, scales and evolves.
+                Our background is in enterprise cloud engineering, AI-assisted development and service management. We bring the disciplines used by large organisations and apply them pragmatically to businesses that want to work smarter.
               </p>
               <p>
-                Our background is in enterprise technology, cloud architecture and service management—bringing the disciplines used by large organisations to ambitious growing businesses.
-              </p>
-              <p>
-                That means we don't just launch websites.
+                We don't sell technology for its own sake. We sell better ways of working.
               </p>
             </div>
           </motion.div>
@@ -476,10 +450,10 @@ How We Work
             viewport={{ once: true, amount: 0.3 }}
           >
             <p className="mb-6 font-display text-2xl font-bold leading-tight text-foreground md:text-3xl">
-              We build digital platforms that are:
+              The practical value we deliver:
             </p>
             <ul className="space-y-4">
-              {['Fast', 'Secure', 'Scalable', 'Easy to evolve', 'Designed for long-term growth'].map((item, i) => (
+              {['Improved productivity', 'Reduced technology costs', 'Faster time to market', 'Better customer experiences', 'Long-term maintainability'].map((item, i) => (
                 <motion.li
                   key={item}
                   initial={{ opacity: 0, x: -20 }}
@@ -511,10 +485,10 @@ How We Work
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
           {[
-            { icon: Zap, label: 'Fast', desc: 'Lightning-fast performance that keeps your customers happy and your conversions high.' },
-            { icon: ShieldCheck, label: 'Secure', desc: 'Enterprise-grade security built into every layer of your platform.' },
-            { icon: Layers, label: 'Scalable', desc: 'Infrastructure that grows effortlessly alongside your business.' },
-            { icon: RefreshCw, label: 'Evolve', desc: 'Continuous improvement so your platform never falls behind.' },
+            { icon: Brain, label: 'AI that works', desc: 'Practical AI applied to real business problems — not technology looking for a use case.' },
+            { icon: Cloud, label: 'Cloud-native', desc: 'Enterprise-grade infrastructure that scales with your business without locking you in.' },
+            { icon: Zap, label: 'Fast & efficient', desc: 'Modern platforms that perform, convert and don\'t waste your team\'s time.' },
+            { icon: RefreshCw, label: 'Built to evolve', desc: 'Technology that improves continuously rather than requiring periodic rebuilds.' },
           ].map((item, i) => {
             const Icon = item.icon;
             return (
@@ -537,7 +511,7 @@ How We Work
         </motion.div>
       </Section>
 
-      {/* Technology enables growth */}
+      {/* Helping businesses work smarter */}
       <Section className="py-24 md:py-32">
         <motion.div
           variants={fadeUp}
@@ -547,31 +521,31 @@ How We Work
           className="max-w-[58rem]"
         >
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            <span className="ember-text font-bold">Next Foundry</span> — Technology that accelerates
+            <span className="ember-text font-bold">Next Foundry</span> — Helping businesses work smarter
           </p>
           <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-            Technology should accelerate growth.<br />
-            <span className="text-muted-foreground">Not become another problem to manage.</span>
+            The right technology, applied in the right places,<br />
+            <span className="text-muted-foreground">transforms how your business operates.</span>
           </h2>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>
-              At Next Foundry, we combine enterprise cloud engineering, AI-assisted software development and modern design to build digital platforms that evolve alongside your business.
+              At Next Foundry, we combine enterprise cloud engineering, AI-assisted development and practical business thinking to help organisations get more from their technology.
             </p>
             <p>
-              Whether you're modernising an ecommerce platform, replacing a legacy website or building something entirely new, our focus is always the same:
+              Whether that's reviewing your business processes, migrating from legacy platforms or building cloud-native solutions, our focus is always the same:
             </p>
           </div>
           <p className="mt-6 text-xl font-semibold leading-relaxed text-foreground">
-            Technology that enables growth—not technology that holds it back.
+            Helping businesses work smarter.
           </p>
 
           <div className="mt-14 grid grid-cols-5 gap-0">
             {[
-              { step: 'Discover', delay: 0 },
-              { step: 'Design', delay: 0.15 },
+              { step: 'Understand', delay: 0 },
+              { step: 'Identify', delay: 0.15 },
               { step: 'Build', delay: 0.3 },
               { step: 'Launch', delay: 0.45 },
-              { step: 'Continuous Improvement', delay: 0.6 },
+              { step: 'Improve', delay: 0.6 },
             ].map((item, i) => (
               <motion.div
                 key={item.step}
@@ -593,6 +567,7 @@ How We Work
           </div>
         </motion.div>
       </Section>
+
       {/* A different approach */}
       <div className="relative overflow-hidden border-y border-border/60 bg-secondary/20">
         <GridPattern />
@@ -603,13 +578,13 @@ How We Work
               <span className="ember-text font-bold">Next Foundry</span> — A different approach
             </p>
             <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.5 }} className="font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
-              Traditional agencies charge large upfront fees before you see any value. <span className="ember-text">Next Foundry</span> builds long-term partnerships instead.
+              Many technology consultancies sell you a solution first. <span className="ember-text">We start with your problem.</span>
             </motion.h2>
             <div className="mt-8 grid gap-6 text-lg leading-relaxed text-muted-foreground md:grid-cols-2">
-              <p>Using modern AI-assisted development and cloud technologies, <span className="text-foreground font-semibold">Next Foundry</span> delivers bespoke digital platforms more efficiently than ever before. Instead of one-off projects, we continuously improve your platform as your business evolves.</p>
+              <p>We believe the best technology decisions start with understanding your business — not with a pitch deck. That's why our engagements often begin with a discovery phase that helps us understand where the real opportunities lie.</p>
               <p className="font-display text-2xl font-semibold leading-snug text-foreground">
-                We don't disappear after launch.<br />
-                <span className="ember-text">We become part of your team.</span>
+                We don't sell technology for its own sake.<br />
+                <span className="ember-text">We sell better ways of working.</span>
               </p>
             </div>
           </div>
@@ -621,7 +596,7 @@ How We Work
         <div className="mb-14 max-w-[42rem]">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">What we do</p>
           <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-            Everything your platform needs — designed, built and managed under one roof.
+            Practical technology services that help your business work smarter.
           </h2>
         </div>
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
@@ -654,7 +629,7 @@ How We Work
         <div className="mb-14 max-w-[42rem]">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Recent work</p>
           <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-            Platforms we've built for ambitious businesses.
+            Practical improvements that made a real difference.
           </h2>
         </div>
         <div className="grid gap-8 md:grid-cols-3">
@@ -716,13 +691,13 @@ How We Work
         </Section>
       </div>
 
-      {/* Built for ambitious businesses */}
+      {/* Who this is for */}
       <Section id="fit" className="py-24 md:py-32">
         <div className="grid gap-14 md:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Built for ambitious businesses</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Who this is for</p>
             <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-              We're a great fit if you're...
+              You might be a good fit if you're...
             </h2>
           </div>
           <ul className="divide-y divide-border border-t border-border">
@@ -749,10 +724,10 @@ How We Work
           <div className="mb-14 max-w-[46rem]">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Why Next Foundry</p>
             <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-              Enterprise technology experience, delivered with modern AI-assisted development.
+              Enterprise experience, practical delivery, long-term thinking.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Our focus isn't simply building websites. It's building digital platforms that help businesses grow with confidence.
+              Our focus isn't selling technology. It's helping businesses work smarter with the right technology, applied in the right places.
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -790,10 +765,10 @@ How We Work
           <div className="relative z-10 mx-auto max-w-[46rem]">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Let's talk</p>
             <h2 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
-              The best technology decisions start with understanding your business.
+              Not sure whether you need AI, a new platform or just a fresh perspective?
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Wondering whether your current platform is still the right fit? We'd be happy to have an honest conversation. Sometimes the answer is to stay exactly where you are — and if there's a better path forward, we'll help you understand your options, without pressure or jargon.
+              We'd be happy to have an honest conversation. Sometimes the right answer is improving what you already have — and if there's a better path forward, we'll help you understand your options without pressure or jargon.
             </p>
             <a href="mailto:hello@nextfoundry.com" className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 active:scale-[0.98]">
               hello@nextfoundry.com <ArrowUpRight className="h-4 w-4" />
@@ -807,7 +782,7 @@ How We Work
         <Section className="flex flex-col items-start justify-between gap-6 py-10 md:flex-row md:items-center">
           <Logo size="sm" />
           <p className="text-sm text-muted-foreground">
-            Bespoke digital platforms · Cloud-native · AI-assisted
+            Practical AI · Cloud-native · Helping businesses work smarter
           </p>
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Next Foundry. All rights reserved.</p>
         </Section>
