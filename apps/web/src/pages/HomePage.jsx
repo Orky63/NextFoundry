@@ -68,12 +68,6 @@ const testimonials = [
   { q: "Our old platform needed six apps to do what our custom cloud-native system does natively. Costs halved, performance tripled, and our team can actually get work done.", a: 'Head of Digital, EcoWear', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80' },
 ];
 
-const projects = [
-  { title: 'Premium Home Goods', tag: 'AI Review & Platform Modernisation', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
-  { title: 'Artisan Coffee Co.', tag: 'Cloud Migration & Process Improvement', img: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80' },
-  { title: 'EcoWear', tag: 'Digital Platform Transformation', img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80' },
-];
-
 function Section({ id, children, className = '' }) {
   return (
     <section id={id} className={`relative mx-auto w-full max-w-[72rem] px-6 ${className}`}>
@@ -536,39 +530,6 @@ export default function HomePage() {
               <s.icon className="mb-5 h-6 w-6 text-primary" strokeWidth={1.8} />
               <h3 className="font-display text-lg font-semibold leading-snug">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Recent work */}
-      <Section className="py-24 md:py-32">
-        <div className="mb-14 max-w-[42rem]">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Recent work</p>
-          <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-            Practical improvements that made a real difference.
-          </h2>
-        </div>
-        <div className="grid gap-8 md:grid-cols-3">
-          {projects.map((p, i) => (
-            <motion.div
-              key={p.title}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              custom={i}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card"
-              whileHover={{ y: -8 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              </div>
-              <div className="p-5">
-                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-primary">{p.tag}</span>
-                <h3 className="mt-1 font-display text-lg font-bold">{p.title}</h3>
-              </div>
             </motion.div>
           ))}
         </div>
