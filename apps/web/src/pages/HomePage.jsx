@@ -72,7 +72,9 @@ export default function HomePage() {
   const headerBg = useScrollBackground();
 
   return (
-    <div className="min-h-screen bg-background text-foreground antialiased">
+    <div className="relative min-h-screen bg-background text-foreground antialiased">
+      <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
+      <div className="relative z-0">
       {/* Header */}
       <motion.header style={{ '--header-bg': headerBg }} className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md [background:var(--header-bg)]">
         <div className="mx-auto flex h-16 max-w-[72rem] items-center justify-between px-6">
@@ -84,9 +86,15 @@ export default function HomePage() {
               </a>
             ))}
           </nav>
-          <a href="#talk" className="hidden items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-px active:scale-[0.98] md:inline-flex">
-            Let's talk <ArrowRight className="h-4 w-4" />
-          </a>
+          <motion.a
+            href="#talk"
+            className="hidden text-xl font-semibold md:inline"
+            style={{ color: 'hsl(24 100% 62%)' }}
+            animate={{ opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            Let's talk
+          </motion.a>
           <button onClick={() => setOpen((v) => !v)} className="grid h-10 w-10 place-items-center rounded-md border border-border md:hidden" aria-label="Menu">
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -97,9 +105,16 @@ export default function HomePage() {
               {nav.map((n) => (
                 <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-base text-muted-foreground">{n.label}</a>
               ))}
-              <a href="#talk" onClick={() => setOpen(false)} className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-                Let's talk <ArrowRight className="h-4 w-4" />
-              </a>
+              <motion.a
+                href="#talk"
+                onClick={() => setOpen(false)}
+                className="mt-2 inline-flex text-2xl font-semibold"
+                style={{ color: 'hsl(24 100% 62%)' }}
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                Let's talk <ArrowRight className="ml-1 h-4 w-4" />
+              </motion.a>
             </div>
           </div>
         )}
@@ -134,17 +149,24 @@ export default function HomePage() {
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-9 flex flex-wrap items-center gap-4">
             <motion.a
               href="#talk"
-              className="relative inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground"
-              whileHover={{ scale: 1.03 }}
+              className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
+              animate={{ scale: [1, 1.04, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.97 }}
             >
               <motion.span
                 className="absolute inset-0 rounded-full bg-primary"
-                animate={{ boxShadow: ['0 0 0 0 hsl(24 92% 56% / 0.4)', '0 0 0 12px hsl(24 92% 56% / 0)'] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                animate={{
+                  boxShadow: [
+                    '0 0 0 0 hsl(24 92% 56% / 0.5)',
+                    '0 0 0 20px hsl(24 92% 56% / 0)',
+                  ],
+                }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Book a Business Review <ArrowRight className="h-4 w-4" />
+                Book a Business Review <ArrowRight className="h-5 w-5" />
               </span>
             </motion.a>
           </motion.div>
@@ -186,7 +208,7 @@ export default function HomePage() {
       </div>
 
       {/* Familiar */}
-      <Section id="approach" className="py-24 md:py-32">
+      <Section id="approach" className="py-24 md:py-32 bg-secondary/20">
         <div className="mb-12 border-t border-border/40 pt-12 text-center">
           <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">Does any of this sound familiar?</span>
@@ -328,7 +350,7 @@ export default function HomePage() {
       </div>
 
       {/* What happens next */}
-      <Section className="py-24 md:py-32">
+      <Section className="py-24 md:py-32 bg-secondary/20">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
           <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">What happens next?</p>
           <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
@@ -376,7 +398,7 @@ export default function HomePage() {
       </Section>
 
       {/* How we help */}
-      <Section className="py-24 md:py-32">
+      <Section className="py-24 md:py-32 bg-secondary/20">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
           <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">How we help</p>
           <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
@@ -419,7 +441,7 @@ export default function HomePage() {
       </Section>
 
       {/* What we do */}
-      <Section id="services" className="py-24 md:py-32">
+      <Section id="services" className="py-24 md:py-32 bg-secondary/20">
         <div className="mb-14 max-w-[42rem]">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">What we do</p>
           <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
@@ -576,11 +598,25 @@ export default function HomePage() {
             </p>
             <motion.a
               href="mailto:hello@nextfoundry.com"
-              className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
-              whileHover={{ scale: 1.03 }}
+              className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
+              animate={{ scale: [1, 1.04, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.97 }}
             >
-              Book your Business &amp; Technology Review <ArrowRight className="h-4 w-4" />
+              <motion.span
+                className="absolute inset-0 rounded-full bg-primary"
+                animate={{
+                  boxShadow: [
+                    '0 0 0 0 hsl(24 92% 56% / 0.5)',
+                    '0 0 0 20px hsl(24 92% 56% / 0)',
+                  ],
+                }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+              />
+              <span className="relative z-10 flex items-center gap-2">
+                Book your Business &amp; Technology Review <ArrowRight className="h-5 w-5" />
+              </span>
             </motion.a>
           </div>
         </motion.div>
@@ -596,6 +632,7 @@ export default function HomePage() {
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Next Foundry. All rights reserved.</p>
         </Section>
       </footer>
+      </div>
     </div>
   );
 }
