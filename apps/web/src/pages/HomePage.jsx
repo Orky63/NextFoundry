@@ -585,11 +585,25 @@ export default function HomePage() {
             </p>
             <motion.a
               href="mailto:hello@nextfoundry.com"
-              className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
-              whileHover={{ scale: 1.03 }}
+              className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
+              animate={{ scale: [1, 1.04, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.97 }}
             >
-              Book your Business &amp; Technology Review <ArrowRight className="h-4 w-4" />
+              <motion.span
+                className="absolute inset-0 rounded-full bg-primary"
+                animate={{
+                  boxShadow: [
+                    '0 0 0 0 hsl(24 92% 56% / 0.5)',
+                    '0 0 0 20px hsl(24 92% 56% / 0)',
+                  ],
+                }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+              />
+              <span className="relative z-10 flex items-center gap-2">
+                Book your Business &amp; Technology Review <ArrowRight className="h-5 w-5" />
+              </span>
             </motion.a>
           </div>
         </motion.div>
