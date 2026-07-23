@@ -86,9 +86,15 @@ export default function HomePage() {
               </a>
             ))}
           </nav>
-          <a href="#talk" className="hidden items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-px active:scale-[0.98] md:inline-flex">
-            Let's talk <ArrowRight className="h-4 w-4" />
-          </a>
+          <motion.a
+            href="#talk"
+            className="hidden text-xl font-semibold md:inline"
+            style={{ color: 'hsl(24 100% 62%)' }}
+            animate={{ opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            Let's talk
+          </motion.a>
           <button onClick={() => setOpen((v) => !v)} className="grid h-10 w-10 place-items-center rounded-md border border-border md:hidden" aria-label="Menu">
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -99,9 +105,16 @@ export default function HomePage() {
               {nav.map((n) => (
                 <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-base text-muted-foreground">{n.label}</a>
               ))}
-              <a href="#talk" onClick={() => setOpen(false)} className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-                Let's talk <ArrowRight className="h-4 w-4" />
-              </a>
+              <motion.a
+                href="#talk"
+                onClick={() => setOpen(false)}
+                className="mt-2 inline-flex text-2xl font-semibold"
+                style={{ color: 'hsl(24 100% 62%)' }}
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                Let's talk <ArrowRight className="ml-1 h-4 w-4" />
+              </motion.a>
             </div>
           </div>
         )}
