@@ -1,6 +1,6 @@
 name: Deploy
 
-on:amending name 
+on:
   pull_request:
     branches: [main]
   push:
@@ -53,6 +53,4 @@ jobs:
           terraform init
           terraform apply -auto-approve
 
-      - run: |
-          cd infra
-          terraform apply -auto-approve
+      
