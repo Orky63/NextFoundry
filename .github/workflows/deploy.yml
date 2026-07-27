@@ -1,6 +1,6 @@
-actionsname: Deploy
+name: Deploy
 
-on:
+on:amending name 
   pull_request:
     branches: [main]
   push:
