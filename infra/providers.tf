@@ -8,12 +8,21 @@ terraform {
     }
   }
 
-  # Uncomment and configure after creating the state bucket:
-  # backend "s3" {
-  #   bucket = "nextfoundry-terraform-state"
-  #   key    = "infra/terraform.tfstate"
-  #   region = "us-east-1"
-  # }
+  terraform {
+  required_version = ">= 1.0"
+
+  backend "s3" {
+    bucket = "nextfoundry-terraform-state-387344700059"
+    key    = "infra/terraform.tfstate"
+    region = "us-east-1"
+  }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0"
+    }
+  }
 }
 
 provider "aws" {
