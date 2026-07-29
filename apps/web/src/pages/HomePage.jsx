@@ -553,13 +553,38 @@ export default function HomePage() {
           <div className="relative z-10 mx-auto max-w-[48rem]">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Founding Partner Programme</p>
             <h2 className="font-display text-3xl font-extrabold leading-[1.05] tracking-tight md:text-4xl">
-              We're working with a small number of ambitious businesses to refine our Business &amp; Technology Review.
+              Become one of our Founding Partners.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Each participating organisation receives a full technology review, AI opportunity assessment and business roadmap.
+              As a Founding Partner, you'll receive the same strategic review we'll offer future clients.
             </p>
-            <p className="mt-4 text-base font-semibold text-foreground">
-              In return, we ask only for honest feedback.
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              Together we'll identify:
+            </p>
+            <ul className="mt-6 space-y-2 text-left text-base leading-relaxed text-muted-foreground">
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                Where your business is losing time
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                Where AI can genuinely help
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                Which technology is worth keeping
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                Which investments you should avoid
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                A prioritised roadmap for improvement
+              </li>
+            </ul>
+            <p className="mt-8 text-base font-semibold text-foreground">
+              All we ask in return is honest feedback.
             </p>
           </div>
         </motion.div>
