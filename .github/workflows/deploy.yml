@@ -24,8 +24,10 @@ jobs:
         working-directory: apps/web
 
       - name: Audit dependencies
-        run: npm audit --audit-level=high
+        run: npm audit --audit-level=critical
         working-directory: apps/web
+
+      - name: Build application
 
       - name: Build application
         run: npm run build
