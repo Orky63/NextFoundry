@@ -603,7 +603,7 @@ export default function HomePage() {
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Book your Business &amp; Technology Review <ArrowRight className="h-5 w-5" />
+                Book your free Technology Review <ArrowRight className="h-5 w-5" />
               </span>
             </motion.a>
           </div>
