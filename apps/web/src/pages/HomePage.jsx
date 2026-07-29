@@ -626,7 +626,7 @@ export default function HomePage() {
         <Section className="flex flex-col items-start justify-between gap-6 py-10 md:flex-row md:items-center">
           <Logo size="sm" />
           <p className="text-sm text-muted-foreground">
-            Practical AI · Cloud-native · Helping businesses work smarter
+              Practical AI · Cloud-native · PR Demo
           </p>
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Next Foundry. All rights reserved.</p>
         </Section>
