@@ -610,6 +610,35 @@ export default function HomePage() {
         </motion.div>
       </Section>
 
+      {/* Logos */}
+      <Section className="py-16 md:py-20">
+        <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mb-10 text-center text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          Experience across
+        </motion.p>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+          <span className="flex items-center gap-2 text-muted-foreground">
+            <svg className="h-7 w-auto" viewBox="0 0 48 48" fill="none"><path d="M12 4l-8 8v24l8 8h24l8-8V12l-8-8H12z" fill="#FF9900"/><path d="M18 20l6-8 6 8v8l-6 8-6-8v-8z" fill="#fff"/></svg>
+            <span className="text-xs font-semibold uppercase tracking-wider">AWS</span>
+          </span>
+          <span className="flex items-center gap-2 text-muted-foreground">
+            <svg className="h-7 w-auto" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#333"/><path d="M24 12c-6.627 0-12 5.163-12 11.533 0 5.095 3.434 9.411 8.2 10.936.6.106.82-.25.82-.556 0-.275-.01-1.005-.016-1.972-3.338.693-4.042-1.547-4.042-1.547-.546-1.33-1.332-1.684-1.332-1.684-1.089-.715.082-.7.082-.7 1.204.08 1.838 1.188 1.838 1.188 1.07 1.76 2.81 1.252 3.495.957.108-.744.418-1.252.762-1.54-2.664-.29-5.466-1.28-5.466-5.696 0-1.258.466-2.287 1.232-3.094-.123-.292-.534-1.463.116-3.05 0 0 1.005-.31 3.292 1.182.954-.255 1.977-.382 2.994-.386 1.018.004 2.041.131 2.997.386 2.285-1.492 3.288-1.182 3.288-1.182.652 1.587.241 2.758.118 3.05.768.807 1.23 1.836 1.23 3.094 0 4.428-2.807 5.403-5.48 5.689.43.358.814 1.062.814 2.14 0 1.546-.014 2.792-.014 3.17 0 .309.216.667.828.554 4.762-1.528 8.19-5.842 8.19-10.935C36 17.163 30.627 12 24 12z" fill="#fff"/></svg>
+            <span className="text-xs font-semibold uppercase tracking-wider">GitHub</span>
+          </span>
+          <span className="flex items-center gap-2 text-muted-foreground">
+            <svg className="h-7 w-auto" viewBox="0 0 48 24" fill="none"><rect width="48" height="24" rx="3" fill="#005EB8"/><text x="24" y="16" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="bold" fontFamily="Arial">NHS</text></svg>
+            <span className="text-xs font-semibold uppercase tracking-wider">NHS</span>
+          </span>
+          <span className="flex items-center gap-2 text-muted-foreground">
+            <svg className="h-7 w-auto" viewBox="0 0 48 48" fill="none"><path d="M24 4L44 16v16L24 44 4 32V16L24 4z" fill="#7C42FF"/><path d="M24 12l10 6v12l-10 6-10-6V18l10-6z" fill="#fff"/></svg>
+            <span className="text-xs font-semibold uppercase tracking-wider">Terraform</span>
+          </span>
+          <span className="flex items-center gap-2 text-muted-foreground">
+            <svg className="h-7 w-auto" viewBox="0 0 48 48" fill="none"><path d="M36 28c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12 12 5.373 12 12z" fill="#888"/><path d="M24 18c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm-8 10c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8-8-3.582-8-8z" fill="#555"/></svg>
+            <span className="text-xs font-semibold uppercase tracking-wider">Cloud</span>
+          </span>
+        </motion.div>
+      </Section>
+
       {/* Footer */}
       <footer className="border-t border-border/60">
         <Section className="flex flex-col items-start justify-between gap-6 py-10 md:flex-row md:items-center">
