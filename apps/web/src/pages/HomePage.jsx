@@ -468,17 +468,18 @@ export default function HomePage() {
       <div id="why" className="border-y border-border/60 bg-secondary/20">
         <Section className="py-24 md:py-32">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
-            <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">Why clients work with us</p>
+            <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">Why even bother contacting us</p>
             <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
           </motion.div>
 
           <div className="mx-auto grid max-w-[40rem] gap-6">
             {[
-              { t: 'Business-first thinking', d: 'We start with your problems and goals, not a solution looking for one.' },
-              { t: 'Enterprise technology experience', d: 'Decades of cloud engineering and service management at the highest level.' },
-              { t: 'Independent advice', d: 'We recommend what\'s right for you — not what earns us commission.' },
-              { t: 'Practical recommendations', d: 'Clear, actionable advice you can implement with confidence.' },
-              { t: 'Long-term partnerships', d: 'A relationship, not a project. We stay and keep improving.' },
+              { t: '25+ years enterprise technology experience', d: 'Decades of hands-on engineering and leadership across the public and private sectors.' },
+              { t: 'NHS digital leadership', d: 'Experience delivering technology strategy and platforms at a national health service scale.' },
+              { t: 'AWS certified', d: 'Validated expertise in cloud architecture, migration and modernisation on AWS.' },
+              { t: 'Cloud engineering expertise', d: 'Deep knowledge of cloud-native platforms, infrastructure-as-code and DevOps.' },
+              { t: 'AI implementation', d: 'Practical AI deployment — not theory, but real systems delivering measurable outcomes.' },
+              { t: 'Worked with organisations supporting thousands of staff', d: 'Enterprise-grade thinking, applied to businesses of every size.' },
             ].map((item, i) => (
               <motion.div
                 key={item.t}
