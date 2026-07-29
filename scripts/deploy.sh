@@ -7,7 +7,7 @@ INFRA_DIR="$PROJECT_DIR/infra"
 
 echo "=== Building app ==="
 cd "$PROJECT_DIR/apps/web"
-npm run build
+pnpm run build
 
 echo ""
 echo "=== Initializing Terraform ==="

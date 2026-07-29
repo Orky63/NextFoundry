@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npm run dev --prefix apps/web",
-    "build": "npm run build --prefix apps/web",
-    "preview": "npm run preview --prefix apps/web"
+    "dev": "pnpm run dev --prefix apps/web",
+    "build": "pnpm run build --prefix apps/web",
+    "preview": "pnpm run preview --prefix apps/web"
   }
 }
