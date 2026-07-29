@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowRight, ArrowUpRight, Menu, X, Cloud, Gauge, Search, ShieldCheck,
-  MoveRight, LifeBuoy, Layers, Quote,
+  MoveRight, LifeBuoy, Layers,
   Brain, Lightbulb,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
@@ -27,12 +27,6 @@ const nav = [
   { label: 'Why us', href: '#why' },
 ];
 
-const testimonials = [
-  { q: "Next Foundry helped us see where AI could actually make a difference — not just because it's trendy, but because it genuinely improved how we work.", a: 'CTO, Premium Home Goods', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80' },
-  { q: "They didn't try to sell us a rebuild. They showed us where our current platform was working and where it wasn't. That honesty built trust from day one.", a: 'Founder, Artisan Coffee Co.', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80' },
-  { q: "Our old platform needed six apps to do what our custom cloud-native system does natively. Costs halved, performance tripled, and our team can actually get work done.", a: 'Head of Digital, EcoWear', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80' },
-];
-
 const services = [
   { icon: Brain, title: 'AI Opportunity Review', desc: 'Identify where AI can drive real productivity gains in your business — no hype, just practical applications.' },
   { icon: Cloud, title: 'Cloud Platform Engineering', desc: 'Cloud-native platforms designed for scale, security and long-term maintainability.' },
@@ -44,8 +38,6 @@ const services = [
   { icon: Layers, title: 'Ongoing Platform Evolution', desc: 'Continuous improvement that keeps your technology aligned with your business goals.' },
   { icon: LifeBuoy, title: 'Technology Partnership', desc: "We become part of your team — not an external agency you have to manage." },
 ];
-
-
 
 function Section({ id, children, className = '' }) {
   return (
@@ -474,39 +466,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Testimonials */}
-      <div className="border-y border-border/60 bg-gradient-to-br from-secondary/20 to-background">
-        <Section className="py-24 md:py-32">
-          <div className="mb-14 max-w-[42rem]">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">What our clients say</p>
-            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-              Real results from real partnerships.
-            </h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.a}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
-                custom={i}
-                className="relative flex flex-col rounded-2xl border border-border bg-card p-7"
-              >
-                <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}>
-                  <Quote className="mb-4 h-6 w-6 text-primary/30" strokeWidth={1.5} />
-                </motion.div>
-                <p className="flex-1 text-sm leading-relaxed text-foreground/85">{t.q}</p>
-                <div className="mt-5 flex items-center gap-3">
-                  <img src={t.img} alt="" className="h-8 w-8 rounded-full object-cover ring-2 ring-border" />
-                  <p className="text-xs font-medium text-muted-foreground">— {t.a}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </Section>
-      </div>
 
       {/* Why clients work with us */}
       <div id="why" className="border-y border-border/60 bg-secondary/20">
