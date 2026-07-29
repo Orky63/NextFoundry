@@ -23,8 +23,8 @@ const fadeUp = {
 const nav = [
   { label: 'Approach', href: '#approach' },
   { label: 'Services', href: '#services' },
-
   { label: 'Why us', href: '#why' },
+  { label: 'Meet the founder', href: '/founder' },
 ];
 
 const services = [
@@ -506,6 +506,38 @@ export default function HomePage() {
           </div>
         </Section>
       </div>
+
+      {/* Testimonials */}
+      <Section className="py-24 md:py-32">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
+          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">What clients say</p>
+          <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+        </motion.div>
+
+        <div className="mx-auto grid max-w-[40rem] gap-8">
+          {[
+            { q: 'Next Foundry identified three workflow improvements we implemented within two weeks.' },
+            { q: 'Saved us building an entire website unnecessarily.' },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={i}
+              className="rounded-xl border border-border bg-card p-8"
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <svg className="mb-4 h-6 w-6 text-primary/60" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <p className="text-base leading-relaxed text-foreground italic">&ldquo;{item.q}&rdquo;</p>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
 
       {/* Founding Partner Programme */}
       <Section className="py-24 md:py-32">
