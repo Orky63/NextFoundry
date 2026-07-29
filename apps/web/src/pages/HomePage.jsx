@@ -130,8 +130,8 @@ export default function HomePage() {
             <motion.span className="relative h-1.5 w-1.5 rounded-full bg-primary" animate={{ scale: [1, 1.6, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} />  <span className="ember-text font-semibold">NEXT FOUNDRY</span>
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1} className="max-w-[18ch] font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">
-            Helping businesses work smarter<br />
-            <span className="ember-text">with AI, cloud and modern technology.</span>
+            We help growing businesses remove friction,<br />
+            <span className="ember-text">reduce costs and use technology properly.</span>
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2} className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
             We don't start by selling software.<br /><br />We start by understanding your business.
