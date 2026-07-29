@@ -134,10 +134,7 @@ export default function HomePage() {
             <span className="ember-text">reduce costs and use technology properly.</span>
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2} className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-            We don't start by selling software.<br /><br />We start by understanding your business.
-          </motion.p>
-          <motion.p variants={fadeUp} initial="hidden" animate="show" custom={3} className="mt-6 max-w-[52ch] text-base leading-relaxed text-muted-foreground">
-            Our Business &amp; Technology Review identifies where technology can genuinely improve productivity, customer experience and profitability.
+            Most businesses already own the technology they need.<br /><br />They simply aren't getting the best from it.<br /><br />We identify where AI, cloud and process improvement can genuinely increase productivity and profitability.
           </motion.p>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-9 flex flex-wrap items-center gap-4">
             <motion.a
