@@ -80,7 +80,7 @@ export default function HomePage() {
             ))}
           </nav>
           <motion.a
-            href="#talk"
+            href="/contact"
             className="hidden text-xl font-semibold md:inline"
             style={{ color: 'hsl(24 100% 62%)' }}
             animate={{ opacity: [0.6, 1, 0.6] }}
@@ -99,7 +99,7 @@ export default function HomePage() {
                 <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-base text-muted-foreground">{n.label}</a>
               ))}
               <motion.a
-                href="#talk"
+                href="/contact"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex text-2xl font-semibold"
                 style={{ color: 'hsl(24 100% 62%)' }}

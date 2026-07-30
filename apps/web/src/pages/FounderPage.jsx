@@ -78,7 +78,7 @@ export default function FounderPage() {
 
             <motion.div variants={fadeUp} initial="hidden" animate="show" custom={6} className="mt-6">
               <Link
-                to="/#talk"
+                to="/contact"
                 className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
               >
                 Let's talk
