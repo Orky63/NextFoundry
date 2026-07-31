@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowRight, ArrowUpRight, Menu, X, Cloud, Gauge, Search, ShieldCheck,
@@ -6,6 +7,8 @@ import {
   Brain, Lightbulb,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
+
+const MotionLink = motion.create(Link);
 
 function useScrollBackground() {
   const { scrollY } = useScroll();
@@ -79,16 +82,15 @@ export default function HomePage() {
               </a>
             ))}
           </nav>
-          <motion.a
-            href="/contact"
+          <MotionLink
+            to="/contact"
             className="hidden text-xl font-semibold md:inline"
             style={{ color: 'hsl(24 100% 62%)' }}
             animate={{ opacity: [0.6, 1, 0.6] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           >
             Let's talk
-          </motion.a>
-          <button onClick={() => setOpen((v) => !v)} className="grid h-10 w-10 place-items-center rounded-md border border-border md:hidden" aria-label="Menu">
+          </MotionLink>          <button onClick={() => setOpen((v) => !v)} className="grid h-10 w-10 place-items-center rounded-md border border-border md:hidden" aria-label="Menu">
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
@@ -98,8 +100,8 @@ export default function HomePage() {
               {nav.map((n) => (
                 <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-base text-muted-foreground">{n.label}</a>
               ))}
-              <motion.a
-                href="/contact"
+              <MotionLink
+                to="/contact"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex text-2xl font-semibold"
                 style={{ color: 'hsl(24 100% 62%)' }}
@@ -107,7 +109,7 @@ export default function HomePage() {
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               >
                 Let's talk <ArrowRight className="ml-1 h-4 w-4" />
-              </motion.a>
+              </MotionLink>
             </div>
           </div>
         )}
