@@ -64,7 +64,7 @@ export default function ContactPage() {
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</p>
-                  <a href="mailto:andy.hopla@outlook.com" className="text-lg font-semibold text-foreground transition-colors hover:text-primary">andy.hopla@outlook.com</a>
+                  <a href="mailto:andy.hopla4@outlook.com" className="text-lg font-semibold text-foreground transition-colors hover:text-primary">andy.hopla4@outlook.com</a>
                 </div>
               </div>
 
