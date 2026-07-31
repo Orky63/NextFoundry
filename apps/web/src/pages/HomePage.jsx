@@ -612,7 +612,7 @@ export default function HomePage() {
               Let's find out together.
             </p>
             <motion.a
-              href="mailto:hello@nextfoundry.com"
+              href="mailto:andy.hopla4@outlook.com"
               className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
               animate={{ scale: [1, 1.04, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
