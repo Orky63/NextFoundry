@@ -76,8 +76,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Deploy Terraform
+      - name: Deploy Terraform 
+        working-directory: infra
+
         run: |
-          cd infra
           terraform init
           terraform apply -auto-approve
+      - name: Upload website to S3
+        run: |
+          aws s3 sync apps/web/dist s3://nextfoundry.co.uk --delete --region eu-west-2
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E2YL68ORAJN6JV \
+            --paths "/*"
