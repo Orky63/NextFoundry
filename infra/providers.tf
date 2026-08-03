@@ -18,3 +18,8 @@ terraform {
 provider "aws" {
   region = var.aws_region
 }
+
+provider "aws" {
+  alias  = "eu_west_2"
+  region = "eu-west-2"
+}

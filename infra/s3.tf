@@ -39,6 +39,68 @@ data "aws_iam_policy_document" "cloudfront_oac" {
   }
 }
 
+resource "aws_s3_bucket" "logs" {
+  bucket = "${var.project_name}-${var.environment}-logs"
+
+  tags = {
+    Name        = "${var.project_name}-${var.environment}-logs"
+    Environment = var.environment
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  block_public_acls       = true
+  block_public_policy     = false
+  ignore_public_acls      = true
+  restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_ownership_controls" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  rule {
+    object_ownership = "ObjectWriter"
+  }
+}
+
+resource "aws_s3_bucket_policy" "cloudfront_log_delivery" {
+  bucket = aws_s3_bucket.logs.id
+  policy = data.aws_iam_policy_document.cloudfront_log_delivery.json
+}
+
+data "aws_iam_policy_document" "cloudfront_log_delivery" {
+  statement {
+    actions   = ["s3:PutObject"]
+    resources = ["${aws_s3_bucket.logs.arn}/*"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["delivery.logs.amazonaws.com"]
+    }
+
+    condition {
+      test     = "ForAnyValue:StringEquals"
+      variable = "aws:SourceArn"
+      values   = [aws_cloudfront_distribution.main.arn, aws_cloudfront_distribution.co_uk.arn]
+    }
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  rule {
+    id     = "expire-logs"
+    status = "Enabled"
+
+    expiration {
+      days = 90
+    }
+  }
+}
+
 resource "aws_s3_object" "website_files" {
   for_each = fileset("../apps/web/dist", "**/*")
 

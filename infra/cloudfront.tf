@@ -12,6 +12,12 @@ resource "aws_cloudfront_distribution" "main" {
   price_class         = "PriceClass_100"
   aliases             = []
 
+  logging_config {
+    include_cookies = false
+    bucket          = aws_s3_bucket.logs.bucket_domain_name
+    prefix          = "cloudfront/${var.environment}/"
+  }
+
   origin {
     domain_name              = aws_s3_bucket.hosting.bucket_regional_domain_name
     origin_id                = "s3-origin"
