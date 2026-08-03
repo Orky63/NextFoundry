@@ -122,6 +122,9 @@ export default function HomePage() {
           alt=""
           className="absolute inset-0 h-[120%] w-full object-cover opacity-30"
           style={{ y: useTransform(useScroll().scrollY, [0, 800], [0, 120]) }}
+          initial={{ scale: 1.08 }}
+          animate={{ scale: [1.08, 1.16, 1.08] }}
+          transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
