@@ -605,6 +605,15 @@ export default function HomePage() {
           className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 px-8 py-16 text-center md:px-16 md:py-24"
         >
           <GridPattern />
+          <motion.img
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80"
+            alt=""
+            className="absolute inset-0 h-[120%] w-full object-cover opacity-25"
+            initial={{ scale: 1.08 }}
+            animate={{ scale: [1.08, 1.16, 1.08] }}
+            transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-secondary/40 to-background/60" />
           <div className="absolute inset-0 grain opacity-40" />
           <div className="relative z-10 mx-auto max-w-[46rem]">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Let's talk</p>
