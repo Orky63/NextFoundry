@@ -29,6 +29,17 @@ resource "aws_s3_bucket_ownership_controls" "co_uk" {
   }
 }
 
+resource "aws_s3_bucket_server_side_encryption_configuration" "co_uk" {
+  provider = aws.eu_west_2
+  bucket   = aws_s3_bucket.co_uk.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
+
 resource "aws_s3_bucket_versioning" "co_uk" {
   provider = aws.eu_west_2
   bucket   = aws_s3_bucket.co_uk.id
@@ -109,6 +120,8 @@ resource "aws_cloudfront_distribution" "co_uk" {
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = "s3-origin-co-uk"
     compress         = true
+
+    response_headers_policy_id = var.enable_co_uk_security_headers ? aws_cloudfront_response_headers_policy.security_headers.id : null
 
     cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
 

@@ -16,6 +16,16 @@ resource "aws_s3_bucket_public_access_block" "hosting" {
   restrict_public_buckets = true
 }
 
+resource "aws_s3_bucket_server_side_encryption_configuration" "hosting" {
+  bucket = aws_s3_bucket.hosting.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
+
 resource "aws_s3_bucket_policy" "cloudfront_oac" {
   bucket = aws_s3_bucket.hosting.id
   policy = data.aws_iam_policy_document.cloudfront_oac.json
@@ -62,6 +72,16 @@ resource "aws_s3_bucket_ownership_controls" "logs" {
 
   rule {
     object_ownership = "ObjectWriter"
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
   }
 }
 

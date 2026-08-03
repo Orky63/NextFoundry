@@ -29,6 +29,8 @@ resource "aws_cloudfront_distribution" "main" {
     cached_methods   = ["GET", "HEAD", "OPTIONS"]
     target_origin_id = "s3-origin"
 
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
+
     forwarded_values {
       query_string = false
       cookies {

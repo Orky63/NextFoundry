@@ -2,9 +2,11 @@ terraform {
   required_version = ">= 1.0"
 
   backend "s3" {
-    bucket = "nextfoundry-terraform-state-387344700059"
-    key    = "infra/terraform.tfstate"
-    region = "us-east-1"
+    bucket         = "nextfoundry-terraform-state-387344700059"
+    key            = "infra/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
   }
 
   required_providers {

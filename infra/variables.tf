@@ -21,3 +21,9 @@ variable "enable_co_uk_access_logs" {
   type        = bool
   default     = false
 }
+
+variable "enable_co_uk_security_headers" {
+  description = "Attach custom response headers policy to nextfoundry.co.uk (requires CloudFront Pro or higher pricing plan)"
+  type        = bool
+  default     = false
+}
