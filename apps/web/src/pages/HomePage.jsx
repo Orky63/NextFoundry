@@ -42,9 +42,9 @@ const services = [
   { icon: LifeBuoy, title: 'Technology Partnership', desc: "We become part of your team — not an external agency you have to manage." },
 ];
 
-function Section({ id, children, className = '' }) {
+function Section({ id, children, className = '', withBackground = true }) {
   return (
-    <section id={id} className={`relative mx-auto w-full max-w-[72rem] px-6 ${className}`}>
+    <section id={id} className={`relative mx-auto w-full max-w-[72rem] px-6 ${withBackground ? 'subtle-page-background' : ''} ${className}`}>
       {children}
     </section>
   );
@@ -130,7 +130,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
         <GridPattern />
         <div className="absolute inset-0 grain opacity-60" />
-        <Section className="relative z-10 py-24">
+        <Section withBackground={false} className="relative z-10 py-24">
           <motion.p variants={fadeUp} initial="hidden" animate="show" className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/50 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
             <motion.span className="relative h-1.5 w-1.5 rounded-full bg-primary" animate={{ scale: [1, 1.6, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} />  <span className="ember-text font-semibold">NEXT FOUNDRY</span>
           </motion.p>
@@ -545,7 +545,7 @@ export default function HomePage() {
       </Section>
 
       {/* Founding Partner Programme */}
-      <Section className="py-24 md:py-32">
+      <Section withBackground={false} className="py-24 md:py-32">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -596,7 +596,7 @@ export default function HomePage() {
       </Section>
 
       {/* Final CTA */}
-      <Section id="talk" className="pb-24 md:pb-36">
+      <Section id="talk" withBackground={false} className="pb-24 md:pb-36">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -680,7 +680,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="border-t border-border/60">
-        <Section className="flex flex-col items-start justify-between gap-6 py-10 md:flex-row md:items-center">
+        <Section withBackground={false} className="flex flex-col items-start justify-between gap-6 py-10 md:flex-row md:items-center">
           <Logo size="sm" />
           <p className="text-sm text-muted-foreground">
             Practical AI · Cloud-native · Helping businesses work smarter

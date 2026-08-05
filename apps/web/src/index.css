@@ -24,6 +24,13 @@ body {
     background-image: radial-gradient(hsl(0 0% 100% / 0.03) 1px, transparent 1px);
     background-size: 4px 4px;
   }
+  .subtle-page-background {
+    background-image:
+      linear-gradient(hsl(var(--background) / 0.94), hsl(var(--background) / 0.94)),
+      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80');
+    background-position: center;
+    background-size: cover;
+  }
 }
 
 @keyframes marquee {
