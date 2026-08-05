@@ -103,7 +103,7 @@ data "aws_iam_policy_document" "cloudfront_log_delivery" {
     condition {
       test     = "ForAnyValue:StringEquals"
       variable = "aws:SourceArn"
-      values   = [aws_cloudfront_distribution.main.arn, aws_cloudfront_distribution.co_uk.arn]
+      values   = [aws_cloudfront_distribution.main.arn]
     }
   }
 }

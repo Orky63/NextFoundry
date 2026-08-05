@@ -1,93 +1,80 @@
-name: Deploy
+name: Deploy website
 
 on:
-  pull_request:
-    branches: [main]
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-${{ github.repository }}
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: us-east-1
+  PROJECT_NAME: ${{ vars.PROJECT_NAME }}
+  TF_STATE_BUCKET: ${{ vars.TF_STATE_BUCKET }}
+  TF_LOCK_TABLE: ${{ vars.TF_LOCK_TABLE }}
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v7
-
-      - uses: pnpm/action-setup@v6
-        with:
-          version: 10
-
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 20
-          cache: pnpm
-          cache-dependency-path: apps/web/pnpm-lock.yaml
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-        working-directory: apps/web
-
-      - name: Build application
-        run: pnpm run build
-        working-directory: apps/web
-
-      - name: Audit dependencies
-        run: pnpm audit --audit-level critical
-        working-directory: apps/web
-
   deploy:
-    if: github.event_name == 'push'
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7
+      - name: Check out repository
+        uses: actions/checkout@v7
 
-      - uses: pnpm/action-setup@v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
         with:
           version: 10
 
-      - uses: actions/setup-node@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
           cache-dependency-path: apps/web/pnpm-lock.yaml
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install dependencies and build website
         working-directory: apps/web
-
-      - name: Build application
-        run: pnpm run build
-        working-directory: apps/web
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm run build
 
       - name: Audit dependencies
-        run: pnpm audit --audit-level critical
         working-directory: apps/web
-
-      - uses: hashicorp/setup-terraform@v4
-        with:
-          terraform_version: 1.9
+        run: pnpm audit --audit-level critical
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v6
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
 
-      - name: Deploy Terraform 
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: 1.9
+
+      - name: Validate required repository settings
+        run: |
+          test -n "$PROJECT_NAME"
+          test -n "$TF_STATE_BUCKET"
+          test -n "$TF_LOCK_TABLE"
+
+      - name: Deploy infrastructure and website
         working-directory: infra
-
         run: |
-          terraform init
-          terraform apply -auto-approve
-      - name: Upload website to S3
-        run: |
-          aws s3 sync apps/web/dist s3://nextfoundry.co.uk --delete --region eu-west-2
-
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id E2YL68ORAJN6JV \
-            --paths "/*"
+          terraform init -input=false \
+            -backend-config="bucket=${TF_STATE_BUCKET}" \
+            -backend-config="key=websites/${PROJECT_NAME}/terraform.tfstate" \
+            -backend-config="region=${AWS_REGION}" \
+            -backend-config="dynamodb_table=${TF_LOCK_TABLE}" \
+            -backend-config="encrypt=true"
+          terraform apply -input=false -auto-approve \
+            -var="project_name=${PROJECT_NAME}" \
+            -var="aws_region=${AWS_REGION}"

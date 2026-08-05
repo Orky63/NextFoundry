@@ -1,13 +1,9 @@
 terraform {
   required_version = ">= 1.0"
 
-  backend "s3" {
-    bucket         = "nextfoundry-terraform-state-387344700059"
-    key            = "infra/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
-    encrypt        = true
-  }
+  # Backend settings are supplied by GitHub Actions during `terraform init`.
+  # This gives every repository its own state key while sharing a state bucket.
+  backend "s3" {}
 
   required_providers {
     aws = {
