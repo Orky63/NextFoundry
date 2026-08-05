@@ -1,5 +1,5 @@
 resource "aws_cloudfront_response_headers_policy" "security_headers" {
-  name    = "security-headers"
+  name    = "${local.project_name}-${var.environment}-security-headers"
   comment = "Basic security headers for NextFoundry"
 
   security_headers_config {

@@ -1,8 +1,8 @@
 resource "aws_s3_bucket" "hosting" {
-  bucket = "${var.project_name}-${var.environment}"
+  bucket = "${local.project_name}-${var.environment}"
 
   tags = {
-    Name        = "${var.project_name}-${var.environment}"
+    Name        = "${local.project_name}-${var.environment}"
     Environment = var.environment
   }
 }
@@ -50,10 +50,10 @@ data "aws_iam_policy_document" "cloudfront_oac" {
 }
 
 resource "aws_s3_bucket" "logs" {
-  bucket = "${var.project_name}-${var.environment}-logs"
+  bucket = "${local.project_name}-${var.environment}-logs"
 
   tags = {
-    Name        = "${var.project_name}-${var.environment}-logs"
+    Name        = "${local.project_name}-${var.environment}-logs"
     Environment = var.environment
   }
 }
@@ -134,6 +134,10 @@ resource "aws_s3_object" "website_files" {
 }
 
 locals {
+  # GitHub repository variables can include a trailing newline when pasted.
+  # Normalising this value keeps S3 bucket and CloudFront names valid.
+  project_name = trimspace(var.project_name)
+
   mime_types = {
     ".html"  = "text/html"
     ".css"   = "text/css"

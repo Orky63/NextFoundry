@@ -1,6 +1,6 @@
 resource "aws_cloudfront_origin_access_control" "main" {
-  name                              = "${var.project_name}-${var.environment}-oac"
-  description                       = "OAC for ${var.project_name} ${var.environment}"
+  name                              = "${local.project_name}-${var.environment}-oac"
+  description                       = "OAC for ${local.project_name} ${var.environment}"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
@@ -65,7 +65,7 @@ resource "aws_cloudfront_distribution" "main" {
   }
 
   tags = {
-    Name        = "${var.project_name}-${var.environment}"
+    Name        = "${local.project_name}-${var.environment}"
     Environment = var.environment
   }
 
