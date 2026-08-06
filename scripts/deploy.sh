@@ -24,5 +24,11 @@ echo "=== Uploading build to S3 ==="
 terraform apply -auto-approve
 
 echo ""
+echo "=== Invalidating CloudFront cache ==="
+aws cloudfront create-invalidation \
+  --distribution-id "$(terraform output -raw cloudfront_distribution_id)" \
+  --paths "/*"
+
+echo ""
 echo "=== Done ==="
 echo "CloudFront URL: $(terraform output -raw cloudfront_domain)"

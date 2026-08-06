@@ -3,6 +3,11 @@ output "cloudfront_domain" {
   value       = aws_cloudfront_distribution.main.domain_name
 }
 
+output "cloudfront_distribution_id" {
+  description = "CloudFront distribution ID, used to invalidate cached releases"
+  value       = aws_cloudfront_distribution.main.id
+}
+
 output "s3_bucket_name" {
   description = "S3 bucket name for hosting"
   value       = aws_s3_bucket.hosting.id

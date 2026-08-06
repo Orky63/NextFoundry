@@ -78,3 +78,6 @@ jobs:
           terraform apply -input=false -auto-approve \
             -var="project_name=${PROJECT_NAME}" \
             -var="aws_region=${AWS_REGION}"
+          aws cloudfront create-invalidation \
+            --distribution-id "$(terraform output -raw cloudfront_distribution_id)" \
+            --paths "/*"
