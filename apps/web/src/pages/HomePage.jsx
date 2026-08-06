@@ -120,7 +120,7 @@ export default function HomePage() {
         <motion.img
           src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80"
           alt=""
-          className="absolute inset-0 h-[120%] w-full object-cover opacity-30"
+          className="absolute inset-0 h-[120%] w-full object-cover opacity-50"
           style={{ y: useTransform(useScroll().scrollY, [0, 800], [0, 120]) }}
           initial={{ scale: 1.08 }}
           animate={{ scale: [1.08, 1.16, 1.08] }}
@@ -608,7 +608,7 @@ export default function HomePage() {
           <motion.img
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80"
             alt=""
-            className="absolute inset-0 h-[120%] w-full object-cover opacity-25"
+            className="absolute inset-0 h-[120%] w-full object-cover opacity-45"
             initial={{ scale: 1.08 }}
             animate={{ scale: [1.08, 1.16, 1.08] }}
             transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}

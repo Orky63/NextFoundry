@@ -37,7 +37,7 @@ export default function FounderPage() {
           <motion.img
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80"
             alt=""
-            className="absolute inset-0 h-[120%] w-full object-cover opacity-30"
+            className="absolute inset-0 h-[120%] w-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
