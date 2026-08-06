@@ -68,7 +68,7 @@ export default function HomePage() {
   const headerBg = useScrollBackground();
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground antialiased">
+    <div className="page-background relative min-h-screen text-foreground antialiased">
       <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
       <div className="relative z-0">
       {/* Header */}

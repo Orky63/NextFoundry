@@ -14,7 +14,7 @@ const fadeUp = {
 
 export default function ContactPage() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground antialiased">
+    <div className="page-background relative min-h-screen text-foreground antialiased">
       <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
       <div className="relative z-0">
         <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur-md">
