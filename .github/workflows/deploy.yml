@@ -60,23 +60,28 @@ jobs:
         with:
           terraform_version: 1.9
 
-      - name: Validate required repository settings
+      - name: Normalize and validate repository settings
         run: |
-          test -n "$PROJECT_NAME"
+          # GitHub repository variables can retain a trailing newline when pasted.
+          # The backend key must use the same normalized value as Terraform's
+          # resource names, or it will read a different state file.
+          NORMALIZED_PROJECT_NAME="$(printf '%s' "$PROJECT_NAME" | tr -d '\r\n')"
+          test -n "$NORMALIZED_PROJECT_NAME"
           test -n "$TF_STATE_BUCKET"
           test -n "$TF_LOCK_TABLE"
+          echo "NORMALIZED_PROJECT_NAME=$NORMALIZED_PROJECT_NAME" >> "$GITHUB_ENV"
 
       - name: Deploy infrastructure and website
         working-directory: infra
         run: |
           terraform init -input=false \
             -backend-config="bucket=${TF_STATE_BUCKET}" \
-            -backend-config="key=websites/${PROJECT_NAME}/terraform.tfstate" \
+            -backend-config="key=websites/${NORMALIZED_PROJECT_NAME}/terraform.tfstate" \
             -backend-config="region=${AWS_REGION}" \
             -backend-config="dynamodb_table=${TF_LOCK_TABLE}" \
             -backend-config="encrypt=true"
           terraform apply -input=false -auto-approve \
-            -var="project_name=${PROJECT_NAME}" \
+            -var="project_name=${NORMALIZED_PROJECT_NAME}" \
             -var="aws_region=${AWS_REGION}"
           aws cloudfront create-invalidation \
             --distribution-id "$(terraform output -raw cloudfront_distribution_id)" \
