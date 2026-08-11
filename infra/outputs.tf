@@ -17,3 +17,8 @@ output "s3_bucket_arn" {
   description = "S3 bucket ARN"
   value       = aws_s3_bucket.hosting.arn
 }
+
+output "contact_api_path" {
+  description = "Same-origin path used by the website contact form"
+  value       = "/api/contact"
+}

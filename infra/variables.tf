@@ -27,3 +27,9 @@ variable "enable_co_uk_security_headers" {
   type        = bool
   default     = false
 }
+
+variable "contact_email" {
+  description = "Verified SES address that receives contact-form messages and is used as their sender"
+  type        = string
+  default     = "andy.hopla4@outlook.com"
+}

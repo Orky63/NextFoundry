@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -13,6 +13,44 @@ const fadeUp = {
 };
 
 export default function ContactPage() {
+  const [form, setForm] = useState({ name: '', email: '', message: '', website: '' });
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const updateField = (event) => {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+  };
+
+  const submitForm = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.message || 'We could not send your message. Please try again shortly.');
+      }
+
+      setForm({ name: '', email: '', message: '', website: '' });
+      setStatus({ type: 'success', message: payload.message });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error.message || 'We could not send your message. Please try again shortly.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="page-background relative min-h-screen text-foreground antialiased">
       <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
@@ -79,7 +117,79 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-            <motion.p variants={fadeUp} initial="hidden" animate="show" custom={3} className="mt-12 text-sm text-muted-foreground">
+            <motion.form
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={3}
+              onSubmit={submitForm}
+              className="mt-12 max-w-xl rounded-xl border border-border/70 bg-card/60 p-6 shadow-2xl backdrop-blur-sm"
+            >
+              <h2 className="font-display text-xl font-bold">Send a message</h2>
+              <p className="mt-2 text-sm text-muted-foreground">I’ll get back to you as soon as I can.</p>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <label className="grid gap-2 text-sm font-medium">
+                  Name
+                  <input
+                    required
+                    name="name"
+                    value={form.name}
+                    onChange={updateField}
+                    maxLength={100}
+                    autoComplete="name"
+                    className="rounded-md border border-border bg-background/70 px-3 py-2.5 text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  />
+                </label>
+                <label className="grid gap-2 text-sm font-medium">
+                  Email
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={updateField}
+                    maxLength={254}
+                    autoComplete="email"
+                    className="rounded-md border border-border bg-background/70 px-3 py-2.5 text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  />
+                </label>
+              </div>
+
+              <label className="mt-4 grid gap-2 text-sm font-medium">
+                Message
+                <textarea
+                  required
+                  name="message"
+                  value={form.message}
+                  onChange={updateField}
+                  maxLength={5000}
+                  rows={5}
+                  className="resize-y rounded-md border border-border bg-background/70 px-3 py-2.5 text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25"
+                />
+              </label>
+
+              <label className="hidden" aria-hidden="true">
+                Website
+                <input name="website" value={form.website} onChange={updateField} tabIndex="-1" autoComplete="off" />
+              </label>
+
+              {status.message && (
+                <p className={`mt-4 text-sm ${status.type === 'success' ? 'text-emerald-400' : 'text-destructive'}`} role="status">
+                  {status.message}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="mt-6 rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSubmitting ? 'Sending…' : 'Send message'}
+              </button>
+            </motion.form>
+
+            <motion.p variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-12 text-sm text-muted-foreground">
               Based in the UK. Available for remote and on-site engagements.
             </motion.p>
           </div>
