@@ -47,7 +47,7 @@ jobs:
 
       - name: Audit dependencies
         working-directory: apps/web
-        run: pnpm audit --audit-level critical
+        run: pnpm audit --audit-level high
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v6
