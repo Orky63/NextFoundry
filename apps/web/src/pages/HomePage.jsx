@@ -161,7 +161,7 @@ export default function HomePage() {
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Book a Business Review <ArrowRight className="h-5 w-5" />
+                Book a Free Business Review <ArrowRight className="h-5 w-5" />
               </span>
             </motion.a>
           </motion.div>
