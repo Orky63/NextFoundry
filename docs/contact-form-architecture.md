@@ -6,6 +6,8 @@ web server.
 
 ## Architecture
 
+![Visual diagram of the NextFoundry contact-form architecture](./contact-form-architecture.svg)
+
 ```mermaid
 flowchart LR
   Visitor[Website visitor] -->|POST /api/contact| CloudFront

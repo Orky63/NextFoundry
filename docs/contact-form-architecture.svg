@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title description">
+  <title id="title">NextFoundry contact form architecture</title>
+  <desc id="description">A website visitor submits the contact form through CloudFront and API Gateway. Lambda validates the request, writes logs to CloudWatch, and sends an email using Amazon SES.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#0d1629"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#020617" flood-opacity=".45"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#38bdf8"/>
+    </marker>
+    <style>
+      .heading { fill: #f8fafc; font: 700 34px Arial, sans-serif; }
+      .subheading { fill: #cbd5e1; font: 400 18px Arial, sans-serif; }
+      .node-title { fill: #f8fafc; font: 700 21px Arial, sans-serif; }
+      .node-copy { fill: #cbd5e1; font: 400 15px Arial, sans-serif; }
+      .flow-label { fill: #7dd3fc; font: 600 14px Arial, sans-serif; }
+      .security-title { fill: #f8fafc; font: 700 20px Arial, sans-serif; }
+      .security-copy { fill: #cbd5e1; font: 400 15px Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="760" fill="url(#background)" rx="28"/>
+  <text x="70" y="76" class="heading">NextFoundry contact form</text>
+  <text x="70" y="108" class="subheading">Serverless form processing keeps AWS permissions out of the browser.</text>
+
+  <path d="M275 280 H340" stroke="#38bdf8" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="286" y="254" class="flow-label">POST /api/contact</text>
+  <path d="M570 280 H635" stroke="#38bdf8" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="585" y="254" class="flow-label">forwards request</text>
+  <path d="M865 280 H930" stroke="#38bdf8" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="880" y="254" class="flow-label">invokes</text>
+  <path d="M1045 370 V438" stroke="#38bdf8" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="1060" y="412" class="flow-label">sends email</text>
+  <path d="M930 330 C850 410 760 442 690 485" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <text x="725" y="418" class="flow-label">operational logs</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="190" width="205" height="180" rx="18" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <text x="102" y="252" class="node-title">Website visitor</text>
+    <text x="102" y="284" class="node-copy">Completes the form</text>
+    <text x="102" y="307" class="node-copy">in the browser</text>
+
+    <rect x="365" y="190" width="205" height="180" rx="18" fill="#0c4a6e" stroke="#38bdf8" stroke-width="2"/>
+    <text x="403" y="252" class="node-title">CloudFront</text>
+    <text x="403" y="284" class="node-copy">Delivers the site and</text>
+    <text x="403" y="307" class="node-copy">forwards API traffic</text>
+
+    <rect x="660" y="190" width="205" height="180" rx="18" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+    <text x="692" y="252" class="node-title">API Gateway</text>
+    <text x="692" y="284" class="node-copy">Public endpoint with</text>
+    <text x="692" y="307" class="node-copy">request throttling</text>
+
+    <rect x="955" y="190" width="205" height="180" rx="18" fill="#713f12" stroke="#fbbf24" stroke-width="2"/>
+    <text x="1012" y="252" class="node-title">Lambda</text>
+    <text x="988" y="284" class="node-copy">Validates form data</text>
+    <text x="987" y="307" class="node-copy">and processes email</text>
+
+    <rect x="955" y="465" width="205" height="125" rx="18" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+    <text x="1022" y="518" class="node-title">Amazon SES</text>
+    <text x="982" y="550" class="node-copy">Delivers the message</text>
+
+    <rect x="510" y="465" width="205" height="125" rx="18" fill="#3f3f46" stroke="#a1a1aa" stroke-width="2"/>
+    <text x="538" y="518" class="node-title">CloudWatch Logs</text>
+    <text x="535" y="550" class="node-copy">Supports troubleshooting</text>
+  </g>
+
+  <rect x="70" y="640" width="1090" height="65" rx="14" fill="#172033" stroke="#334155" stroke-width="2"/>
+  <text x="96" y="680" class="security-title">Security controls</text>
+  <text x="302" y="680" class="security-copy">No AWS credentials in the browser</text>
+  <circle cx="630" cy="674" r="4" fill="#38bdf8"/>
+  <text x="648" y="680" class="security-copy">Input validation and honeypot</text>
+  <circle cx="910" cy="674" r="4" fill="#38bdf8"/>
+  <text x="928" y="680" class="security-copy">Least-privilege IAM role</text>
+</svg>
