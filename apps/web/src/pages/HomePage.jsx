@@ -30,6 +30,17 @@ const nav = [
   { label: 'Meet the founder', href: '/founder' },
 ];
 
+function NavLabel({ label }) {
+  if (label !== 'Meet the founder') return label;
+
+  return (
+    <span className="inline-flex items-center gap-2">
+      <span className="ember-text text-[0.65rem] font-semibold uppercase tracking-[0.16em]">Hello</span>
+      <span>{label}</span>
+    </span>
+  );
+}
+
 const services = [
   { icon: Brain, title: 'AI Opportunity Review', desc: 'Identify where AI can drive real productivity gains in your business — no hype, just practical applications.' },
   { icon: Cloud, title: 'Cloud Platform Engineering', desc: 'Cloud-native platforms designed for scale, security and long-term maintainability.' },
@@ -78,7 +89,7 @@ export default function HomePage() {
           <nav className="hidden items-center gap-8 md:flex">
             {nav.map((n) => (
               <a key={n.href} href={n.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                {n.label}
+                <NavLabel label={n.label} />
               </a>
             ))}
           </nav>
@@ -98,7 +109,9 @@ export default function HomePage() {
           <div className="border-t border-border bg-background px-6 py-4 md:hidden">
             <div className="flex flex-col gap-4">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-base text-muted-foreground">{n.label}</a>
+                <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-base text-muted-foreground">
+                  <NavLabel label={n.label} />
+                </a>
               ))}
               <MotionLink
                 to="/contact"
