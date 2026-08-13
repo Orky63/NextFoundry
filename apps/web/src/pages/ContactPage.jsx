@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '@/components/Logo';
+import Seo from '@/components/Seo';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -53,6 +54,11 @@ export default function ContactPage() {
 
   return (
     <div className="page-background relative min-h-screen text-foreground antialiased">
+      <Seo
+        title="Contact Next Foundry | Book a Free Business Review"
+        description="Contact Next Foundry to book a free business and technology review covering AI opportunities, cloud platforms, process improvement and practical next steps."
+        path="/contact"
+      />
       <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
       <div className="relative z-0">
         <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur-md">

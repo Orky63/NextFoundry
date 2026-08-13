@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '@/components/Logo';
+import Seo from '@/components/Seo';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -15,6 +16,11 @@ const fadeUp = {
 export default function FounderPage() {
   return (
     <div className="page-background relative min-h-screen text-foreground antialiased">
+      <Seo
+        title="Meet the Founder | Next Foundry"
+        description="Meet Andy Hopla, founder of Next Foundry, and learn how decades of enterprise technology and cloud transformation experience shape practical business-first advice."
+        path="/founder"
+      />
       <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
       <div className="relative z-0">
         {/* Header */}

@@ -7,6 +7,7 @@ import {
   Brain, Lightbulb,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
+import Seo from '@/components/Seo';
 
 const MotionLink = motion.create(Link);
 
@@ -69,6 +70,11 @@ export default function HomePage() {
 
   return (
     <div className="page-background relative min-h-screen text-foreground antialiased">
+      <Seo
+        title="Next Foundry | Practical AI, Cloud & Digital Process Improvement"
+        description="Next Foundry helps growing UK businesses reduce costs, remove workflow friction and use AI, cloud platforms and digital process improvement properly."
+        path="/"
+      />
       <div className="absolute inset-0 grain opacity-40 pointer-events-none" />
       <div className="relative z-0">
       {/* Header */}
