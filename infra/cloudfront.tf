@@ -11,6 +11,7 @@ resource "aws_cloudfront_distribution" "main" {
   default_root_object = "index.html"
   price_class         = "PriceClass_100"
   aliases             = []
+  web_acl_id          = aws_wafv2_web_acl.contact.arn
 
   logging_config {
     include_cookies = false
