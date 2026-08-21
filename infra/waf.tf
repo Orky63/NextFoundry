@@ -17,7 +17,7 @@ resource "aws_wafv2_web_acl" "contact" {
 
     statement {
       rate_based_statement {
-        limit              = 30
+        limit              = 150
         aggregate_key_type = "IP"
 
         scope_down_statement {
