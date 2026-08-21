@@ -9,7 +9,7 @@ import boto3
 EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 MAX_NAME_LENGTH = 100
 MAX_EMAIL_LENGTH = 254
-MAX_MESSAGE_LENGTH = 5_000
+MAX_MESSAGE_LENGTH = 1_000
 
 
 def response(status_code, payload):
@@ -43,7 +43,7 @@ def handler(event, _context):
     if not EMAIL_PATTERN.fullmatch(email) or len(email) > MAX_EMAIL_LENGTH:
         return response(400, {"message": "Please enter a valid email address."})
     if not message or len(message) > MAX_MESSAGE_LENGTH:
-        return response(400, {"message": "Please enter a message of up to 5,000 characters."})
+        return response(400, {"message": "Please enter a message of up to 1,000 characters."})
 
     sender = os.environ["CONTACT_SENDER"]
     recipient = os.environ["CONTACT_RECIPIENT"]
