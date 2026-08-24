@@ -378,6 +378,28 @@ export default function HomePage() {
 
       </Section>
 
+      {/* Founding Partner Callout */}
+      <Section className="py-24 md:py-32">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[46rem] text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Founding Partners</p>
+          <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+          <h2 className="font-display text-3xl font-extrabold leading-[1.05] tracking-tight md:text-4xl">
+            We're looking for our first Founding Partners.
+          </h2>
+          <p className="mx-auto mt-6 max-w-[40rem] text-lg leading-relaxed text-muted-foreground">
+            If you're a growing business that wants practical, independent advice on AI, cloud and digital process improvement, we'd like to work with you.
+          </p>
+          <MotionLink
+            to="/contact#contact-form"
+            className="relative mt-8 inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Apply <ArrowRight className="h-5 w-5" />
+          </MotionLink>
+        </motion.div>
+      </Section>
+
       {/* How we help */}
       <Section className="py-24 md:py-32 bg-secondary/20">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
@@ -463,28 +485,6 @@ export default function HomePage() {
           </div>
         </Section>
       </div>
-
-      {/* Founding Partner Callout */}
-      <Section className="py-24 md:py-32">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[46rem] text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Founding Partners</p>
-          <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
-          <h2 className="font-display text-3xl font-extrabold leading-[1.05] tracking-tight md:text-4xl">
-            We're looking for our first Founding Partners.
-          </h2>
-          <p className="mx-auto mt-6 max-w-[40rem] text-lg leading-relaxed text-muted-foreground">
-            If you're a growing business that wants practical, independent advice on AI, cloud and digital process improvement, we'd like to work with you.
-          </p>
-          <MotionLink
-            to="/contact#contact-form"
-            className="relative mt-8 inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Apply <ArrowRight className="h-5 w-5" />
-          </MotionLink>
-        </motion.div>
-      </Section>
 
       {/* Final CTA */}
       <Section id="talk" withBackground={false} className="pb-24 md:pb-36">
