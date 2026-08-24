@@ -291,55 +291,54 @@ export default function HomePage() {
       {/* What you'll receive */}
       <div className="border-y border-border/60 bg-secondary/20">
         <Section className="py-24 md:py-32">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
-            <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">What you'll receive</p>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[48rem] text-center">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">What you'll receive</p>
+            <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
+              Practical recommendations. Not a technology shopping list.
+            </h2>
             <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <motion.div
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0}
-              className="rounded-xl border border-border bg-card p-8"
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <h3 className="font-display text-xl font-bold text-foreground">Current State Assessment</h3>
-              <p className="mt-1 text-sm text-muted-foreground">What's working? What's not?</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">A clear-eyed view of your current technology, processes and where the real bottlenecks are.</p>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1}
-              className="rounded-xl border border-border bg-card p-8"
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <h3 className="font-display text-xl font-bold text-foreground">AI Opportunity Report</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Where AI genuinely adds value.</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Practical, specific opportunities to apply AI in your business — not generic use cases.</p>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={2}
-              className="rounded-xl border border-border bg-card p-8"
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <h3 className="font-display text-xl font-bold text-foreground">Platform Assessment</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Keep it? Improve it? Replace it?</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Honest recommendation on your current platform — no bias toward rebuilding.</p>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={3}
-              className="rounded-xl border border-border bg-card p-8"
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <h3 className="font-display text-xl font-bold text-foreground">Business Roadmap</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Quick wins · Medium-term · Long-term</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">A phased plan with clear priorities, timelines and expected outcomes.</p>
-            </motion.div>
+            {[
+              {
+                title: 'Current State Assessment',
+                desc: 'A clear view of how technology currently supports your business — and where it creates friction.',
+              },
+              {
+                title: 'AI & Automation Opportunities',
+                desc: 'Practical opportunities where AI or automation could save time, improve consistency or enhance customer experience.',
+              },
+              {
+                title: 'Digital Platform Assessment',
+                desc: 'An objective view of your current website, ecommerce platform and other customer-facing technology.',
+                note: 'Keep it. Improve it. Integrate it. Or replace it.',
+              },
+              {
+                title: 'Process Improvement Opportunities',
+                desc: 'Identification of repetitive work, duplicated activity and unnecessary manual processes.',
+              },
+              {
+                title: 'Prioritised Recommendations',
+                desc: 'Opportunities ranked according to potential business value, complexity and effort.',
+              },
+              {
+                title: '90-Day Roadmap',
+                desc: 'A practical starting point showing what you could realistically achieve over the next three months.',
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={i}
+                className="rounded-xl border border-border bg-card p-8"
+                whileHover={{ y: -4 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                <h3 className="font-display text-xl font-bold text-foreground">{item.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                {item.note && <p className="mt-4 text-sm font-semibold leading-relaxed text-foreground">{item.note}</p>}
+              </motion.div>
+            ))}
           </div>
         </Section>
       </div>
