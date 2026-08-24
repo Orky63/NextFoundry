@@ -3,7 +3,6 @@ import json
 import os
 import re
 import uuid
-from datetime import datetime, timezone
 
 import boto3
 
@@ -12,10 +11,6 @@ EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 MAX_NAME_LENGTH = 100
 MAX_EMAIL_LENGTH = 254
 MAX_MESSAGE_LENGTH = 1_000
-
-
-def utc_now():
-    return datetime.now(timezone.utc).isoformat()
 
 
 def response(status_code, payload):
@@ -60,26 +55,8 @@ def handler(event, _context):
 
     sender = os.environ["CONTACT_SENDER"]
     recipient = os.environ["CONTACT_RECIPIENT"]
-    enquiries_table = boto3.resource("dynamodb").Table(os.environ["CONTACT_ENQUIRIES_TABLE"])
     subject = f"NextFoundry contact form {enquiry_id}: {name}".replace("\r", " ").replace("\n", " ")
     text_body = f"Enquiry ID: {enquiry_id}\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
-    created_at = utc_now()
-
-    try:
-        enquiries_table.put_item(
-            Item={
-                "enquiry_id": enquiry_id,
-                "created_at": created_at,
-                "updated_at": created_at,
-                "name": name,
-                "email": email,
-                "message": message,
-                "status": "received",
-            }
-        )
-    except Exception:
-        print(json.dumps({"event": "storage_failed", "enquiry_id": enquiry_id}))
-        return response(502, {"message": "We could not record your message. Please try again shortly."})
 
     try:
         boto3.client("sesv2").send_email(
@@ -90,28 +67,8 @@ def handler(event, _context):
         )
     except Exception:
         # Do not expose AWS service details to a visitor.
-        try:
-            enquiries_table.update_item(
-                Key={"enquiry_id": enquiry_id},
-                UpdateExpression="SET #status = :status, updated_at = :updated_at",
-                ExpressionAttributeNames={"#status": "status"},
-                ExpressionAttributeValues={":status": "send_failed", ":updated_at": utc_now()},
-            )
-        except Exception:
-            print(json.dumps({"event": "status_update_failed", "enquiry_id": enquiry_id}))
         print(json.dumps({"event": "send_failed", "enquiry_id": enquiry_id}))
         return response(502, {"message": "We could not send your message. Please try again shortly."})
-
-    try:
-        sent_at = utc_now()
-        enquiries_table.update_item(
-            Key={"enquiry_id": enquiry_id},
-            UpdateExpression="SET #status = :status, sent_at = :sent_at, updated_at = :updated_at",
-            ExpressionAttributeNames={"#status": "status"},
-            ExpressionAttributeValues={":status": "sent", ":sent_at": sent_at, ":updated_at": sent_at},
-        )
-    except Exception:
-        print(json.dumps({"event": "status_update_failed", "enquiry_id": enquiry_id}))
 
     print(json.dumps({"event": "send_succeeded", "enquiry_id": enquiry_id}))
     return response(200, {"message": "Thanks — your message has been sent."})

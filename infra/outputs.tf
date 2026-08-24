@@ -22,8 +22,3 @@ output "contact_api_path" {
   description = "Same-origin path used by the website contact form"
   value       = "/api/contact"
 }
-
-output "contact_enquiries_table_name" {
-  description = "DynamoDB table storing contact form enquiries"
-  value       = aws_dynamodb_table.contact_enquiries.name
-}

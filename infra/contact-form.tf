@@ -48,14 +48,6 @@ resource "aws_iam_role_policy" "contact_form" {
             "ses:FromAddress" = var.contact_email
           }
         }
-      },
-      {
-        Effect = "Allow"
-        Action = [
-          "dynamodb:PutItem",
-          "dynamodb:UpdateItem"
-        ]
-        Resource = aws_dynamodb_table.contact_enquiries.arn
       }
     ]
   })
@@ -79,16 +71,14 @@ resource "aws_lambda_function" "contact_form" {
 
   environment {
     variables = {
-      CONTACT_RECIPIENT       = var.contact_email
-      CONTACT_SENDER          = var.contact_email
-      CONTACT_ENQUIRIES_TABLE = aws_dynamodb_table.contact_enquiries.name
+      CONTACT_RECIPIENT = var.contact_email
+      CONTACT_SENDER    = var.contact_email
     }
   }
 
   depends_on = [
     aws_cloudwatch_log_group.contact_form,
     aws_iam_role_policy.contact_form,
-    aws_dynamodb_table.contact_enquiries,
     aws_sesv2_email_identity.contact
   ]
 }
