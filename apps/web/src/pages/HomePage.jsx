@@ -222,25 +222,42 @@ export default function HomePage() {
 
       {/* Flagship service */}
       <Section className="py-24 md:py-32">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
-          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">Our flagship service</p>
-          <h2 className="text-center font-display text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[48rem] text-center">
+          <h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
             Business &amp; Technology Review
           </h2>
           <div className="mx-auto mt-6 max-w-[2rem] border-t-2 border-primary" />
+          <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
+            <p>Before recommending AI, cloud services or new platforms, we take time to understand how your business actually works.</p>
+            <p>We look at your processes, systems, customer experience and technology to identify where improvements could deliver genuine value.</p>
+          </div>
         </motion.div>
 
-        <div className="mx-auto mt-16 flex max-w-[28rem] flex-col items-center gap-0">
+        <div className="mx-auto mt-16 flex max-w-[42rem] flex-col items-center gap-0">
           {[
-            'Discovery',
-            'Business Process Review',
-            'Technology Assessment',
-            'AI Opportunity Identification',
-            '90-Day Roadmap',
-            'Optional Implementation',
+            {
+              title: 'Discover',
+              desc: "We talk to you and your team about how the business operates, where you're heading and what's getting in the way.",
+            },
+            {
+              title: 'Understand',
+              desc: 'We examine key workflows, systems and digital platforms to identify friction, duplication and unnecessary manual work.',
+            },
+            {
+              title: 'Explore',
+              desc: 'We identify where AI, automation, cloud technology or platform improvements could make a practical difference.',
+            },
+            {
+              title: 'Prioritise',
+              desc: 'Not every opportunity is worth pursuing. We identify the improvements likely to deliver the greatest value.',
+            },
+            {
+              title: 'Roadmap',
+              desc: "You receive a practical, prioritised roadmap showing what we'd do now, what we'd consider next and what we'd leave alone.",
+            },
           ].map((step, i) => (
             <motion.div
-              key={step}
+              key={step.title}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
@@ -248,13 +265,18 @@ export default function HomePage() {
               custom={i}
               className="flex w-full flex-col items-center"
             >
-              <div className="flex w-full items-center gap-4 rounded-xl border border-border bg-card px-6 py-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20">
-                  <span className="font-display text-sm font-bold text-primary">{i + 1}</span>
+              <div className="flex w-full items-start gap-4 rounded-xl border border-border bg-card px-6 py-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                  <span className="font-display text-sm font-bold text-primary">{String(i + 1).padStart(2, '0')}</span>
                 </span>
-                <span className="text-base font-medium text-foreground">{step}</span>
+                <div>
+                  <h3 className="text-base font-semibold text-foreground">
+                    {String(i + 1).padStart(2, '0')} — {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
+                </div>
               </div>
-              {i < 5 && (
+              {i < 4 && (
                 <div className="flex flex-col items-center py-2">
                   <svg className="h-5 w-5 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
