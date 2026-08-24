@@ -136,7 +136,7 @@ export default function HomePage() {
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-9 flex flex-wrap items-center gap-4">
             <MotionLink
               to="/contact#contact-form"
-              className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
+              className="relative inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-primary-foreground"
               animate={{ scale: [1, 1.04, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
               whileHover={{ scale: 1.06 }}
@@ -147,13 +147,13 @@ export default function HomePage() {
                 animate={{
                   boxShadow: [
                     '0 0 0 0 hsl(24 92% 56% / 0.5)',
-                    '0 0 0 20px hsl(24 92% 56% / 0)',
+                    '0 0 0 16px hsl(24 92% 56% / 0)',
                   ],
                 }}
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Apply for a Free Business &amp; Technology Review <ArrowRight className="h-5 w-5" />
+                Apply for a Free Business &amp; Technology Review <ArrowRight className="h-4 w-4" />
               </span>
             </MotionLink>
           </motion.div>
