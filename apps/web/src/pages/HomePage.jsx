@@ -167,7 +167,7 @@ export default function HomePage() {
             {[
               { t: 'Independent advice', d: 'We recommend what\'s right for your business — not what earns us commission.' },
               { t: 'Business-first thinking', d: 'We start with your problems and goals, not a predetermined solution.' },
-              { t: 'Enterprise experience', d: 'Decades of cloud engineering and service management expertise.' },
+              { t: 'Enterprise experience', d: 'Decades of technology and service management experience, combined with modern cloud expertise.' },
               { t: 'Practical recommendations', d: 'Clear, actionable advice you can implement with confidence.' },
             ].map((item, i) => (
               <motion.div
