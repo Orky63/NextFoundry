@@ -393,9 +393,6 @@ export default function HomePage() {
           ))}
         </div>
 
-        <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={6} className="mx-auto mt-12 max-w-[36rem] text-center text-base font-semibold text-foreground">
-          That's a huge trust builder.
-        </motion.p>
       </Section>
 
       {/* How we help */}
