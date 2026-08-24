@@ -124,11 +124,14 @@ export default function HomePage() {
             <motion.span className="relative h-1.5 w-1.5 rounded-full bg-primary" animate={{ scale: [1, 1.6, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} />  <span className="ember-text font-semibold">NEXT FOUNDRY</span>
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1} className="max-w-[18ch] font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">
-            We help growing businesses remove friction,<br />
-            <span className="ember-text">reduce costs and use technology properly.</span>
+            Helping businesses work smarter.
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2} className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-            Most businesses already own the technology they need.<br /><br />They simply aren't getting the best from it.<br /><br />We identify where AI, cloud and process improvement can genuinely increase productivity and profitability.
+            We help growing businesses identify where AI, automation, cloud and modern technology can reduce manual work, improve customer experience and create opportunities for growth.
+            <br /><br />
+            We don't start with technology.
+            <br /><br />
+            We start by understanding your business.
           </motion.p>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-9 flex flex-wrap items-center gap-4">
             <MotionLink
