@@ -38,6 +38,24 @@ body {
   .subtle-page-background {
     background-image: linear-gradient(90deg, hsl(24 100% 62% / 0.018), transparent 28%, transparent 72%, hsl(24 100% 62% / 0.012));
   }
+  .contact-field {
+    border-color: hsl(var(--border));
+    background-color: hsl(24 12% 10% / 0.94);
+    color: hsl(var(--foreground));
+    caret-color: hsl(var(--primary));
+    -webkit-text-fill-color: hsl(var(--foreground));
+  }
+  .contact-field::placeholder {
+    color: hsl(var(--muted-foreground));
+    -webkit-text-fill-color: hsl(var(--muted-foreground));
+  }
+  .contact-field:-webkit-autofill,
+  .contact-field:-webkit-autofill:hover,
+  .contact-field:-webkit-autofill:focus {
+    border-color: hsl(var(--primary));
+    -webkit-box-shadow: 0 0 0 1000px hsl(24 12% 10%) inset;
+    -webkit-text-fill-color: hsl(var(--foreground));
+  }
 }
 
 @keyframes marquee {

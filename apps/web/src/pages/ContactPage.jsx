@@ -144,7 +144,7 @@ export default function ContactPage() {
                     onChange={updateField}
                     maxLength={100}
                     autoComplete="name"
-                    className="rounded-md border border-border bg-background/70 px-3 py-2.5 text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25"
+                    className="contact-field rounded-md border px-3 py-2.5 outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/25"
                   />
                 </label>
                 <label className="grid gap-2 text-sm font-medium">
@@ -157,7 +157,7 @@ export default function ContactPage() {
                     onChange={updateField}
                     maxLength={254}
                     autoComplete="email"
-                    className="rounded-md border border-border bg-background/70 px-3 py-2.5 text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25"
+                    className="contact-field rounded-md border px-3 py-2.5 outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/25"
                   />
                 </label>
               </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                   onChange={updateField}
                   maxLength={1000}
                   rows={5}
-                  className="resize-y rounded-md border border-border bg-background/70 px-3 py-2.5 text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  className="contact-field resize-y rounded-md border px-3 py-2.5 outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/25"
                 />
               </label>
 
