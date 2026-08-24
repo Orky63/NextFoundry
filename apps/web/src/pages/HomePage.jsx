@@ -148,8 +148,8 @@ export default function HomePage() {
             Most businesses already own the technology they need.<br /><br />They simply aren't getting the best from it.<br /><br />We identify where AI, cloud and process improvement can genuinely increase productivity and profitability.
           </motion.p>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-9 flex flex-wrap items-center gap-4">
-            <motion.a
-              href="#talk"
+            <MotionLink
+              to="/contact"
               className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
               animate={{ scale: [1, 1.04, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -169,7 +169,7 @@ export default function HomePage() {
               <span className="relative z-10 flex items-center gap-2">
                 Book a Free Business Review <ArrowRight className="h-5 w-5" />
               </span>
-            </motion.a>
+            </MotionLink>
           </motion.div>
         </Section>
       </div>
@@ -629,8 +629,8 @@ export default function HomePage() {
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               Let's find out together.
             </p>
-            <motion.a
-              href="mailto:andy.hopla4@outlook.com"
+            <MotionLink
+              to="/contact"
               className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
               animate={{ scale: [1, 1.04, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -650,7 +650,7 @@ export default function HomePage() {
               <span className="relative z-10 flex items-center gap-2">
                 Book your free Technology Review <ArrowRight className="h-5 w-5" />
               </span>
-            </motion.a>
+            </MotionLink>
           </div>
         </motion.div>
       </Section>
