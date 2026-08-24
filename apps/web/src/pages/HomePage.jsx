@@ -396,42 +396,57 @@ export default function HomePage() {
 
       {/* How we help */}
       <Section className="py-24 md:py-32 bg-secondary/20">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
-          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">How we help</p>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[48rem] text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">How we help</p>
+          <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
+            From recommendation to implementation.
+          </h2>
           <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+          <p className="mx-auto max-w-[42rem] text-lg leading-relaxed text-muted-foreground">
+            If the review identifies opportunities you'd like to pursue, Next Foundry can help turn those recommendations into working solutions.
+          </p>
         </motion.div>
 
-        <div className="mx-auto flex max-w-[28rem] flex-col items-center gap-0">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {[
-            'Business & Technology Review',
-            'Digital Process Improvement',
-            'Legacy Platform Migration',
-            'Cloud Engineering',
-            'AI Implementation',
-            'Managed Platforms',
-          ].map((step, i) => (
+            {
+              title: 'AI & Automation',
+              desc: 'Practical applications of AI and automation designed around real business processes.',
+            },
+            {
+              title: 'Digital Process Improvement',
+              desc: 'Simplifying workflows, reducing duplication and connecting systems more effectively.',
+            },
+            {
+              title: 'Digital Platform Modernisation',
+              desc: 'Improving or replacing websites, ecommerce systems and customer-facing platforms that no longer support the business.',
+            },
+            {
+              title: 'Cloud Engineering',
+              desc: 'Modern, scalable cloud infrastructure with a particular focus on AWS.',
+            },
+            {
+              title: 'Platform Migration',
+              desc: "Helping businesses move beyond legacy or templated platforms when there's a genuine business case for doing so.",
+            },
+            {
+              title: 'Managed Technology',
+              desc: 'Ongoing monitoring, optimisation, support and continuous improvement after implementation.',
+            },
+          ].map((item, i) => (
             <motion.div
-              key={step}
+              key={item.title}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               custom={i}
-              className="flex w-full flex-col items-center"
+              className="rounded-xl border border-border bg-card p-8"
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
-              <div className="flex w-full items-center gap-4 rounded-xl border border-border bg-card px-6 py-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20">
-                  <span className="font-display text-sm font-bold text-primary">{i + 1}</span>
-                </span>
-                <span className="text-base font-medium text-foreground">{step}</span>
-              </div>
-              {i < 5 && (
-                <div className="flex flex-col items-center py-2">
-                  <svg className="h-5 w-5 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-                  </svg>
-                </div>
-              )}
+              <h3 className="font-display text-xl font-bold text-foreground">{item.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
             </motion.div>
           ))}
         </div>
