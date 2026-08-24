@@ -425,7 +425,7 @@ export default function HomePage() {
       <div id="why" className="border-y border-border/60 bg-secondary/20">
         <Section className="py-24 md:py-32">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
-            <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">Why even bother contacting us</p>
+            <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">Why Next Foundry</p>
             <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
           </motion.div>
 
