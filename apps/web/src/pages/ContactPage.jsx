@@ -124,6 +124,7 @@ export default function ContactPage() {
             </motion.div>
 
             <motion.form
+              id="contact-form"
               variants={fadeUp}
               initial="hidden"
               animate="show"

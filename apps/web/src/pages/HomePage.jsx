@@ -149,7 +149,7 @@ export default function HomePage() {
           </motion.p>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="mt-9 flex flex-wrap items-center gap-4">
             <MotionLink
-              to="/contact"
+              to="/contact#contact-form"
               className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
               animate={{ scale: [1, 1.04, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -630,7 +630,7 @@ export default function HomePage() {
               Let's find out together.
             </p>
             <MotionLink
-              to="/contact"
+              to="/contact#contact-form"
               className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
               animate={{ scale: [1, 1.04, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
