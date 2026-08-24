@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import {
-  ArrowRight, ArrowUpRight, Menu, X, Cloud, Gauge, Search, ShieldCheck,
-  MoveRight, LifeBuoy, Layers,
-  Brain, Lightbulb,
-} from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 import Logo from '@/components/Logo';
 import Seo from '@/components/Seo';
 
@@ -26,21 +22,8 @@ const fadeUp = {
 
 const nav = [
   { label: 'Approach', href: '#approach' },
-  { label: 'Services', href: '#services' },
   { label: 'Why us', href: '#why' },
   { label: 'Meet the founder', href: '/founder' },
-];
-
-const services = [
-  { icon: Brain, title: 'AI Opportunity Review', desc: 'Identify where AI can drive real productivity gains in your business — no hype, just practical applications.' },
-  { icon: Cloud, title: 'Cloud Platform Engineering', desc: 'Cloud-native platforms designed for scale, security and long-term maintainability.' },
-  { icon: Lightbulb, title: 'Digital Process Improvement', desc: 'Review your existing workflows and systems to find faster, smarter ways of working.' },
-  { icon: MoveRight, title: 'Legacy Platform Migration', desc: 'Move off outdated or templated platforms without disrupting your business.' },
-  { icon: Gauge, title: 'Performance Optimisation', desc: 'Make your existing technology run faster, cost less and work harder for you.' },
-  { icon: Search, title: 'Technical Discovery & Audit', desc: 'A clear-eyed assessment of your current technology stack and where it can improve.' },
-  { icon: ShieldCheck, title: 'Security & Resilience', desc: 'Hardened, monitored platforms that protect your business and your customers.' },
-  { icon: Layers, title: 'Ongoing Platform Evolution', desc: 'Continuous improvement that keeps your technology aligned with your business goals.' },
-  { icon: LifeBuoy, title: 'Technology Partnership', desc: "We become part of your team — not an external agency you have to manage." },
 ];
 
 function Section({ id, children, className = '', withBackground = true }) {
@@ -437,40 +420,6 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
-
-      {/* What we do */}
-      <Section id="services" className="py-24 md:py-32 bg-secondary/20">
-        <div className="mb-14 max-w-[42rem]">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">What we do</p>
-          <h2 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-            Practical technology services that help your business work smarter.
-          </h2>
-        </div>
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              custom={i % 3}
-              className="group relative bg-card p-8 transition-colors hover:bg-secondary/50"
-              whileHover={{ y: -6 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <motion.span
-                className="absolute inset-0 rounded-2xl opacity-0 transition-opacity group-hover:opacity-100"
-                style={{ background: 'radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), hsl(24 92% 56% / 0.06), transparent)' }}
-              />
-              <s.icon className="mb-5 h-6 w-6 text-primary" strokeWidth={1.8} />
-              <h3 className="font-display text-lg font-semibold leading-snug">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
 
       {/* Why clients work with us */}
       <div id="why" className="border-y border-border/60 bg-secondary/20">
