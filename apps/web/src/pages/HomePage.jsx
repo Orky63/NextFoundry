@@ -435,7 +435,7 @@ export default function HomePage() {
               { t: 'NHS digital leadership', d: 'Experience delivering technology strategy and platforms at a national health service scale.' },
               { t: 'AWS certified', d: 'Validated expertise in cloud architecture, migration and modernisation on AWS.' },
               { t: 'Cloud engineering expertise', d: 'Deep knowledge of cloud-native platforms, infrastructure-as-code and DevOps.' },
-              { t: 'AI implementation', d: 'Practical AI deployment — not theory, but real systems delivering measurable outcomes.' },
+              { t: 'Practical AI thinking', d: 'Identifying where AI and automation can deliver meaningful improvements to real business processes.' },
               { t: 'Worked with organisations supporting thousands of staff', d: 'Enterprise-grade thinking, applied to businesses of every size.' },
             ].map((item, i) => (
               <motion.div
