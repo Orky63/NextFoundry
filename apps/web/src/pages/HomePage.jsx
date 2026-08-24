@@ -194,44 +194,30 @@ export default function HomePage() {
         </Section>
       </div>
 
-      {/* Familiar */}
+      {/* Business friction */}
       <Section id="approach" className="py-24 md:py-32 bg-secondary/20">
-        <div className="mb-12 border-t border-border/40 pt-12 text-center">
-          <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">Does any of this sound familiar?</span>
-          </motion.p>
-          <div className="mt-4 border-b border-border/40" />
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            "Your team spends too much time on repetitive admin.",
-            "Technology doesn't work together properly.",
-            "Platform costs keep increasing every year.",
-            "You're curious whether AI could genuinely help.",
-            "You don't know whether rebuilding is worth it.",
-            "Nobody has looked at the whole business objectively.",
-          ].map((item, i) => (
-            <motion.div
-              key={item}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.2 }}
-              custom={i}
-              className="rounded-xl border border-border bg-card p-6"
-              whileHover={{ y: -4, boxShadow: '0 12px 40px rgba(0,0,0,0.3)' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
-                <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-              </span>
-              <p className="mt-4 text-base leading-snug text-foreground/90">{item}</p>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[48rem]">
+          <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
+            Is technology helping your business — or getting in the way?
+          </h2>
+          <div className="mt-8 max-w-[2rem] border-t-2 border-primary" />
+          <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
+            <p>As businesses grow, technology often grows with them.</p>
+            <div className="space-y-3 font-semibold text-foreground">
+              <p>Another system.</p>
+              <p>Another spreadsheet.</p>
+              <p>Another plugin.</p>
+              <p>Another manual workaround.</p>
+            </div>
+            <p>Eventually, people spend more time working around technology than benefiting from it.</p>
+            <p>Perhaps your team is spending too much time on repetitive administration.</p>
+            <p>Perhaps systems don't communicate properly.</p>
+            <p>Perhaps your website or ecommerce platform no longer supports the way your business operates.</p>
+            <p>Or perhaps you're simply wondering:</p>
+            <p className="font-semibold text-foreground">Could AI help us work differently?</p>
+            <p>That's where we start.</p>
+          </div>
+        </motion.div>
       </Section>
 
       {/* Flagship service */}
