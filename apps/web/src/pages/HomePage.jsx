@@ -153,7 +153,7 @@ export default function HomePage() {
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Book a Free Business Review <ArrowRight className="h-5 w-5" />
+                Apply for a Free Business &amp; Technology Review <ArrowRight className="h-5 w-5" />
               </span>
             </MotionLink>
           </motion.div>
