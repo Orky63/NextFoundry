@@ -350,41 +350,25 @@ export default function HomePage() {
           <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
         </motion.div>
 
-        <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="mx-auto max-w-[48rem] text-center text-lg leading-relaxed text-muted-foreground">
-          Instead of trying to sell services, we recommend what's right for your business — not what's most profitable for us.
-        </motion.p>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { label: 'Keep your existing platform', desc: 'Sometimes the smartest move is improving what you already have.' },
-            { label: 'Improve your workflows', desc: 'Small changes that make a big difference to productivity.' },
-            { label: 'Apply AI', desc: 'Where it genuinely adds value — not for the sake of it.' },
-            { label: 'Move to the cloud', desc: 'Enterprise-grade infrastructure without the overhead.' },
-            { label: 'Build something new', desc: 'When the best option is a clean start.' },
-          ].map((item, i) => (
-            <motion.div
-              key={item.label}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              custom={i}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card p-6"
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20">
-                <svg className="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-              </span>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{item.label}</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="mx-auto max-w-[48rem] space-y-6 text-lg leading-relaxed text-muted-foreground">
+          <p>Sometimes the best recommendation is to change nothing.</p>
+          <p>We don't believe every business needs AI.</p>
+          <p>We don't believe every website needs rebuilding.</p>
+          <p>And we certainly don't believe every business needs bespoke technology.</p>
+          <p>Sometimes we'll recommend:</p>
+          <p className="font-semibold text-foreground">Keep what you have.</p>
+          <p>Sometimes:</p>
+          <p className="font-semibold text-foreground">Improve an existing process.</p>
+          <p>Sometimes:</p>
+          <p className="font-semibold text-foreground">Automate repetitive work.</p>
+          <p>Sometimes:</p>
+          <p className="font-semibold text-foreground">Introduce AI.</p>
+          <p>Sometimes:</p>
+          <p className="font-semibold text-foreground">Modernise or replace a digital platform.</p>
+          <p>And sometimes:</p>
+          <p className="font-semibold text-foreground">Build something completely new.</p>
+          <p>The recommendation should be driven by the business problem — not by the technology we happen to sell.</p>
+        </motion.div>
 
       </Section>
 
