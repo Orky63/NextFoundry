@@ -285,6 +285,26 @@ export default function HomePage() {
               )}
             </motion.div>
           ))}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            custom={5}
+            className="mt-10 text-center"
+          >
+            <p className="text-lg font-semibold leading-relaxed text-foreground">
+              Interested in seeing what this could uncover in your business?
+            </p>
+            <MotionLink
+              to="/contact#contact-form"
+              className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-primary-foreground"
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Apply for a Free Business &amp; Technology Review <ArrowRight className="h-4 w-4" />
+            </MotionLink>
+          </motion.div>
         </div>
       </Section>
 
