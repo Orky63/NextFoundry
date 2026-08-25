@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowRight, Box, CheckCircle2, Menu, Monitor, Settings, Sparkles, TrendingUp, X } from 'lucide-react';
 import Logo from '@/components/Logo';
 import Seo from '@/components/Seo';
 
@@ -364,32 +364,91 @@ export default function HomePage() {
       </div>
 
       {/* What happens next */}
-      <Section className="py-24 md:py-32 bg-secondary/20">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
-          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">What happens next?</p>
-          <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+      <Section className="py-24 md:py-32">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[56rem]">
+          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.32em] text-primary">What happens next?</p>
+          <div className="mx-auto mb-6 max-w-[2rem] border-t-2 border-primary" />
+          <h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
+            Sometimes the best recommendation is to change nothing.
+          </h2>
         </motion.div>
 
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="mx-auto max-w-[48rem] space-y-6 text-lg leading-relaxed text-muted-foreground">
-          <p>Sometimes the best recommendation is to change nothing.</p>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="mx-auto mt-10 max-w-[56rem] space-y-4 text-lg leading-relaxed text-muted-foreground">
           <p>We don't believe every business needs AI.</p>
           <p>We don't believe every website needs rebuilding.</p>
           <p>And we certainly don't believe every business needs bespoke technology.</p>
-          <p>Sometimes we'll recommend:</p>
-          <p className="font-semibold text-foreground">Keep what you have.</p>
-          <p>Sometimes:</p>
-          <p className="font-semibold text-foreground">Improve an existing process.</p>
-          <p>Sometimes:</p>
-          <p className="font-semibold text-foreground">Automate repetitive work.</p>
-          <p>Sometimes:</p>
-          <p className="font-semibold text-foreground">Introduce AI.</p>
-          <p>Sometimes:</p>
-          <p className="font-semibold text-foreground">Modernise or replace a digital platform.</p>
-          <p>And sometimes:</p>
-          <p className="font-semibold text-foreground">Build something completely new.</p>
-          <p>The recommendation should be driven by the business problem — not by the technology we happen to sell.</p>
         </motion.div>
 
+        <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={2} className="mx-auto mt-12 max-w-[56rem] text-2xl font-bold text-foreground">
+          Our recommendation might simply be:
+        </motion.p>
+
+        <div className="mx-auto mt-8 grid max-w-[56rem] gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: 'Keep what you have',
+              desc: "If it's doing the job, there's no reason to replace it.",
+              Icon: CheckCircle2,
+            },
+            {
+              title: 'Improve a process',
+              desc: 'Sometimes the biggest gains come from changing how work gets done.',
+              Icon: TrendingUp,
+            },
+            {
+              title: 'Automate repetitive work',
+              desc: 'Remove manual tasks that consume time without adding value.',
+              Icon: Settings,
+            },
+            {
+              title: 'Introduce AI',
+              desc: "Where there's a genuine business case — not simply because AI is fashionable.",
+              Icon: Sparkles,
+            },
+            {
+              title: 'Modernise a platform',
+              desc: "Improve, integrate or replace technology that's holding the business back.",
+              Icon: Monitor,
+            },
+            {
+              title: 'Build something new',
+              desc: "Where existing platforms genuinely can't deliver what the business needs.",
+              Icon: Box,
+            },
+          ].map(({ title, desc, Icon }, i) => (
+            <motion.div
+              key={title}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={i}
+              className="min-h-[16.5rem] rounded-xl border border-primary/25 bg-card/60 p-8"
+              whileHover={{ y: -4, boxShadow: '0 12px 40px rgba(0,0,0,0.3)' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/30 bg-primary/15 text-primary">
+                <Icon className="h-6 w-6" />
+              </span>
+              <h3 className="mt-7 text-xl font-bold text-foreground">{title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          custom={3}
+          className="mx-auto mt-8 flex max-w-[56rem] items-center gap-6 rounded-xl border border-primary/25 bg-card/60 px-8 py-8"
+        >
+          <span className="font-display text-6xl font-extrabold leading-none text-primary">“</span>
+          <p className="border-l border-primary pl-6 text-2xl font-bold leading-snug text-foreground">
+            We recommend what makes sense for your business — even when the answer is to <span className="text-primary">change nothing</span>.
+          </p>
+        </motion.div>
       </Section>
 
       {/* Founding Partner Callout */}
