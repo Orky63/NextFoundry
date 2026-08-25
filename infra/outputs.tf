@@ -22,3 +22,8 @@ output "contact_api_path" {
   description = "Same-origin path used by the website contact form"
   value       = "/api/contact"
 }
+
+output "cloudwatch_dashboard_name" {
+  description = "CloudWatch dashboard for website and contact API health"
+  value       = aws_cloudwatch_dashboard.overview.dashboard_name
+}
