@@ -245,7 +245,7 @@ export default function HomePage() {
             },
             {
               title: 'Explore',
-              desc: 'We identify where AI, automation, cloud technology or platform improvements could make a practical difference.',
+              desc: 'We identify where process improvement, AI, automation, cloud technology or platform changes could make a practical difference.',
             },
             {
               title: 'Prioritise',
