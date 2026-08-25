@@ -344,7 +344,7 @@ export default function HomePage() {
               },
               {
                 title: '90-Day Roadmap',
-                desc: 'A practical starting point showing what you could realistically achieve over the next three months.',
+                desc: 'A practical, prioritised plan showing what to do first, what can wait, and what you could realistically achieve over the next 90 days.',
               },
             ].map((item, i) => (
               <motion.div
