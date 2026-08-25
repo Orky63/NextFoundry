@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Box, CheckCircle2, Menu, Monitor, Settings, Sparkles, TrendingUp, X } from 'lucide-react';
+import { ArrowRight, Box, CheckCircle2, Menu, Monitor, Settings, Sparkles, TrendingUp, Users, X } from 'lucide-react';
 import Logo from '@/components/Logo';
 import Seo from '@/components/Seo';
 
@@ -453,23 +453,55 @@ export default function HomePage() {
 
       {/* Founding Partner Callout */}
       <Section className="py-24 md:py-32">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[46rem] text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Founding Partners</p>
-          <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
-          <h2 className="font-display text-3xl font-extrabold leading-[1.05] tracking-tight md:text-4xl">
-            We're looking for our first Founding Partners.
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[58rem] text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.32em] text-primary">Founding Partner Programme</p>
+          <div className="mx-auto mb-8 max-w-[2rem] border-t-2 border-primary" />
+          <h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
+            We're inviting <span className="ember-text">three businesses</span>
+            <br />
+            to become Next Foundry Founding Partners.
           </h2>
-          <p className="mx-auto mt-6 max-w-[40rem] text-lg leading-relaxed text-muted-foreground">
-            If you're a growing business that wants practical, independent advice on AI, cloud and digital process improvement, we'd like to work with you.
-          </p>
+          <div className="mx-auto mt-8 max-w-[50rem] space-y-7 text-lg leading-relaxed text-muted-foreground">
+            <p>
+              We're offering three growing businesses a complimentary Business &amp; Technology Review to identify practical opportunities to improve how they work.
+            </p>
+            <p>
+              We'll look at your processes, digital platforms and customer experience, and explore where AI, automation, cloud or simpler ways of working could create measurable value.
+            </p>
+            <p className="font-bold text-foreground">
+              No sales pitch. No obligation to implement anything with us.
+            </p>
+          </div>
           <MotionLink
             to="/contact#contact-form"
-            className="relative mt-8 inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
+            className="relative mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.97 }}
           >
-            Apply <ArrowRight className="h-5 w-5" />
+            Apply for a Founding Partner Review <ArrowRight className="h-5 w-5" />
           </MotionLink>
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          custom={1}
+          className="mx-auto mt-16 flex max-w-[52rem] flex-col gap-6 border-t border-primary/30 pt-10 md:flex-row md:items-start"
+        >
+          <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-primary/60 bg-primary/10 text-primary">
+            <Users className="h-9 w-9" />
+          </span>
+          <div>
+            <h3 className="text-lg font-bold text-foreground">What's involved?</h3>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              We'll ask for your time, openness about how your business works and honest feedback on our recommendations.
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              In return, the review is provided at no cost.
+            </p>
+          </div>
         </motion.div>
       </Section>
 
