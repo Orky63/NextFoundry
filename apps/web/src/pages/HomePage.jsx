@@ -8,9 +8,13 @@ import {
   CheckCircle2,
   Cloud,
   Crosshair,
+  Linkedin,
+  Mail,
   Menu,
+  MessageCircle,
   Monitor,
   Settings,
+  ShieldCheck,
   Sparkles,
   TrendingUp,
   Users,
@@ -680,36 +684,41 @@ export default function HomePage() {
       </div>
 
       {/* Final CTA */}
-      <Section id="talk" withBackground={false} className="pb-24 md:pb-36">
+      <Section id="talk" withBackground={false} className="py-12 md:py-16">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
-          className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 px-8 py-16 text-center md:px-16 md:py-24"
+          className="relative overflow-hidden rounded-2xl border border-primary/20 px-6 py-16 text-center shadow-[0_22px_80px_rgba(0,0,0,0.28)] md:min-h-[40rem] md:px-16 md:py-20"
         >
-          <GridPattern />
           <motion.img
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80"
             alt=""
-            className="absolute inset-0 h-[120%] w-full object-cover opacity-45"
+            className="absolute inset-0 h-[115%] w-full object-cover opacity-70"
             initial={{ scale: 1.08 }}
             animate={{ scale: [1.08, 1.16, 1.08] }}
             transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-secondary/40 to-background/60" />
-          <div className="absolute inset-0 grain opacity-40" />
-          <div className="relative z-10 mx-auto max-w-[46rem]">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Let's talk</p>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/75 via-background/35 to-background/78" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/55 via-transparent to-background/35" />
+          <div className="absolute inset-0 grain opacity-50" />
+          <div className="relative z-10 mx-auto flex min-h-[30rem] max-w-[58rem] flex-col items-center justify-center">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.26em] text-primary">Let's talk</p>
+            <div className="mx-auto mb-14 w-10 border-t-2 border-primary" />
             <h2 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
-              Not sure whether you need AI,<br />a new platform,<br />or simply a fresh perspective?
+              Not sure whether you need AI,
+              <br />
+              a new platform,
+              <br />
+              or simply a fresh perspective?
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               Let's find out together.
             </p>
             <MotionLink
               to="/contact#contact-form"
-              className="relative inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground"
+              className="relative mt-9 inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-lg font-bold text-primary-foreground shadow-[0_12px_45px_hsl(24_100%_62%_/_0.28)]"
               animate={{ scale: [1, 1.04, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
               whileHover={{ scale: 1.06 }}
@@ -729,47 +738,148 @@ export default function HomePage() {
                 Book your free Technology Review <ArrowRight className="h-5 w-5" />
               </span>
             </MotionLink>
+
+            <div className="mt-16 flex w-full flex-col items-center justify-center gap-6 text-left sm:flex-row sm:gap-8">
+              {[
+                { label: 'Practical advice', Icon: CheckCircle2 },
+                { label: 'No obligation', Icon: ShieldCheck },
+                { label: 'Focused on your business', Icon: Users },
+              ].map(({ label, Icon }, i) => (
+                <React.Fragment key={label}>
+                  {i > 0 && <div className="hidden h-8 border-l border-border sm:block" />}
+                  <div className="flex items-center gap-4 text-lg font-medium text-foreground">
+                    <Icon className="h-8 w-8 text-primary" strokeWidth={1.8} />
+                    <span>{label}</span>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </motion.div>
       </Section>
 
-      {/* Logos */}
-      <Section className="py-16 md:py-20">
-        <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mb-10 text-center text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          Experience across
-        </motion.p>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
-          <span className="flex items-center gap-2 text-muted-foreground">
-            <svg className="h-[2.1rem] w-auto" viewBox="0 0 48 48" fill="none"><path d="M12 4l-8 8v24l8 8h24l8-8V12l-8-8H12z" fill="#FF9900"/><path d="M18 20l6-8 6 8v8l-6 8-6-8v-8z" fill="#fff"/></svg>
-            <span className="text-xs font-semibold uppercase tracking-wider">AWS</span>
-          </span>
-          <span className="flex items-center gap-2 text-muted-foreground">
-            <svg className="h-[2.1rem] w-auto" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#333"/><path d="M24 12c-6.627 0-12 5.163-12 11.533 0 5.095 3.434 9.411 8.2 10.936.6.106.82-.25.82-.556 0-.275-.01-1.005-.016-1.972-3.338.693-4.042-1.547-4.042-1.547-.546-1.33-1.332-1.684-1.332-1.684-1.089-.715.082-.7.082-.7 1.204.08 1.838 1.188 1.838 1.188 1.07 1.76 2.81 1.252 3.495.957.108-.744.418-1.252.762-1.54-2.664-.29-5.466-1.28-5.466-5.696 0-1.258.466-2.287 1.232-3.094-.123-.292-.534-1.463.116-3.05 0 0 1.005-.31 3.292 1.182.954-.255 1.977-.382 2.994-.386 1.018.004 2.041.131 2.997.386 2.285-1.492 3.288-1.182 3.288-1.182.652 1.587.241 2.758.118 3.05.768.807 1.23 1.836 1.23 3.094 0 4.428-2.807 5.403-5.48 5.689.43.358.814 1.062.814 2.14 0 1.546-.014 2.792-.014 3.17 0 .309.216.667.828.554 4.762-1.528 8.19-5.842 8.19-10.935C36 17.163 30.627 12 24 12z" fill="#fff"/></svg>
-            <span className="text-xs font-semibold uppercase tracking-wider">GitHub</span>
-          </span>
-          <span className="flex items-center gap-2 text-muted-foreground">
-            <svg className="h-[2.1rem] w-auto" viewBox="0 0 48 24" fill="none"><rect width="48" height="24" rx="3" fill="#005EB8"/><text x="24" y="16" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="bold" fontFamily="Arial">NHS</text></svg>
-            <span className="text-xs font-semibold uppercase tracking-wider">NHS</span>
-          </span>
-          <span className="flex items-center gap-2 text-muted-foreground">
-            <svg className="h-[2.1rem] w-auto" viewBox="0 0 48 48" fill="none"><path d="M24 4L44 16v16L24 44 4 32V16L24 4z" fill="#7C42FF"/><path d="M24 12l10 6v12l-10 6-10-6V18l10-6z" fill="#fff"/></svg>
-            <span className="text-xs font-semibold uppercase tracking-wider">Terraform</span>
-          </span>
-          <span className="flex items-center gap-2 text-muted-foreground">
-            <svg className="h-[2.1rem] w-auto" viewBox="0 0 48 48" fill="none"><path d="M36 28c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12 12 5.373 12 12z" fill="#888"/><path d="M24 18c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm-8 10c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8-8-3.582-8-8z" fill="#555"/></svg>
-            <span className="text-xs font-semibold uppercase tracking-wider">Cloud</span>
-          </span>
+      {/* Experience */}
+      <Section className="pb-14 pt-2 md:pb-16">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mb-9 text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.32em] text-primary">Experience across</p>
+          <div className="mx-auto mt-4 w-10 border-t-2 border-primary" />
+        </motion.div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+          {[
+            {
+              title: 'AWS',
+              desc: 'Cloud architecture, migration and modernisation',
+              icon: <svg className="h-16 w-20" viewBox="0 0 80 64" fill="none"><path d="M13 18L32 7l19 11v22L32 51 13 40V18z" fill="#FF9900"/><path d="M25 24l7-4 7 4v10l-7 4-7-4V24z" fill="white"/><path d="M48 45c7.4 1.7 14 1.1 20.5-2.9 1-.6 1.8.4.9 1.3-5.5 6.2-16.9 8.7-25.6 5.4-.8-.3-.6-1.1.2-.9 1.3.3 2.6.7 4 1.1z" fill="#FF9900"/><path d="M62.7 41.1c1.9-.2 6.1-.6 6.9.3.8.9-.8 4.5-1.5 6.2-.2.5.2.7.6.3 2.7-2.3 3.4-7.2 2.9-7.8-.5-.6-5.4-1.1-8.3.9-.5.3-.4.7.4.6z" fill="#FF9900"/></svg>,
+            },
+            {
+              title: 'GitHub',
+              desc: 'Modern development and collaboration',
+              icon: <svg className="h-16 w-16" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="white"/><path d="M24 12c-6.627 0-12 5.163-12 11.533 0 5.095 3.434 9.411 8.2 10.936.6.106.82-.25.82-.556 0-.275-.01-1.005-.016-1.972-3.338.693-4.042-1.547-4.042-1.547-.546-1.33-1.332-1.684-1.332-1.684-1.089-.715.082-.7.082-.7 1.204.08 1.838 1.188 1.838 1.188 1.07 1.76 2.81 1.252 3.495.957.108-.744.418-1.252.762-1.54-2.664-.29-5.466-1.28-5.466-5.696 0-1.258.466-2.287 1.232-3.094-.123-.292-.534-1.463.116-3.05 0 0 1.005-.31 3.292 1.182.954-.255 1.977-.382 2.994-.386 1.018.004 2.041.131 2.997.386 2.285-1.492 3.288-1.182 3.288-1.182.652 1.587.241 2.758.118 3.05.768.807 1.23 1.836 1.23 3.094 0 4.428-2.807 5.403-5.48 5.689.43.358.814 1.062.814 2.14 0 1.546-.014 2.792-.014 3.17 0 .309.216.667.828.554 4.762-1.528 8.19-5.842 8.19-10.935C36 17.163 30.627 12 24 12z" fill="#111"/></svg>,
+            },
+            {
+              title: 'NHS',
+              desc: 'Digital leadership and critical service delivery',
+              icon: <svg className="h-16 w-24" viewBox="0 0 96 64" fill="none"><rect x="10" y="17" width="76" height="36" rx="3" fill="#005EB8"/><text x="48" y="42" textAnchor="middle" fill="#fff" fontSize="24" fontWeight="bold" fontFamily="Arial">NHS</text></svg>,
+            },
+            {
+              title: 'Terraform',
+              desc: 'Infrastructure as Code and automation',
+              icon: <svg className="h-16 w-16" viewBox="0 0 48 48" fill="none"><path d="M24 4L44 16v16L24 44 4 32V16L24 4z" fill="#7C42FF"/><path d="M24 12l10 6v12l-10 6-10-6V18l10-6z" fill="#fff" opacity=".9"/></svg>,
+            },
+            {
+              title: 'Cloud',
+              desc: 'Cloud-native platforms and DevOps',
+              icon: <Cloud className="h-16 w-16 text-muted-foreground" strokeWidth={1.6} />,
+            },
+            {
+              title: 'Enterprise',
+              desc: 'Complex environments and scale',
+              icon: <Building2 className="h-16 w-16 text-muted-foreground/55" strokeWidth={1.5} />,
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={item.title}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={i}
+              className="flex min-h-[17rem] flex-col items-center justify-start rounded-lg border border-border bg-card/55 px-4 py-8 text-center shadow-[0_18px_55px_rgba(0,0,0,0.16)]"
+              whileHover={{ y: -4, borderColor: 'hsl(24 100% 62% / 0.38)' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+            >
+              <div className="flex h-20 items-center justify-center">{item.icon}</div>
+              <h3 className="mt-5 text-lg font-extrabold uppercase text-foreground">{item.title}</h3>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground">{item.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          custom={2}
+          className="mt-10 flex flex-col gap-6 rounded-xl border border-primary/25 bg-card/70 px-8 py-9 shadow-[0_18px_55px_rgba(0,0,0,0.18)] sm:flex-row sm:items-center md:px-14"
+        >
+          <MessageCircle className="h-16 w-16 shrink-0 text-primary" strokeWidth={1.7} />
+          <div className="hidden h-20 border-l-2 border-primary sm:block" />
+          <div>
+            <h3 className="text-2xl font-extrabold leading-tight text-foreground">No predetermined solution. No technology for technology's sake.</h3>
+            <p className="mt-2 text-2xl leading-snug text-muted-foreground">
+              Just a practical conversation about where technology could make your business work better.
+            </p>
+          </div>
         </motion.div>
       </Section>
 
       {/* Footer */}
-      <footer className="border-t border-border/60">
-        <Section withBackground={false} className="flex flex-col items-start justify-between gap-6 py-10 md:flex-row md:items-center">
-          <Logo size="sm" />
-          <p className="text-sm text-muted-foreground">
-            Practical AI · Cloud-native · Helping businesses work smarter
-          </p>
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Next Foundry. All rights reserved.</p>
+      <footer className="border-t border-border/60 bg-background/75">
+        <Section withBackground={false} className="py-8 md:py-10">
+          <div className="grid gap-10 md:grid-cols-[1.5fr_0.9fr_1.25fr_1.35fr]">
+            <div>
+              <Logo size="sm" />
+              <p className="mt-5 max-w-[14rem] text-base leading-relaxed text-muted-foreground">
+                Practical technology advice. Real business impact.
+              </p>
+            </div>
+            <div>
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-primary">Pages</p>
+              <div className="flex flex-col gap-2 text-base text-muted-foreground">
+                <a href="#approach" className="transition-colors hover:text-foreground">Approach</a>
+                <a href="#why" className="transition-colors hover:text-foreground">Why us</a>
+                <Link to="/founder" className="transition-colors hover:text-foreground">Meet the founder</Link>
+              </div>
+            </div>
+            <div>
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-primary">Get in touch</p>
+              <div className="flex flex-col gap-3 text-base text-muted-foreground">
+                <a href="mailto:hello@nextfoundry.co.uk" className="inline-flex items-center gap-3 transition-colors hover:text-foreground">
+                  <Mail className="h-5 w-5" />
+                  hello@nextfoundry.co.uk
+                </a>
+                <a href="https://www.linkedin.com" className="inline-flex items-center gap-3 transition-colors hover:text-foreground">
+                  <Linkedin className="h-5 w-5" />
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+            <div>
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-primary">Based in the UK</p>
+              <p className="max-w-[16rem] text-base leading-relaxed text-muted-foreground">
+                Working with businesses across the UK.
+              </p>
+            </div>
+          </div>
+          <div className="mt-9 flex flex-col justify-between gap-4 border-t border-border/60 pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center">
+            <p>© 2025 Next Foundry. All rights reserved.</p>
+            <div className="flex gap-5">
+              <span>Privacy Policy</span>
+              <span className="text-border">|</span>
+              <span>Terms</span>
+            </div>
+          </div>
         </Section>
       </footer>
       </div>
