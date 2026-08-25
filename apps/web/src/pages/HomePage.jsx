@@ -1,7 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Box, CheckCircle2, Menu, Monitor, Settings, Sparkles, TrendingUp, Users, X } from 'lucide-react';
+import {
+  ArrowRight,
+  Box,
+  Building2,
+  CheckCircle2,
+  Cloud,
+  Crosshair,
+  Menu,
+  Monitor,
+  Settings,
+  Sparkles,
+  TrendingUp,
+  Users,
+  UsersRound,
+  X,
+} from 'lucide-react';
 import Logo from '@/components/Logo';
 import Seo from '@/components/Seo';
 
@@ -563,46 +578,104 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Why clients work with us */}
-      <div id="why" className="border-y border-border/60 bg-secondary/20">
-        <Section className="py-24 md:py-32">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
-            <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-primary">Why Next Foundry</p>
-            <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
+      {/* Why Next Foundry */}
+      <div id="why" className="border-y border-border/60 bg-background/40">
+        <Section className="py-20 md:py-24">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="mx-auto max-w-[62rem] text-center"
+          >
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.32em] text-primary">Why Next Foundry</p>
+            <div className="mx-auto mb-4 max-w-[2rem] border-t-2 border-primary" />
+            <h2 className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl">
+              Enterprise experience.
+              <br />
+              Modern technology. <span className="ember-text">Business-first thinking.</span>
+            </h2>
+            <div className="mx-auto mt-7 max-w-[57rem] space-y-4 text-lg leading-relaxed text-muted-foreground">
+              <p>
+                Next Foundry brings together decades of experience improving and managing critical technology services with practical, hands-on experience of modern cloud, automation and AI.
+              </p>
+              <p>
+                That means we look at technology from both sides:
+                <br className="hidden sm:block" />
+                <span className="text-primary"> how it's built</span>, and <span className="text-primary">how it actually works</span> for the people and businesses that depend on it.
+              </p>
+            </div>
           </motion.div>
 
-          <div className="mx-auto grid max-w-[40rem] gap-6">
+          <div className="mx-auto mt-8 grid max-w-[56rem] gap-4 md:grid-cols-2">
             {[
-              { t: '25+ years enterprise technology experience', d: 'Decades of hands-on engineering and leadership across the public and private sectors.' },
-              { t: 'NHS digital leadership', d: 'Experience delivering technology strategy and platforms at a national health service scale.' },
-              { t: 'AWS certified', d: 'Validated expertise in cloud architecture, migration and modernisation on AWS.' },
-              { t: 'Cloud engineering expertise', d: 'Deep knowledge of cloud-native platforms, infrastructure-as-code and DevOps.' },
-              { t: 'Practical AI thinking', d: 'Identifying where AI and automation can deliver meaningful improvements to real business processes.' },
-              { t: 'Worked with organisations supporting thousands of staff', d: 'Enterprise-grade thinking, applied to businesses of every size.' },
-            ].map((item, i) => (
+              {
+                eyebrow: '25+ years',
+                title: 'Technology experience',
+                desc: 'Experience delivering, managing and improving critical technology services across complex public and private-sector environments.',
+                Icon: Users,
+              },
+              {
+                eyebrow: 'Enterprise leadership',
+                title: 'Complex services & transformation',
+                desc: 'Leadership across digital services, suppliers, operations and change in environments supporting thousands of users.',
+                Icon: UsersRound,
+              },
+              {
+                eyebrow: 'AWS certified',
+                title: 'Modern cloud capability',
+                desc: 'Hands-on experience with AWS, cloud-native architecture, Infrastructure as Code, CI/CD and automation.',
+                Icon: Cloud,
+              },
+              {
+                eyebrow: 'Business first',
+                title: 'Technology with a purpose',
+                desc: 'Technology decisions grounded in business outcomes, operational reality and measurable improvement, not technology for its own sake.',
+                Icon: Crosshair,
+              },
+            ].map(({ eyebrow, title, desc, Icon }, i) => (
               <motion.div
-                key={item.t}
+                key={title}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
                 custom={i}
-                className="flex items-start gap-3 rounded-xl border border-border bg-card p-6"
-                whileHover={{ y: -4 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="flex min-h-[11.25rem] items-start gap-6 rounded-lg border border-primary/25 bg-card/70 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.18)]"
+                whileHover={{ y: -4, borderColor: 'hsl(24 100% 62% / 0.45)' }}
+                transition={{ type: 'spring', stiffness: 300, damping: 22 }}
               >
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20">
-                  <svg className="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-primary/35 bg-primary/10 text-primary">
+                  <Icon className="h-8 w-8" strokeWidth={1.7} />
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-foreground">{item.t}</p>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{item.d}</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.26em] text-primary">{eyebrow}</p>
+                  <h3 className="mt-4 text-xl font-bold leading-tight text-foreground">{title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">{desc}</p>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            custom={4}
+            className="mx-auto mt-4 flex max-w-[56rem] flex-col gap-5 rounded-lg border border-border bg-card/75 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.18)] sm:flex-row sm:items-center"
+          >
+            <span className="flex h-16 w-16 shrink-0 items-center justify-center text-primary">
+              <Building2 className="h-12 w-12" strokeWidth={1.7} />
+            </span>
+            <div className="hidden h-14 border-l border-primary/70 sm:block" />
+            <div>
+              <h3 className="text-2xl font-bold leading-tight text-foreground">Enterprise thinking doesn't have to mean enterprise complexity.</h3>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                We bring the disciplines used in large organisations and apply them pragmatically to growing businesses.
+              </p>
+            </div>
+          </motion.div>
         </Section>
       </div>
 
