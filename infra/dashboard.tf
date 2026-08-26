@@ -56,9 +56,134 @@ resource "aws_cloudwatch_dashboard" "overview" {
         }
       },
       {
-        type   = "metric"
+        type   = "text"
         x      = 0
         y      = 8
+        width  = 24
+        height = 2
+        properties = {
+          markdown = "## Service-Level Indicators\nAvailability, successful form submission rate and processing time."
+        }
+      },
+      {
+        type   = "metric"
+        x      = 0
+        y      = 10
+        width  = 8
+        height = 6
+        properties = {
+          title     = "Availability SLI"
+          view      = "singleValue"
+          region    = var.aws_region
+          period    = 3600
+          stat      = "Average"
+          sparkline = true
+          yAxis = {
+            left = {
+              min = 0
+              max = 100
+            }
+          }
+          metrics = [
+            ["CloudWatchSynthetics", "SuccessPercent", "CanaryName", aws_synthetics_canary.homepage.name, { label = "Homepage availability %" }]
+          ]
+        }
+      },
+      {
+        type   = "metric"
+        x      = 8
+        y      = 10
+        width  = 8
+        height = 6
+        properties = {
+          title     = "Successful Form Submission Rate"
+          view      = "singleValue"
+          region    = var.aws_region
+          period    = 3600
+          stat      = "Sum"
+          sparkline = true
+          yAxis = {
+            left = {
+              min = 0
+              max = 100
+            }
+          }
+          metrics = [
+            ["NextFoundry/ContactForm", "SubmissionSucceeded", "Service", "contact-form", "Environment", var.environment, { id = "succeeded", visible = false }],
+            [".", "SubmissionAttempt", ".", ".", ".", ".", { id = "attempts", visible = false }],
+            [{ expression = "IF(attempts>0, succeeded/attempts*100, 100)", label = "Successful submissions %", id = "success_rate" }]
+          ]
+        }
+      },
+      {
+        type   = "metric"
+        x      = 16
+        y      = 10
+        width  = 8
+        height = 6
+        properties = {
+          title     = "Form Processing Time"
+          view      = "singleValue"
+          region    = var.aws_region
+          period    = 3600
+          stat      = "Average"
+          sparkline = true
+          metrics = [
+            ["NextFoundry/ContactForm", "ProcessingTimeMs", "Service", "contact-form", "Environment", var.environment, { label = "Average processing time ms" }]
+          ]
+        }
+      },
+      {
+        type   = "metric"
+        x      = 0
+        y      = 16
+        width  = 12
+        height = 6
+        properties = {
+          title   = "Form Submission Outcomes"
+          view    = "timeSeries"
+          stacked = false
+          region  = var.aws_region
+          period  = 3600
+          stat    = "Sum"
+          metrics = [
+            ["NextFoundry/ContactForm", "SubmissionSucceeded", "Service", "contact-form", "Environment", var.environment, { label = "Succeeded" }],
+            [".", "SubmissionFailed", ".", ".", ".", ".", { label = "Failed to send" }],
+            [".", "ValidationFailed", ".", ".", ".", ".", { label = "Validation failed" }],
+            [".", "BotSubmission", ".", ".", ".", ".", { label = "Bot submissions" }]
+          ]
+        }
+      },
+      {
+        type   = "metric"
+        x      = 12
+        y      = 16
+        width  = 12
+        height = 6
+        properties = {
+          title   = "Successful Submission Rate Over Time"
+          view    = "timeSeries"
+          stacked = false
+          region  = var.aws_region
+          period  = 3600
+          stat    = "Sum"
+          yAxis = {
+            left = {
+              min = 0
+              max = 100
+            }
+          }
+          metrics = [
+            ["NextFoundry/ContactForm", "SubmissionSucceeded", "Service", "contact-form", "Environment", var.environment, { id = "succeeded", visible = false }],
+            [".", "SubmissionAttempt", ".", ".", ".", ".", { id = "attempts", visible = false }],
+            [{ expression = "IF(attempts>0, succeeded/attempts*100, 100)", label = "Successful submissions %", id = "success_rate" }]
+          ]
+        }
+      },
+      {
+        type   = "metric"
+        x      = 0
+        y      = 22
         width  = 12
         height = 6
         properties = {
@@ -76,7 +201,7 @@ resource "aws_cloudwatch_dashboard" "overview" {
       {
         type   = "metric"
         x      = 12
-        y      = 8
+        y      = 22
         width  = 12
         height = 6
         properties = {
@@ -101,7 +226,7 @@ resource "aws_cloudwatch_dashboard" "overview" {
       {
         type   = "metric"
         x      = 0
-        y      = 14
+        y      = 28
         width  = 12
         height = 6
         properties = {
@@ -121,7 +246,7 @@ resource "aws_cloudwatch_dashboard" "overview" {
       {
         type   = "metric"
         x      = 12
-        y      = 14
+        y      = 28
         width  = 12
         height = 6
         properties = {
@@ -140,7 +265,7 @@ resource "aws_cloudwatch_dashboard" "overview" {
       {
         type   = "metric"
         x      = 0
-        y      = 20
+        y      = 34
         width  = 12
         height = 6
         properties = {
@@ -160,7 +285,7 @@ resource "aws_cloudwatch_dashboard" "overview" {
       {
         type   = "metric"
         x      = 12
-        y      = 20
+        y      = 34
         width  = 12
         height = 6
         properties = {
@@ -178,7 +303,7 @@ resource "aws_cloudwatch_dashboard" "overview" {
       {
         type   = "metric"
         x      = 0
-        y      = 26
+        y      = 40
         width  = 12
         height = 6
         properties = {
@@ -196,7 +321,7 @@ resource "aws_cloudwatch_dashboard" "overview" {
       {
         type   = "metric"
         x      = 12
-        y      = 26
+        y      = 40
         width  = 12
         height = 6
         properties = {
@@ -209,7 +334,8 @@ resource "aws_cloudwatch_dashboard" "overview" {
           metrics = [
             ["CloudWatchSynthetics", "SuccessPercent", "CanaryName", aws_synthetics_canary.homepage.name, { label = "Canary success %", stat = "Average", yAxis = "right" }],
             ["AWS/Lambda", "Invocations", "FunctionName", aws_lambda_function.contact_form.function_name, { label = "Lambda invocations" }],
-            ["AWS/ApiGateway", "Count", "ApiId", aws_apigatewayv2_api.contact.id, "Stage", aws_apigatewayv2_stage.contact.name, { label = "API requests" }]
+            ["AWS/ApiGateway", "Count", "ApiId", aws_apigatewayv2_api.contact.id, "Stage", aws_apigatewayv2_stage.contact.name, { label = "API requests" }],
+            ["NextFoundry/ContactForm", "SubmissionAttempt", "Service", "contact-form", "Environment", var.environment, { label = "Form attempts" }]
           ]
         }
       }
