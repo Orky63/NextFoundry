@@ -98,7 +98,7 @@ def handler(event, _context):
                 "ProcessingTimeMs": processing_time_ms(),
             },
         )
-        return response(200, {"message": "Thanks — your message has been sent."})
+        return response(200, {"message": "Thanks - your message has been received and we will respond shortly."})
 
     if not name or len(name) > MAX_NAME_LENGTH:
         log_event(
@@ -171,4 +171,4 @@ def handler(event, _context):
             "ProcessingTimeMs": processing_time_ms(),
         },
     )
-    return response(200, {"message": "Thanks — your message has been sent."})
+    return response(200, {"message": "Thanks - your message has been received and we will respond shortly."})
