@@ -86,3 +86,12 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id "$(terraform output -raw cloudfront_distribution_id)" \
             --paths "/*"
+
+      - name: Deploy custom domain website
+        run: |
+          aws s3 sync apps/web/dist s3://nextfoundry.co.uk --region eu-west-2
+          CUSTOM_DISTRIBUTION_ID="$(aws cloudfront list-distributions --query "DistributionList.Items[?Aliases.Items != null && contains(Aliases.Items, 'nextfoundry.co.uk')].Id | [0]" --output text)"
+          test "$CUSTOM_DISTRIBUTION_ID" != "None"
+          aws cloudfront create-invalidation \
+            --distribution-id "$CUSTOM_DISTRIBUTION_ID" \
+            --paths "/*"
