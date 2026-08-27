@@ -219,7 +219,6 @@ export default function HomePage() {
           <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
             Is technology helping your business — or getting in the way?
           </h2>
-          <div className="mt-8 max-w-[2rem] border-t-2 border-primary" />
           <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>As businesses grow, technology often grows with them.</p>
             <div className="space-y-3 font-semibold text-foreground">
@@ -245,7 +244,6 @@ export default function HomePage() {
           <h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
             Business &amp; Technology Review
           </h2>
-          <div className="mx-auto mt-6 max-w-[2rem] border-t-2 border-primary" />
           <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
             <p>Before recommending AI, cloud services or new platforms, we take time to understand how your business actually works.</p>
             <p>We look at your processes, systems, customer experience and technology to identify where improvements could deliver genuine value.</p>
@@ -335,7 +333,6 @@ export default function HomePage() {
             <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
               Practical recommendations. Not a technology shopping list.
             </h2>
-            <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -386,7 +383,6 @@ export default function HomePage() {
       <Section className="py-24 md:py-32">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[56rem]">
           <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.32em] text-primary">What happens next?</p>
-          <div className="mx-auto mb-6 max-w-[2rem] border-t-2 border-primary" />
           <h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
             Sometimes the best recommendation is to change nothing.
           </h2>
@@ -474,7 +470,6 @@ export default function HomePage() {
       <Section className="py-24 md:py-32">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[58rem] text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.32em] text-primary">Founding Partner Programme</p>
-          <div className="mx-auto mb-8 max-w-[2rem] border-t-2 border-primary" />
           <h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
             We're inviting <span className="ember-text">three businesses</span>
             <br />
@@ -531,7 +526,6 @@ export default function HomePage() {
           <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
             From recommendation to implementation.
           </h2>
-          <div className="mx-auto mb-12 max-w-[2rem] border-t-2 border-primary" />
           <p className="mx-auto max-w-[42rem] text-lg leading-relaxed text-muted-foreground">
             If the review identifies opportunities you'd like to pursue, Next Foundry can help turn those recommendations into working solutions.
           </p>
@@ -593,7 +587,6 @@ export default function HomePage() {
             className="mx-auto max-w-[62rem] text-center"
           >
             <p className="mb-5 text-sm font-bold uppercase tracking-[0.32em] text-primary">Why Next Foundry</p>
-            <div className="mx-auto mb-4 max-w-[2rem] border-t-2 border-primary" />
             <h2 className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl">
               Enterprise experience.
               <br />
@@ -705,7 +698,6 @@ export default function HomePage() {
           <div className="absolute inset-0 grain opacity-50" />
           <div className="relative z-10 mx-auto flex min-h-[30rem] max-w-[58rem] flex-col items-center justify-center">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.26em] text-primary">Let's talk</p>
-            <div className="mx-auto mb-14 w-10 border-t-2 border-primary" />
             <h2 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
               Not sure whether you need AI,
               <br />
@@ -762,7 +754,6 @@ export default function HomePage() {
       <Section className="pb-14 pt-2 md:pb-16">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mb-9 text-center">
           <p className="text-sm font-bold uppercase tracking-[0.32em] text-primary">Experience across</p>
-          <div className="mx-auto mt-4 w-10 border-t-2 border-primary" />
         </motion.div>
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={1} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
           {[

@@ -52,8 +52,6 @@ export default function FounderPage() {
             <motion.p variants={fadeUp} initial="hidden" animate="show" className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
               Meet the founder
             </motion.p>
-            <div className="mb-10 max-w-[2rem] border-t-2 border-primary" />
-
             <motion.p variants={fadeUp} initial="hidden" animate="show" custom={1} className="max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
               Andy has spent decades leading enterprise technology and cloud transformation programmes before creating Next Foundry.
             </motion.p>

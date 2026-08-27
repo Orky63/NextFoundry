@@ -85,8 +85,6 @@ export default function ContactPage() {
             <motion.p variants={fadeUp} initial="hidden" animate="show" className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
               Contact
             </motion.p>
-            <div className="mb-10 max-w-[2rem] border-t-2 border-primary" />
-
             <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1} className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
               Let's talk.
             </motion.h1>
