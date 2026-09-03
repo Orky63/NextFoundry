@@ -213,6 +213,55 @@ export default function HomePage() {
         </Section>
       </div>
 
+      {/* Promo video */}
+      <Section className="py-20 md:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Watch the overview</p>
+            <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
+              Practical technology improvement starts with understanding the business.
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              A short look at how Next Foundry helps growing businesses find useful opportunities for AI, automation, cloud and digital process improvement.
+            </p>
+            <MotionLink
+              to="/contact#contact-form"
+              className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-primary-foreground"
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Apply for a Free Business &amp; Technology Review <ArrowRight className="h-4 w-4" />
+            </MotionLink>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.35 }}
+            custom={1}
+            className="relative overflow-hidden rounded-xl border border-primary/25 bg-card/70 shadow-2xl shadow-black/30"
+          >
+            <video
+              className="aspect-square w-full bg-background object-cover"
+              src="/videos/nextfoundry-linkedin-promo.mp4"
+              poster="/videos/nextfoundry-linkedin-promo-poster.jpg"
+              controls
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Next Foundry promotional overview video"
+            />
+          </motion.div>
+        </div>
+      </Section>
+
       {/* Business friction */}
       <Section id="approach" className="py-24 md:py-32 bg-secondary/20">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="mx-auto max-w-[48rem]">
