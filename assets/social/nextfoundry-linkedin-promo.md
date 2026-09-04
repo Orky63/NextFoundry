@@ -1,10 +1,6 @@
 # Next Foundry LinkedIn Promo
 
-Format: 1080 x 1080 MP4, 15 seconds, with voice-over.
-
-Voice-over script:
-
-Growing businesses can end up slowed by systems, spreadsheets and workarounds. Next Foundry helps you find where AI, automation, cloud and better digital processes can reduce manual work. Apply for a free Business and Technology Review at nextfoundry dot co dot uk.
+Format: 1080 x 1080 MP4, 15 seconds, silent.
 
 Caption copy:
 
