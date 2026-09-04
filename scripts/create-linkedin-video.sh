@@ -7,7 +7,7 @@ OUT_FILE="$OUT_DIR/nextfoundry-linkedin-promo.mp4"
 WEB_OUT_FILE="$ROOT_DIR/apps/web/public/videos/nextfoundry-linkedin-promo.mp4"
 TMP_DIR="${TMPDIR:-/tmp}/nextfoundry-linkedin-render"
 VOICEOVER_FILE="$TMP_DIR/voiceover.aiff"
-VOICEOVER_VOICE="${VOICEOVER_VOICE:-Daniel}"
+VOICEOVER_VOICE="${VOICEOVER_VOICE:-Shelley (English (UK))}"
 VOICEOVER_RATE="${VOICEOVER_RATE:-188}"
 VOICEOVER_TEXT="Growing businesses can end up slowed by systems, spreadsheets and workarounds. Next Foundry helps you find where AI, automation, cloud and better digital processes can reduce manual work. Apply for a free Business and Technology Review at nextfoundry dot co dot uk."
 
