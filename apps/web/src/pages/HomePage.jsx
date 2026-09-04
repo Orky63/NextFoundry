@@ -252,7 +252,6 @@ export default function HomePage() {
               src="/videos/nextfoundry-linkedin-promo.mp4"
               poster="/videos/nextfoundry-linkedin-promo-poster.jpg"
               controls
-              muted
               loop
               playsInline
               preload="metadata"

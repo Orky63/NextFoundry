@@ -4,10 +4,15 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="$ROOT_DIR/assets/social"
 OUT_FILE="$OUT_DIR/nextfoundry-linkedin-promo.mp4"
+WEB_OUT_FILE="$ROOT_DIR/apps/web/public/videos/nextfoundry-linkedin-promo.mp4"
 TMP_DIR="${TMPDIR:-/tmp}/nextfoundry-linkedin-render"
+VOICEOVER_FILE="$TMP_DIR/voiceover.aiff"
+VOICEOVER_VOICE="${VOICEOVER_VOICE:-Daniel}"
+VOICEOVER_RATE="${VOICEOVER_RATE:-188}"
+VOICEOVER_TEXT="Growing businesses can end up slowed by systems, spreadsheets and workarounds. Next Foundry helps you find where AI, automation, cloud and better digital processes can reduce manual work. Apply for a free Business and Technology Review at nextfoundry dot co dot uk."
 
 mkdir -p "$OUT_DIR" "$TMP_DIR"
-rm -f "$TMP_DIR"/scene-*.svg "$TMP_DIR"/scene-*.svg.png
+rm -f "$TMP_DIR"/scene-*.svg "$TMP_DIR"/scene-*.svg.png "$VOICEOVER_FILE"
 
 if ! command -v ffmpeg >/dev/null 2>&1; then
   echo "ffmpeg is required to render the video. Install it with: brew install ffmpeg" >&2
@@ -16,6 +21,11 @@ fi
 
 if ! command -v qlmanage >/dev/null 2>&1; then
   echo "qlmanage is required to rasterize the SVG scene cards on macOS." >&2
+  exit 1
+fi
+
+if ! command -v say >/dev/null 2>&1; then
+  echo "say is required to generate the voice-over on macOS." >&2
   exit 1
 fi
 
@@ -82,24 +92,33 @@ write_scene "$TMP_DIR/scene-02.svg" "$ROOT_DIR/apps/web/public/images/innovation
 write_scene "$TMP_DIR/scene-03.svg" "$ROOT_DIR/apps/web/public/images/dashboard.jpg" "Find improvements" "before buying more tech" "Clear recommendations your team can act on" "with confidence."
 
 qlmanage -t -s 1080 -o "$TMP_DIR" "$TMP_DIR/scene-01.svg" "$TMP_DIR/scene-02.svg" "$TMP_DIR/scene-03.svg" >/dev/null
+say -v "$VOICEOVER_VOICE" -r "$VOICEOVER_RATE" -o "$VOICEOVER_FILE" "$VOICEOVER_TEXT"
 
 ffmpeg -y \
   -loop 1 -t 5.3 -i "$TMP_DIR/scene-01.svg.png" \
   -loop 1 -t 5.3 -i "$TMP_DIR/scene-02.svg.png" \
   -loop 1 -t 5.3 -i "$TMP_DIR/scene-03.svg.png" \
+  -i "$VOICEOVER_FILE" \
   -filter_complex "\
 [0:v]scale=1080:1080,zoompan=z='min(zoom+0.00025,1.035)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=159:s=1080x1080:fps=30,setsar=1[v0];\
 [1:v]scale=1080:1080,zoompan=z='min(zoom+0.00025,1.035)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=159:s=1080x1080:fps=30,setsar=1[v1];\
 [2:v]scale=1080:1080,zoompan=z='min(zoom+0.00025,1.035)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=159:s=1080x1080:fps=30,setsar=1[v2];\
 [v0][v1]xfade=transition=fade:duration=0.45:offset=4.85[x01];\
-[x01][v2]xfade=transition=fade:duration=0.45:offset=9.7,format=yuv420p[v]" \
+[x01][v2]xfade=transition=fade:duration=0.45:offset=9.7,format=yuv420p[v];\
+[3:a]aformat=channel_layouts=stereo,volume=1.6,apad,atrim=0:15,afade=t=in:st=0:d=0.25,afade=t=out:st=14.55:d=0.45[a]" \
   -map "[v]" \
-  -an \
+  -map "[a]" \
   -r 30 \
   -t 15 \
   -c:v libx264 \
+  -c:a aac \
+  -b:a 160k \
   -pix_fmt yuv420p \
   -movflags +faststart \
   "$OUT_FILE"
 
+mkdir -p "$(dirname "$WEB_OUT_FILE")"
+cp "$OUT_FILE" "$WEB_OUT_FILE"
+
 echo "Rendered $OUT_FILE"
+echo "Copied $WEB_OUT_FILE"
